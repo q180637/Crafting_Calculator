@@ -12,8 +12,6 @@
         </head>
         <body>
             <h1>Destiny 2 Weapon Crafting Calculator</h1>
-            <h2>laptop commit test</h2>
-            <h3>second laptop commit test after download</h3>
-            <h4>third laptop test after cloning to local</h4>
+            
         </body>
     </html>
