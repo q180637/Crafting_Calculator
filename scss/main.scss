@@ -1,0 +1,127 @@
+@import "imports.scss";
+
+body,
+html{
+    background-color: $main_background;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    a:visited{
+        color:white;
+        text-decoration: none;
+    }
+    a{
+        color:white;
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .desktop{
+        display:none;
+    }
+    .mobile{
+        display: grid;
+        grid-template-rows: 15vh 85vh;
+        nav{
+            grid-row: 1;
+            display: grid;
+            grid-template-columns: 15vw 85vw;
+            grid-gap: 5%;
+            .logo{
+                display: block;
+                width: 100%;
+                height: auto;
+                border: none;
+                background: none;
+                cursor: pointer;
+                margin: 0;
+                padding: 0;
+                grid-column: 1;
+                filter:invert(1);
+            }
+            header{
+                grid-column: 2;
+                text-align: center;
+                padding-top: 2%;
+                font-size: 6vw;
+            }
+            #mobile_links{
+                display: none;
+                grid-column: 1 / span 3;
+            }
+        }
+        .body_wrapper{
+            grid-row: 2;
+        }
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .mobile{
+        display: none;
+    }
+    .desktop{
+        display: grid;
+        grid-template-rows: 5vh 95vh;
+        nav{
+            grid-row: 1;
+            padding: 0;
+            margin-left: 2.5vw;
+            .links{
+                list-style: none;
+                font-size: 1.5em;
+                padding: 0;
+                display: grid;
+                grid-template-columns: 5vw 20vw 20vw 20vw;
+                gap: 5vw;
+                justify-content: center;
+                .logo{
+                    grid-column: 1;
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    border: none;
+                    background: none;
+                    cursor: pointer;
+                    margin: 0;
+                    padding: 0;
+                    max-width: inherit;
+                    filter:invert(1);
+                    align-self: center;
+                    border-style: solid;
+                    border-color: $logo_border;
+                }
+                .tool{
+                    grid-column: 2;
+                    background-color: $secondary_container_backgrounds;
+                    text-align: center;
+                    line-height: 12vh;
+                    width: 100%;
+                    border-style: solid;
+                    border-color: $border_colour;
+                }
+                .login{
+                    grid-column: 3;
+                    background-color: $secondary_container_backgrounds;
+                    text-align: center;
+                    line-height: 12vh;
+                    width: 100%;
+                    border-style: solid;
+                    border-color: $border_colour;
+                }
+                .saves{
+                    grid-column: 4;
+                    background-color: $secondary_container_backgrounds;
+                    text-align: center;
+                    line-height: 12vh;
+                    width: 100%;
+                    border-style: solid;
+                    border-color: $border_colour;
+                }
+            }
+        }
+        .body_wrapper{
+            grid-row: 2;
+        }
+    }
+}

@@ -11,7 +11,11 @@
             <link rel="icon" href="img/destiny_logo.png" title="Destiny logo favicon" alt="Destiny logo favicon">
     </head>
     <body>
-        
-        
+        <div class="mobile">
+
+        </div>
+        <div class="desktop">
+            
+        </div>
     </body>
 </html>
