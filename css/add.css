@@ -1,0 +1,62 @@
+@media screen and (max-width: 1199px) {
+  .body_wrapper {
+    display: grid;
+    grid-template-columns: 95vw;
+    grid-template-rows: 5vh 5vh 50vh 5vh;
+  }
+  .body_wrapper label {
+    grid-row: 1;
+  }
+  .body_wrapper select {
+    grid-row: 2;
+    border-radius: 0;
+    background-color: #2b2b33;
+    border-style: solid;
+    border-color: #23232a;
+    color: white;
+    text-align: center;
+  }
+  .body_wrapper .weapons {
+    grid-row: 3;
+    display: none;
+    background-color: #2b2b33;
+  }
+  .body_wrapper .perks {
+    grid-row: 3;
+    display: none;
+    background-color: #2b2b33;
+  }
+  .body_wrapper .logon {
+    grid-row: 3;
+    display: none;
+    background-color: #2b2b33;
+  }
+  .body_wrapper .frames {
+    grid-row: 3;
+    display: none;
+    background-color: #2b2b33;
+  }
+  .body_wrapper .barrels {
+    grid-row: 3;
+    display: none;
+    background-color: #2b2b33;
+  }
+  .body_wrapper .mags {
+    grid-row: 3;
+    display: none;
+    background-color: #2b2b33;
+  }
+  .body_wrapper .trait1 {
+    grid-row: 3;
+    display: none;
+    background-color: #2b2b33;
+  }
+  .body_wrapper .trait2 {
+    grid-row: 3;
+    display: none;
+    background-color: #2b2b33;
+  }
+  .body_wrapper input {
+    grid-row: 4;
+  }
+}/*# sourceMappingURL=add.css.map */

@@ -25,8 +25,8 @@ html{
         nav{
             grid-row: 1;
             display: grid;
-            grid-template-columns: 15vw 85vw;
-            grid-gap: 5%;
+            grid-template-columns: 12.5vw 82.5vw;
+            grid-gap: 5vw;
             .logo{
                 display: block;
                 width: 100%;
@@ -46,8 +46,46 @@ html{
                 font-size: 6vw;
             }
             #mobile_links{
+                grid-column: 1 / span 2;
+                padding: 0;
                 display: none;
-                grid-column: 1 / span 3;
+                list-style: none;
+                text-decoration: none;
+                max-width: 95vw;
+                grid-template-columns: 100%;
+                grid-template-rows: repeat(3, 10vw);
+                gap: 0.7rem;
+                li{
+                    line-height: 2rem;
+                    text-align: center;
+                }
+                .tool{
+                    grid-column: 1;
+                    grid-row: 1;
+                    background-color: $secondary_container_backgrounds;
+                    color: white;
+                    cursor: pointer;
+                    border-style: solid;
+                    border-color: $border_colour;
+                }
+                .login{
+                    grid-column: 1;
+                    grid-row: 2;
+                    background-color: $secondary_container_backgrounds;
+                    color: white;
+                    border-style: solid;
+                    border-color: $border_colour;
+                    cursor: pointer;
+                }
+                .saves{
+                    grid-column: 1;
+                    grid-row: 3;
+                    background-color: $secondary_container_backgrounds;
+                    color: white;
+                    cursor: pointer;
+                    border-style: solid;
+                    border-color: $border_colour;
+                }
             }
         }
         .body_wrapper{

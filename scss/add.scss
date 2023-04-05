@@ -1,0 +1,70 @@
+@import "imports.scss";
+
+@media screen and (max-width: 1199px){
+    .body_wrapper{
+        display: grid;
+        grid-template-columns: 95vw;
+        grid-template-rows: 5vh 5vh 50vh 5vh;
+        label{
+            grid-row: 1;
+        }
+        select{
+            grid-row:2;
+            border-radius: 0;
+            background-color: $secondary_container_backgrounds;
+            border-style: solid;
+            border-color: $border_colour;
+            color: white;
+            text-align: center;
+        }
+        .weapons{
+            grid-row: 3;
+            display:none;
+            background-color: $secondary_container_backgrounds;
+        }
+        .perks{
+            grid-row: 3;
+            display:none;
+            background-color: $secondary_container_backgrounds;
+        }
+        .logon{
+            grid-row: 3;
+            display:none;
+            background-color: $secondary_container_backgrounds;
+        }
+        .frames{
+            grid-row: 3;
+            display:none;
+            background-color: $secondary_container_backgrounds;
+        }
+        .barrels{
+            grid-row: 3;
+            display:none;
+            background-color: $secondary_container_backgrounds;
+        }
+        .mags{
+            grid-row: 3;
+            display:none;
+            background-color: $secondary_container_backgrounds;
+        }
+        .trait1{
+            grid-row: 3;
+            display:none;
+            background-color: $secondary_container_backgrounds;
+        }
+        .trait2{
+            grid-row: 3;
+            display:none;
+            background-color: $secondary_container_backgrounds;
+        }
+        input{
+            grid-row: 4;
+        }
+    }
+}
+
+
+@media screen and (min-width:1200px){
+
+}
+
