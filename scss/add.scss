@@ -4,7 +4,7 @@
     .body_wrapper{
         display: grid;
         grid-template-columns: 95vw;
-        grid-template-rows: 5vh 5vh 50vh 5vh;
+        grid-template-rows: 5vh 5vh auto 5vh;
         max-width: 95%;
         label{
             grid-row: 1;
@@ -22,31 +22,52 @@
             grid-row: 3;
             grid-column: 1;
             #weapon_form{
+                position: relative;
                 visibility: hidden;
                 display: grid;
                 grid-template-columns: 95vw;
-                grid-template-rows: repeat(2.9vw);
+                grid-template-rows: repeat(18, 2.9vh);
+                padding-top: 2%;
+                gap: 1%;
+            }
+            .save{
+                grid-row:18;
+                background-color: $button_background;
+                border: solid;
+                border-color: $button_border;
+                position: relative;
             }
         }
         #perks{
             grid-row: 3;
             grid-column: 1;
             #perks_form{
+                position: relative;
                 visibility: hidden;
                 display: grid;
                 grid-template-columns: 95vw;
-                grid-template-rows: repeat(2.2vw);
+                grid-template-rows: repeat(24, 2.2vh);
+                padding-top: 2%;
+                gap: 1%;
+            }
+            .save{
+                grid-row:24 ;
+                background-color: $button_background;
+                border: solid;
+                border-color: $button_border;
+                position: relative;
             }
         }
         #logon{
             grid-row: 3;
             grid-column: 1;
             #logon_form{
+                position: relative;
                 visibility: hidden;
                 padding-top: 2%;
                 display: grid;
                 grid-template-columns: 95vw;
-                grid-template-rows: repeat(5, 7.1vw);
+                grid-template-rows: repeat(6, 7.1vw);
                 gap:1%;
                 #username{
                     grid-column: 1;
@@ -72,16 +93,24 @@
                     grid-column: 1;
                     grid-row: 5;
                 }
+                .save{
+                    grid-row:6;
+                    background-color: $button_background;
+                    border: solid;
+                    border-color: $button_border;
+                    position: relative;
+                }
             }
         }
         #frames{
             grid-row: 3;
             grid-column: 1;
             #frame_form{
+                position: relative;
                 visibility: hidden;
                 display: grid;
                 grid-template-columns: 95vw;
-                grid-template-rows: repeat(2, 7.1vw);
+                grid-template-rows: repeat(3, 7.1vw);
                 padding-top: 2%;
                 gap:3%;
                 #frame_bridge_weapon_ID{
@@ -90,16 +119,24 @@
                 #weapon_frame_ID{
                     grid-row: 2;
                 }
+                .save{
+                    grid-row:3;
+                    background-color: $button_background;
+                    border: solid;
+                    border-color: $button_border;
+                    position: relative;
+                }
             }
         }
         #barrels{
             grid-row: 3;
             grid-column: 1;
             #barrel_form{
+                position: relative;
                 visibility: hidden;
                 display: grid;
                 grid-template-columns: 95vw;
-                grid-template-rows: repeat(2, 7.1vw);
+                grid-template-rows: repeat(3, 7.1vw);
                 padding-top: 2%;
                 gap:3%;
                 #barrel_bridge_weapon_ID{
@@ -108,16 +145,24 @@
                 #weapon_barrel_ID{
                     grid-row: 2;
                 }
+                .save{
+                    grid-row:3;
+                    background-color: $button_background;
+                    border: solid;
+                    border-color: $button_border;
+                    position: relative;
+                }
             }
         }
         #mags{
             grid-row: 3;
             grid-column: 1;
             #mag_form{
+                position: relative;
                 visibility: hidden;
                 display: grid;
                 grid-template-columns: 95vw;
-                grid-template-rows: repeat(2, 7.1vw);
+                grid-template-rows: repeat(3, 7.1vw);
                 padding-top: 2%;
                 gap:3%;
                 #mag_bridge_weapon_ID{
@@ -126,16 +171,24 @@
                 #weapon_mag_ID{
                     grid-row: 2;
                 }
+                .save{
+                    grid-row:3;
+                    background-color: $button_background;
+                    border: solid;
+                    border-color: $button_border;
+                    position: relative;
+                }
             }
         }
         #trait1{
             grid-row: 3;
             grid-column: 1;
             #trait1_form{
+                position: relative;
                 visibility: hidden;
                 display: grid;
                 grid-template-columns: 95vw;
-                grid-template-rows: repeat(2, 7.1vw);
+                grid-template-rows: repeat(3, 7.1vw);
                 padding-top: 2%;
                 gap:3%;
                 #trait1_bridge_weapon_ID{
@@ -144,16 +197,24 @@
                 #weapon_trait_ID{
                     grid-row: 2;
                 }
+                .save{
+                    grid-row:3;
+                    background-color: $button_background;
+                    border: solid;
+                    border-color: $button_border;
+                    position: relative;
+                }
             }
         }
         #trait2{
             grid-row: 3;
             grid-column: 1;
             #trait2_form{
+                position: relative;
                 visibility: hidden;
                 display: grid;
                 grid-template-columns: 95vw;
-                grid-template-rows: repeat(2, 7.1vw);
+                grid-template-rows: repeat(3, 7.1vw);
                 padding-top: 2%;
                 gap:3%;
                 #trait2_bridge_weapon_ID{
@@ -162,16 +223,300 @@
                 #weapon_trait2_ID{
                     grid-row: 2;
                 }
+                .save{
+                    grid-row:3;
+                    background-color: $button_background;
+                    border: solid;
+                    border-color: $button_border;
+                    position: relative;
+                }
             }
         }
-        .save{
-            grid-row: 4;
+        
+        input{
+            background-color: $secondary_container_backgrounds;
+            border: solid;
+            border-color: $border_colour;
+            color: white;
         }
     }
 }
 
 
 @media screen and (min-width:1200px){
-
+    .body_wrapper{
+        display: grid;
+        grid-template-columns: 31.35vw 63.65vw;
+        grid-template-rows: 10vh 75vh 10vh;
+        padding-top: 5vh;
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
+        header{
+            grid-row: 1;
+            grid-column: 1 / span 2;
+            justify-content: center;
+            text-align: center;
+            font-size:xx-large;
+            width:95vw;
+            padding: 0;
+            margin:0;
+            height: fit-content;
+        }
+        .selectTable{
+            display: grid;
+            grid-template-columns: 31.35vw;
+            grid-template-rows: repeat(9,5vh);
+            text-align: center;
+            .menuHeader{
+                border: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 1;
+            }
+            .wepButton{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 2;
+            }
+            .perksButton{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 3;
+            }
+            .logonButton{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 4;
+            }
+            .frameButton{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 5;
+            }
+            .barrelButton{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 6;
+            }
+            .magButton{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 7;
+            }
+            .trait1Button{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 8;
+            }
+            .trait2Button{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 9;
+            }
+        }
+        .form_area{
+            grid-column: 2;
+            grid-row:2;
+            display: grid;
+            grid-template-columns: 63.65vw;
+            grid-template-rows: 75vh;
+            #desktop_weapons{
+                grid-row: 1;
+                grid-column: 1;
+                #weapon_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 95vw;
+                    grid-template-rows: repeat(17, 2.9vh);
+                    padding-top: 2%;
+                    gap: 1%;
+                }
+            }
+            #desktop_perks{
+                grid-row: 1;
+                grid-column: 1;
+                #perks_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 95vw;
+                    grid-template-rows: repeat(2.2vh);
+                    padding-top: 2%;
+                    gap: 1%;
+                }
+            }
+            #desktop_logon{
+                grid-row: 1;
+                grid-column: 1;
+                #logon_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    padding-top: 2%;
+                    display: grid;
+                    grid-template-columns: 95vw;
+                    grid-template-rows: repeat(5, 7.1vh);
+                    gap:1%;
+                    #username{
+                        grid-column: 1;
+                        grid-row: 1;
+                    }
+                    .passLabel{
+                        grid-column: 1;
+                        grid-row: 2;
+                        padding:0;
+                        padding-top:1%;
+                    }
+                    #password{
+                        grid-column: 1;
+                        grid-row: 3;
+                    }
+                    .adminLabel{
+                        grid-column: 1;
+                        grid-row: 4;
+                        padding:0;
+                        padding-top: 1%;
+                    }
+                    #admin{
+                        grid-column: 1;
+                        grid-row: 5;
+                    }
+                }
+            }
+            #desktop_frames{
+                grid-row: 1;
+                grid-column: 1;
+                #frame_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 95vw;
+                    grid-template-rows: repeat(2, 7.1vh);
+                    padding-top: 2%;
+                    gap:3%;
+                    #frame_bridge_weapon_ID{
+                        grid-row: 1;
+                    }
+                    #weapon_frame_ID{
+                        grid-row: 2;
+                    }
+                }
+            }
+            #desktop_barrels{
+                grid-row: 1;
+                grid-column: 1;
+                #barrel_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 95vw;
+                    grid-template-rows: repeat(2, 7.1vh);
+                    padding-top: 2%;
+                    gap:3%;
+                    #barrel_bridge_weapon_ID{
+                        grid-row: 1;
+                    }
+                    #weapon_barrel_ID{
+                        grid-row: 2;
+                    }
+                }
+            }
+            #desktop_mags{
+                grid-row: 1;
+                grid-column: 1;
+                #mag_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 95vw;
+                    grid-template-rows: repeat(2, 7.1vh);
+                    padding-top: 2%;
+                    gap:3%;
+                    #mag_bridge_weapon_ID{
+                        grid-row: 1;
+                    }
+                    #weapon_mag_ID{
+                        grid-row: 2;
+                    }
+                }
+            }
+            #desktop_trait1{
+                grid-row: 1;
+                grid-column: 1;
+                #trait1_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 95vw;
+                    grid-template-rows: repeat(2, 7.1vh);
+                    padding-top: 2%;
+                    gap:3%;
+                    #trait1_bridge_weapon_ID{
+                        grid-row: 1;
+                    }
+                    #weapon_trait_ID{
+                        grid-row: 2;
+                    }
+                }
+            }
+            #desktop_trait2{
+                grid-row: 1;
+                grid-column: 1;
+                #trait2_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 95vw;
+                    grid-template-rows: repeat(2, 7.1vh);
+                    padding-top: 2%;
+                    gap:3%;
+                    #trait2_bridge_weapon_ID{
+                        grid-row: 1;
+                    }
+                    #weapon_trait2_ID{
+                        grid-row: 2;
+                    }
+                }
+            }
+        }
+        #save{
+            grid-column: 2;
+            grid-row:3;
+            max-width: 35vw;;
+        }
+    }
 }
 

@@ -55,6 +55,8 @@ html{
                 grid-template-columns: 100%;
                 grid-template-rows: repeat(3, 10vw);
                 gap: 0.7rem;
+                background-color: $main_background;
+                z-index: 50;
                 li{
                     line-height: 2rem;
                     text-align: center;
@@ -100,11 +102,11 @@ html{
     }
     .desktop{
         display: grid;
-        grid-template-rows: 5vh 95vh;
+        grid-template-rows: 15vh 85vh;
         nav{
             grid-row: 1;
             padding: 0;
-            margin-left: 2.5vw;
+            // margin-left: 2.5vw;
             .links{
                 list-style: none;
                 font-size: 1.5em;
@@ -112,7 +114,8 @@ html{
                 display: grid;
                 grid-template-columns: 5vw 20vw 20vw 20vw;
                 gap: 5vw;
-                justify-content: center;
+                padding-right: 5vw;
+                justify-content: space-evenly;
                 .logo{
                     grid-column: 1;
                     display: block;
