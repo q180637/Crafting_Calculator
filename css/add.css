@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 95vw;
     grid-template-rows: 5vh 5vh 50vh 5vh;
+    max-width: 95%;
   }
   .body_wrapper label {
     grid-row: 1;
@@ -16,47 +17,153 @@
     color: white;
     text-align: center;
   }
-  .body_wrapper .weapons {
+  .body_wrapper #weapons {
     grid-row: 3;
-    display: none;
-    background-color: #2b2b33;
+    grid-column: 1;
   }
-  .body_wrapper .perks {
+  .body_wrapper #weapons #weapon_form {
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 95vw;
+    grid-template-rows: repeat(2.9vw);
+  }
+  .body_wrapper #perks {
     grid-row: 3;
-    display: none;
-    background-color: #2b2b33;
+    grid-column: 1;
   }
-  .body_wrapper .logon {
+  .body_wrapper #perks #perks_form {
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 95vw;
+    grid-template-rows: repeat(2.2vw);
+  }
+  .body_wrapper #logon {
     grid-row: 3;
-    display: none;
-    background-color: #2b2b33;
+    grid-column: 1;
   }
-  .body_wrapper .frames {
+  .body_wrapper #logon #logon_form {
+    visibility: hidden;
+    padding-top: 2%;
+    display: grid;
+    grid-template-columns: 95vw;
+    grid-template-rows: repeat(5, 7.1vw);
+    gap: 1%;
+  }
+  .body_wrapper #logon #logon_form #username {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .body_wrapper #logon #logon_form .passLabel {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 0;
+    padding-top: 1%;
+  }
+  .body_wrapper #logon #logon_form #password {
+    grid-column: 1;
     grid-row: 3;
-    display: none;
-    background-color: #2b2b33;
   }
-  .body_wrapper .barrels {
+  .body_wrapper #logon #logon_form .adminLabel {
+    grid-column: 1;
+    grid-row: 4;
+    padding: 0;
+    padding-top: 1%;
+  }
+  .body_wrapper #logon #logon_form #admin {
+    grid-column: 1;
+    grid-row: 5;
+  }
+  .body_wrapper #frames {
     grid-row: 3;
-    display: none;
-    background-color: #2b2b33;
+    grid-column: 1;
   }
-  .body_wrapper .mags {
+  .body_wrapper #frames #frame_form {
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 95vw;
+    grid-template-rows: repeat(2, 7.1vw);
+    padding-top: 2%;
+    gap: 3%;
+  }
+  .body_wrapper #frames #frame_form #frame_bridge_weapon_ID {
+    grid-row: 1;
+  }
+  .body_wrapper #frames #frame_form #weapon_frame_ID {
+    grid-row: 2;
+  }
+  .body_wrapper #barrels {
     grid-row: 3;
-    display: none;
-    background-color: #2b2b33;
+    grid-column: 1;
   }
-  .body_wrapper .trait1 {
+  .body_wrapper #barrels #barrel_form {
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 95vw;
+    grid-template-rows: repeat(2, 7.1vw);
+    padding-top: 2%;
+    gap: 3%;
+  }
+  .body_wrapper #barrels #barrel_form #barrel_bridge_weapon_ID {
+    grid-row: 1;
+  }
+  .body_wrapper #barrels #barrel_form #weapon_barrel_ID {
+    grid-row: 2;
+  }
+  .body_wrapper #mags {
     grid-row: 3;
-    display: none;
-    background-color: #2b2b33;
+    grid-column: 1;
   }
-  .body_wrapper .trait2 {
+  .body_wrapper #mags #mag_form {
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 95vw;
+    grid-template-rows: repeat(2, 7.1vw);
+    padding-top: 2%;
+    gap: 3%;
+  }
+  .body_wrapper #mags #mag_form #mag_bridge_weapon_ID {
+    grid-row: 1;
+  }
+  .body_wrapper #mags #mag_form #weapon_mag_ID {
+    grid-row: 2;
+  }
+  .body_wrapper #trait1 {
     grid-row: 3;
-    display: none;
-    background-color: #2b2b33;
+    grid-column: 1;
   }
-  .body_wrapper input {
+  .body_wrapper #trait1 #trait1_form {
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 95vw;
+    grid-template-rows: repeat(2, 7.1vw);
+    padding-top: 2%;
+    gap: 3%;
+  }
+  .body_wrapper #trait1 #trait1_form #trait1_bridge_weapon_ID {
+    grid-row: 1;
+  }
+  .body_wrapper #trait1 #trait1_form #weapon_trait_ID {
+    grid-row: 2;
+  }
+  .body_wrapper #trait2 {
+    grid-row: 3;
+    grid-column: 1;
+  }
+  .body_wrapper #trait2 #trait2_form {
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 95vw;
+    grid-template-rows: repeat(2, 7.1vw);
+    padding-top: 2%;
+    gap: 3%;
+  }
+  .body_wrapper #trait2 #trait2_form #trait2_bridge_weapon_ID {
+    grid-row: 1;
+  }
+  .body_wrapper #trait2 #trait2_form #weapon_trait2_ID {
+    grid-row: 2;
+  }
+  .body_wrapper .save {
     grid-row: 4;
   }
 }/*# sourceMappingURL=add.css.map */

@@ -1,84 +1,97 @@
-document.getElementById('tableList').onchange = function listChange(){
-    var table = this.options[this.selectedIndex].text;
-    console.log(table);
+// // TODO GET FIELD DIVS TO ONLY APPEAR AS THEY ARE SELECTED
 
-    if(table = "Logon"){
-        let x = document.getElementById('logon')
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } 
-        else {
-            x.style.display = "block";
-        }
+
+var e = document.getElementById('tableList');
+
+function answer(){
+    if (e.value =="logon"){
+        document.getElementById('weapon_form').style.visibility = 'hidden';
+        document.getElementById('perks_form').style.visibility = 'hidden';
+        document.getElementById('logon_form').style.visibility = 'visible';
+        document.getElementById('frame_form').style.visibility = 'hidden';
+        document.getElementById('barrel_form').style.visibility = 'hidden';
+        document.getElementById('mag_form').style.visibility = 'hidden';
+        document.getElementById('trait1_form').style.visibility = 'hidden';
+        document.getElementById('trait2_form').style.visibility = 'hidden';
     }
-    else if(table="Perks"){
-        let x = document.getElementById('perks')
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } 
-        else {
-            x.style.display = "block";
-        }
+    else if (e.value =="perks"){
+        document.getElementById('weapon_form').style.visibility = 'hidden';
+        document.getElementById('perks_form').style.visibility = 'visible';
+        document.getElementById('logon_form').style.visibility = 'hidden';
+        document.getElementById('frame_form').style.visibility = 'hidden';
+        document.getElementById('barrel_form').style.visibility = 'hidden';
+        document.getElementById('mag_form').style.visibility = 'hidden';
+        document.getElementById('trait1_form').style.visibility = 'hidden';
+        document.getElementById('trait2_form').style.visibility = 'hidden';
     }
-    else if(table="Weapons"){
-        let x = document.getElementById('weapons')
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } 
-        else {
-            x.style.display = "block";
-        }
+    else if (e.value =="weapons"){
+        document.getElementById('weapon_form').style.visibility = 'visible';
+        document.getElementById('perks_form').style.visibility = 'hidden';
+        document.getElementById('logon_form').style.visibility = 'hidden';
+        document.getElementById('frame_form').style.visibility = 'hidden';
+        document.getElementById('barrel_form').style.visibility = 'hidden';
+        document.getElementById('mag_form').style.visibility = 'hidden';
+        document.getElementById('trait1_form').style.visibility = 'hidden';
+        document.getElementById('trait2_form').style.visibility = 'hidden';
     }
-    else if(table="Frame Combinations"){
-        let x = document.getElementById('frames')
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } 
-        else {
-            x.style.display = "block";
-        }
+    else if (e.value =="frameBridge"){
+        document.getElementById('weapon_form').style.visibility = 'hidden';
+        document.getElementById('perks_form').style.visibility = 'hidden';
+        document.getElementById('logon_form').style.visibility = 'hidden';
+        document.getElementById('frame_form').style.visibility = 'visible';
+        document.getElementById('barrel_form').style.visibility = 'hidden';
+        document.getElementById('mag_form').style.visibility = 'hidden';
+        document.getElementById('trait1_form').style.visibility = 'hidden';
+        document.getElementById('trait2_form').style.visibility = 'hidden';
     }
-    else if(table = "Barrel Combinations"){
-        let x = document.getElementById('barrels')
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } 
-        else {
-            x.style.display = "block";
-        }
+    else if (e.value =="barrelBridge"){
+        document.getElementById('weapon_form').style.visibility = 'hidden';
+        document.getElementById('perks_form').style.visibility = 'hidden';
+        document.getElementById('logon_form').style.visibility = 'hidden';
+        document.getElementById('frame_form').style.visibility = 'hidden';
+        document.getElementById('barrel_form').style.visibility = 'visible';
+        document.getElementById('mag_form').style.visibility = 'hidden';
+        document.getElementById('trait1_form').style.visibility = 'hidden';
+        document.getElementById('trait2_form').style.visibility = 'hidden';
     }
-    else if(table = "Mag Combinations"){
-        let x = document.getElementById('mags')
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } 
-        else {
-            x.style.display = "block";
-        }
+    else if (e.value =="magBridge"){
+        document.getElementById('weapon_form').style.visibility = 'hidden';
+        document.getElementById('perks_form').style.visibility = 'hidden';
+        document.getElementById('logon_form').style.visibility = 'hidden';
+        document.getElementById('frame_form').style.visibility = 'hidden';
+        document.getElementById('barrel_form').style.visibility = 'hidden';
+        document.getElementById('mag_form').style.visibility = 'visible';
+        document.getElementById('trait1_form').style.visibility = 'hidden';
+        document.getElementById('trait2_form').style.visibility = 'hidden';
     }
-    else if (table = "Trait Column 1 Combinations"){
-        let x = document.getElementById('trait1')
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } 
-        else {
-            x.style.display = "block";
-        }
+    else if (e.value =="trait1Bridge"){
+        document.getElementById('weapon_form').style.visibility = 'hidden';
+        document.getElementById('perks_form').style.visibility = 'hidden';
+        document.getElementById('logon_form').style.visibility = 'hidden';
+        document.getElementById('frame_form').style.visibility = 'hidden';
+        document.getElementById('barrel_form').style.visibility = 'hidden';
+        document.getElementById('mag_form').style.visibility = 'hidden';
+        document.getElementById('trait1_form').style.visibility = 'visible';
+        document.getElementById('trait2_form').style.visibility = 'hidden';
     }
-    else if (table = "Trait Column 2 Combinations"){
-        let x = document.getElementById('trait2')
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } 
-        else {
-            x.style.display = "block";
-        }
+    else if (e.value =="trait2Bridge"){
+        document.getElementById('weapon_form').style.visibility = 'hidden';
+        document.getElementById('perks_form').style.visibility = 'hidden';
+        document.getElementById('logon_form').style.visibility = 'hidden';
+        document.getElementById('frame_form').style.visibility = 'hidden';
+        document.getElementById('barrel_form').style.visibility = 'hidden';
+        document.getElementById('mag_form').style.visibility = 'hidden';
+        document.getElementById('trait1_form').style.visibility = 'hidden';
+        document.getElementById('trait2_form').style.visibility = 'visible';
     }
     else{
-        let x = document.getElementById('weapons', 'perks', 'logon', 'frames', 'barrels', 'mags', 'trait1', 'trait2');
-        x.style.display = "none";
+        document.getElementById('weapon_form').style.visibility = 'hidden';
+        document.getElementById('perks_form').style.visibility = 'hidden';
+        document.getElementById('logon_form').style.visibility = 'hidden';
+        document.getElementById('frame_form').style.visibility = 'hidden';
+        document.getElementById('barrel_form').style.visibility = 'hidden';
+        document.getElementById('mag_form').style.visibility = 'hidden';
+        document.getElementById('trait1_form').style.visibility = 'hidden';
+        document.getElementById('trait2_form').style.visibility = 'hidden';
     }
 }
-
-
-// TODO GET FIELD DIVS TO ONLY APPEAR AS THEY ARE SELECTED
