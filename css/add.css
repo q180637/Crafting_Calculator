@@ -112,7 +112,7 @@
     grid-template-columns: 95vw;
     grid-template-rows: repeat(3, 7.1vw);
     padding-top: 2%;
-    gap: 3%;
+    gap: 6%;
   }
   .body_wrapper #frames #frame_form #frame_bridge_weapon_ID {
     grid-row: 1;
@@ -138,7 +138,7 @@
     grid-template-columns: 95vw;
     grid-template-rows: repeat(3, 7.1vw);
     padding-top: 2%;
-    gap: 3%;
+    gap: 6%;
   }
   .body_wrapper #barrels #barrel_form #barrel_bridge_weapon_ID {
     grid-row: 1;
@@ -164,7 +164,7 @@
     grid-template-columns: 95vw;
     grid-template-rows: repeat(3, 7.1vw);
     padding-top: 2%;
-    gap: 3%;
+    gap: 6%;
   }
   .body_wrapper #mags #mag_form #mag_bridge_weapon_ID {
     grid-row: 1;
@@ -190,7 +190,7 @@
     grid-template-columns: 95vw;
     grid-template-rows: repeat(3, 7.1vw);
     padding-top: 2%;
-    gap: 3%;
+    gap: 6%;
   }
   .body_wrapper #trait1 #trait1_form #trait1_bridge_weapon_ID {
     grid-row: 1;
@@ -242,10 +242,11 @@
   .body_wrapper {
     display: grid;
     grid-template-columns: 31.35vw 63.65vw;
-    grid-template-rows: 10vh 75vh 10vh;
+    grid-template-rows: 10vh 90vh;
     padding-top: 5vh;
     padding-left: 2.5vw;
     padding-right: 2.5vw;
+    padding-bottom: 5vh;
   }
   .body_wrapper header {
     grid-row: 1;
@@ -348,47 +349,63 @@
     grid-column: 2;
     grid-row: 2;
     display: grid;
-    grid-template-columns: 63.65vw;
+    grid-template-columns: 42.42vw;
     grid-template-rows: 75vh;
+    justify-content: center;
   }
   .body_wrapper .form_area #desktop_weapons {
     grid-row: 1;
     grid-column: 1;
+    gap: 2%;
   }
   .body_wrapper .form_area #desktop_weapons #weapon_form_desktop {
     position: relative;
     visibility: hidden;
     display: grid;
-    grid-template-columns: 95vw;
-    grid-template-rows: repeat(17, 2.9vh);
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(18, 2.9vh);
     padding-top: 2%;
-    gap: 1%;
+    gap: 6%;
+  }
+  .body_wrapper .form_area #desktop_weapons #weapon_form_desktop #save {
+    grid-row: 18;
+    background-color: #b78c25;
+    border-style: solid;
+    border-color: #ffce1f;
   }
   .body_wrapper .form_area #desktop_perks {
     grid-row: 1;
     grid-column: 1;
+    gap: 2%;
   }
   .body_wrapper .form_area #desktop_perks #perks_form_desktop {
     position: relative;
     visibility: hidden;
     display: grid;
-    grid-template-columns: 95vw;
-    grid-template-rows: repeat(2.2vh);
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(24, 2.9vh);
     padding-top: 2%;
-    gap: 1%;
+    gap: 6%;
+  }
+  .body_wrapper .form_area #desktop_perks #perks_form_desktop #save {
+    grid-row: 24;
+    background-color: #b78c25;
+    border-style: solid;
+    border-color: #ffce1f;
   }
   .body_wrapper .form_area #desktop_logon {
     grid-row: 1;
     grid-column: 1;
+    gap: 2%;
   }
   .body_wrapper .form_area #desktop_logon #logon_form_desktop {
     position: relative;
     visibility: hidden;
     padding-top: 2%;
     display: grid;
-    grid-template-columns: 95vw;
-    grid-template-rows: repeat(5, 7.1vh);
-    gap: 1%;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(6, 2.9vh);
+    gap: 6%;
   }
   .body_wrapper .form_area #desktop_logon #logon_form_desktop #username {
     grid-column: 1;
@@ -414,18 +431,25 @@
     grid-column: 1;
     grid-row: 5;
   }
+  .body_wrapper .form_area #desktop_logon #logon_form_desktop #save {
+    grid-row: 6;
+    background-color: #b78c25;
+    border-style: solid;
+    border-color: #ffce1f;
+  }
   .body_wrapper .form_area #desktop_frames {
     grid-row: 1;
     grid-column: 1;
+    gap: 2%;
   }
   .body_wrapper .form_area #desktop_frames #frame_form_desktop {
     position: relative;
     visibility: hidden;
     display: grid;
-    grid-template-columns: 95vw;
-    grid-template-rows: repeat(2, 7.1vh);
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 2.9vh);
     padding-top: 2%;
-    gap: 3%;
+    gap: 6%;
   }
   .body_wrapper .form_area #desktop_frames #frame_form_desktop #frame_bridge_weapon_ID {
     grid-row: 1;
@@ -433,16 +457,23 @@
   .body_wrapper .form_area #desktop_frames #frame_form_desktop #weapon_frame_ID {
     grid-row: 2;
   }
+  .body_wrapper .form_area #desktop_frames #frame_form_desktop #save {
+    grid-row: 3;
+    background-color: #b78c25;
+    border-style: solid;
+    border-color: #ffce1f;
+  }
   .body_wrapper .form_area #desktop_barrels {
     grid-row: 1;
     grid-column: 1;
+    gap: 2%;
   }
   .body_wrapper .form_area #desktop_barrels #barrel_form_desktop {
     position: relative;
     visibility: hidden;
     display: grid;
-    grid-template-columns: 95vw;
-    grid-template-rows: repeat(2, 7.1vh);
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 2.9vh);
     padding-top: 2%;
     gap: 3%;
   }
@@ -452,16 +483,23 @@
   .body_wrapper .form_area #desktop_barrels #barrel_form_desktop #weapon_barrel_ID {
     grid-row: 2;
   }
+  .body_wrapper .form_area #desktop_barrels #barrel_form_desktop #save {
+    grid-row: 3;
+    background-color: #b78c25;
+    border-style: solid;
+    border-color: #ffce1f;
+  }
   .body_wrapper .form_area #desktop_mags {
     grid-row: 1;
     grid-column: 1;
+    gap: 2%;
   }
   .body_wrapper .form_area #desktop_mags #mag_form_desktop {
     position: relative;
     visibility: hidden;
     display: grid;
-    grid-template-columns: 95vw;
-    grid-template-rows: repeat(2, 7.1vh);
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 2.9vh);
     padding-top: 2%;
     gap: 3%;
   }
@@ -471,6 +509,12 @@
   .body_wrapper .form_area #desktop_mags #mag_form_desktop #weapon_mag_ID {
     grid-row: 2;
   }
+  .body_wrapper .form_area #desktop_mags #mag_form_desktop #save {
+    grid-row: 3;
+    background-color: #b78c25;
+    border-style: solid;
+    border-color: #ffce1f;
+  }
   .body_wrapper .form_area #desktop_trait1 {
     grid-row: 1;
     grid-column: 1;
@@ -479,16 +523,22 @@
     position: relative;
     visibility: hidden;
     display: grid;
-    grid-template-columns: 95vw;
-    grid-template-rows: repeat(2, 7.1vh);
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 2.9vh);
     padding-top: 2%;
-    gap: 3%;
+    gap: 6%;
   }
   .body_wrapper .form_area #desktop_trait1 #trait1_form_desktop #trait1_bridge_weapon_ID {
     grid-row: 1;
   }
   .body_wrapper .form_area #desktop_trait1 #trait1_form_desktop #weapon_trait_ID {
     grid-row: 2;
+  }
+  .body_wrapper .form_area #desktop_trait1 #trait1_form_desktop #save {
+    grid-row: 3;
+    background-color: #b78c25;
+    border-style: solid;
+    border-color: #ffce1f;
   }
   .body_wrapper .form_area #desktop_trait2 {
     grid-row: 1;
@@ -498,10 +548,10 @@
     position: relative;
     visibility: hidden;
     display: grid;
-    grid-template-columns: 95vw;
-    grid-template-rows: repeat(2, 7.1vh);
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 2.9vh);
     padding-top: 2%;
-    gap: 3%;
+    gap: 6%;
   }
   .body_wrapper .form_area #desktop_trait2 #trait2_form_desktop #trait2_bridge_weapon_ID {
     grid-row: 1;
@@ -509,9 +559,10 @@
   .body_wrapper .form_area #desktop_trait2 #trait2_form_desktop #weapon_trait2_ID {
     grid-row: 2;
   }
-  .body_wrapper #save {
-    grid-column: 2;
+  .body_wrapper .form_area #desktop_trait2 #trait2_form_desktop #save {
     grid-row: 3;
-    max-width: 35vw;
+    background-color: #b78c25;
+    border-style: solid;
+    border-color: #ffce1f;
   }
 }/*# sourceMappingURL=add.css.map */

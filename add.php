@@ -12,11 +12,11 @@
         <link href="css/add.css" rel="stylesheet">
         <link rel="icon" href="img/destiny_logo.png" title="Destiny logo favicon" alt="Destiny logo favicon">
         <script src="js/burger_menu.js"></script>
-        
+
     </head>
     <body>
         <div class="mobile">
-        <nav>
+            <nav>
                 <img class="logo"src="img/destiny_logo.png" alt="Destiny Logo for Button"  onclick="burger_flyout()">
                 <header>
                     Add Record
@@ -183,14 +183,14 @@
                     <div class="menuHeader">
                         Choose a Table to Add to
                     </div>
-                    <button id="wepButton" onclick="desktopChoice()">Weapons</button>
-                    <button id="perksButton" onclick="desktopChoice()">Perks</button>
-                    <button id="logonButton" onclick="desktopChoice()">Logon</button>
-                    <button id="frameButton" onclick="desktopChoice()"> Frame Bridge</button>
-                    <button id="barrelButton" onclick="desktopChoice()"> Barrel Bridge</button>
-                    <button id="magButton" onclick="desktopChoice()"> Magazine Bridge</button>
-                    <button id="trait1Button" onclick="desktopChoice()"> First Trait Bridge</button>
-                    <button id="trait2Button" onclick="desktopChoice()"> Second Trait Bridge</button>
+                    <button id="wepButton">Weapons</button>
+                    <button id="perksButton">Perks</button>
+                    <button id="logonButton">Logon</button>
+                    <button id="frameButton"> Frame Bridge</button>
+                    <button id="barrelButton"> Barrel Bridge</button>
+                    <button id="magButton"> Magazine Bridge</button>
+                    <button id="trait1Button"> First Trait Bridge</button>
+                    <button id="trait2Button"> Second Trait Bridge</button>
                 </div>
                 <div class="form_area">
                     <div id="desktop_weapons">
@@ -212,6 +212,7 @@
                             <input type="text" id="desktop_base_accuracy" name="base_accuracy" value="Insert Weapon Accuracy Stat if applicable"></input>
                             <input type="text" id="desktop_base_mag" name="base_mag" value="Insert Weapon Mag Size"></input>
                             <input type="text" id="desktop_icon_file_path" name="icon_file_path" value="Insert Weapon Image file Path"></input>
+                            <input id="save" type="submit" value="Save and add to database"></input>
                         </div>
                     </div>
                     <div id="desktop_perks">
@@ -239,6 +240,7 @@
                             <input type="text" id="perk_glimmer_cost" name="perk_glimmer_cost" value="Insert Perk Glimmer Cost"></input>
                             <input type="text" id="perk_e_core_cost" name="perk_e_core_cost" value="Insert Perk Enhancement Core Cost"></input>
                             <input type="text" id="icon_file_path" name="icon_file_path" value="Insert Perk Icon File Path"></input>
+                            <input id="save" type="submit" value="Save and add to database"></input>
                         </div>
                     </div>
                     <div id="desktop_logon">
@@ -251,41 +253,45 @@
                                 <option value="true">True</option>
                                 <option value="false">False</option>
                             </select>
+                            <input id="save" type="submit" value="Save and add to database"></input>
                         </div>
                     </div>
                     <div id="desktop_frames">
                         <div id="frame_form_desktop">
                             <input type="text" id="frame_bridge_weapon_ID" name="frame_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
                             <input type="text" id="weapon_frame_ID" name="weapon_frame_ID" value="Insert a Frame Perk ID"></imput>
+                            <input id="save" type="submit" value="Save and add to database"></input>
                         </div>
                     </div>
                     <div id="desktop_barrels">
                         <div id="barrel_form_desktop">
                             <input type="text" id="barrel_bridge_weapon_ID" name="barrel_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
                             <input type="text" id="weapon_barrel_ID" name="weapon_barrel_ID" value="Insert A Barrel Perk ID"></imput>
+                            <input id="save" type="submit" value="Save and add to database"></input>
                         </div>
                     </div>
                     <div id="desktop_mags">
                         <div id="mag_form_desktop">
-                            <input type="text" id="mag_bridge_weapon_ID" name="mag_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
-                            <input type="text" id="weapon_mag_ID" name="weapon_mag_ID" value="Insert A Mag Perk ID"></imput>
+                            <input type="text" id="mag_bridge_weapon_ID" name="mag_bridge_weapon_ID" value="Insert A Weapon ID"></input>
+                            <input type="text" id="weapon_mag_ID" name="weapon_mag_ID" value="Insert A Mag Perk ID"></input>
+                            <input id="save" type="submit" value="Save and add to database"></input>
                         </div>
                     </div>
                     <div id="desktop_trait1">
                         <div id="trait1_form_desktop">
-                            <input type="text" id="trait1_bridge_weapon_ID" name="trait1_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
-                            <input type="text" id="weapon_trait_ID" name="weapon_trait_ID" value="Insert A Trait Column 1 Perk ID"></imput>
+                            <input type="text" id="trait1_bridge_weapon_ID" name="trait1_bridge_weapon_ID" value="Insert A Weapon ID"></input>
+                            <input type="text" id="weapon_trait_ID" name="weapon_trait_ID" value="Insert A Trait Column 1 Perk ID"></input>
+                            <input id="save" type="submit" value="Save and add to database"></input>
                         </div>
                     </div>
                     <div id="desktop_trait2">
                         <div id="trait2_form_desktop">
-                            <input type="text" id="trait2_bridge_weapon_ID" name="trait2_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
-                            <input type="text" id="weapon_trait2_ID" name="weapon_trait2_ID" value="Insert A Trait Column 2 Perk ID"></imput>
+                            <input type="text" id="trait2_bridge_weapon_ID" name="trait2_bridge_weapon_ID" value="Insert A Weapon ID"></input>
+                            <input type="text" id="weapon_trait2_ID" name="weapon_trait2_ID" value="Insert A Trait Column 2 Perk ID"></input>
+                            <input id="save" type="submit" value="Save and add to database"></input>
                         </div>
                     </div>
                 </div>
-                <input id="save" type="submit" value="Save and add to database">
-                </input>
             </div>
         </div>
         <script src="js/add_form.js"></script>
