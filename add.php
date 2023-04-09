@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+        require 'php/db_management_functionality.php';
+    ?>
+    <?php 
+        ini_set('display_errors', 1);  
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+    ?>
+
     <head>
         <meta charset="UTF-8">
         <meta charset="UTF-8">
@@ -49,7 +58,12 @@
                     <option value ="trait2Bridge" onclick="answer()">Trait Column 2 Combinations</option>
                 </select>
                 <div id="weapons">
-                    <div id="weapon_form">
+                    <?php
+                        if(array_key_exists('save', $_POST)){
+                            addToWeapon();
+                        }
+                    ?>
+                    <form id="weapon_form" method="post">
                         <input type="text" id="weapon_name" name="weapon_name" value="Insert Weapon Name"></input>
                         <input type="text" id="weapon_type" name="weapon_type" value="Insert Weapon Type"></input>
                         <input type="text" id="weapon_source" name="weapon_source" value="Insert Weapon Source"></input>
@@ -67,12 +81,17 @@
                         <input type="text" id="base_accuracy" name="base_accuracy" value="Insert Weapon Accuracy Stat if applicable"></input>
                         <input type="text" id="base_mag" name="base_mag" value="Insert Weapon Mag Size"></input>
                         <input type="text" id="icon_file_path" name="icon_file_path" value="Insert Weapon Image file Path"></input>
-                        <input class="save" type="submit" value="Save and add to database">
+                        <input class="save" type="submit" value="Save and add to database" name="save">
                         </input>
-                    </div>
+                    </form>
                 </div>
                 <div id="perks">
-                    <div id="perks_form">
+                    <?php
+                        if(array_key_exists('save', $_POST)){
+                            addToPerks();
+                        }
+                    ?>
+                    <form id="perks_form" method="post">
                         <input type="text" id="perk_name" name="perk_name" value="Insert Perk Name"></input>
                         <input type="text" id="perk_desc" name="perk_desc" value="Insert Perk Description"></input>
                         <input type="text" id="perk_type" name="perk_type" value="Insert Perk Type"></input>
@@ -98,10 +117,15 @@
                         <input type="text" id="icon_file_path" name="icon_file_path" value="Insert Perk Icon File Path"></input>
                         <input class="save" type="submit" value="Save and add to database">
                         </input>
-                    </div>
+                    </form>
                 </div>
                 <div id="logon">
-                    <div id="logon_form">
+                    <?php
+                        if(array_key_exists('save', $_POST)){
+                            addToLogon();
+                        }
+                    ?>
+                    <form id="logon_form">
                         <input type="text" id="username" name="username" value="Insert username"></input>
                         <label for="password" class="passLabel">Insert the user's password</label>
                         <input type="password" id="password" name="password"></input>
@@ -112,47 +136,72 @@
                         </select>
                         <input class="save" type="submit" value="Save and add to database">
                         </input>
-                    </div>
+                    </form>
                 </div>
                 <div id="frames">
-                    <div id="frame_form">
+                    <?php
+                        if(array_key_exists('save', $_POST)){
+                            addToFrames();
+                        }
+                    ?>
+                    <form id="frame_form">
                         <input type="text" id="frame_bridge_weapon_ID" name="frame_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
                         <input type="text" id="weapon_frame_ID" name="weapon_frame_ID" value="Insert a Frame Perk ID"></imput>
                         <input class="save" type="submit" value="Save and add to database">
                         </input>
-                    </div>
+                    </form>
                 </div>
                 <div id="barrels">
-                    <div id="barrel_form">
+                    <?php
+                        if(array_key_exists('save', $_POST)){
+                            addToBarrels();
+                        }
+                    ?>
+                    <form id="barrel_form">
                         <input type="text" id="barrel_bridge_weapon_ID" name="barrel_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
                         <input type="text" id="weapon_barrel_ID" name="weapon_barrel_ID" value="Insert A Barrel Perk ID"></imput>
                         <input class="save" type="submit" value="Save and add to database">
                         </input>
-                    </div>
+                    </form>
                 </div>
                 <div id="mags">
-                    <div id="mag_form">
+                    <?php
+                        if(array_key_exists('save', $_POST)){
+                            addToMags();
+                        }
+                    ?>
+                    <form id="mag_form">
                         <input type="text" id="mag_bridge_weapon_ID" name="mag_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
                         <input type="text" id="weapon_mag_ID" name="weapon_mag_ID" value="Insert A Mag Perk ID"></imput>
                         <input class="save" type="submit" value="Save and add to database">
                         </input>
-                    </div>
+                    </form>
                 </div>
                 <div id="trait1">
-                    <div id="trait1_form">
+                    <?php
+                        if(array_key_exists('save', $_POST)){
+                            addToTrait1();
+                        }
+                    ?>
+                    <form id="trait1_form">
                         <input type="text" id="trait1_bridge_weapon_ID" name="trait1_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
                         <input type="text" id="weapon_trait_ID" name="weapon_trait_ID" value="Insert A Trait Column 1 Perk ID"></imput>
                         <input class="save" type="submit" value="Save and add to database">
                         </input>
-                    </div>
+                    </form>
                 </div>
                 <div id="trait2">
-                    <div id="trait2_form">
+                    <?php
+                        if(array_key_exists('save', $_POST)){
+                            addToTrait2();
+                        }
+                    ?>
+                    <form id="trait2_form">
                         <input type="text" id="trait2_bridge_weapon_ID" name="trait2_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
                         <input type="text" id="weapon_trait2_ID" name="weapon_trait2_ID" value="Insert A Trait Column 2 Perk ID"></imput>
                         <input class="save" type="submit" value="Save and add to database">
                         </input>
-                    </div>
+                    </form>
                 </div>
                 
             </div>
@@ -296,4 +345,6 @@
         </div>
         <script src="js/add_form.js"></script>
     </body>
+
+
 </html>
