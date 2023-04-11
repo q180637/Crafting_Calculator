@@ -71,29 +71,29 @@ function addToPerks(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $perk_name = "perk_name";
-    $perk_desc = "perk_desc";
-    $perk_type = "perk_type";
-    $perk_impact_change = "perk_impact_change";
-    $perk_range_change = "perk_range_change";
-    $perk_stab_change = "perk_stab_change";
-    $perk_handling_change = "perk_handling_change";
-    $perk_reload_change = "perk_reload_change";
-    $perk_AA_change = "perk_AA_change";
-    $perk_zoom_change = "perk_zoom_change";
-    $perk_recoil_change = "perk_recoil_change";
-    $perk_RPM_change = "perk_RPM_change";
-    $perk_draw_time_change = "perk_draw_time_change";
-    $perk_accuracy_change = "perk_accuracy_change";
-    $perk_mag_size_change = "perk_mag_size_change";
-    $perk_dmg_buff = "perk_dmg_buff";
-    $perk_drowned_cost = "perk_drowned_cost";
-    $perk_res_element_cost = "perk_res_element_cost";
-    $perk_res_alloy_cost = "perk_res_alloy_cost";
-    $perk_ascendant_alloy_cost = "perk_ascendant_alloy_cost";
-    $perk_glimmer_cost = "perk_glimmer_cost";
-    $perk_e_core_cost = "perk_e_core_cost";
-    $icon_file_path = "icon_file_path";
+    $perk_name = $_REQUEST['perk_name'];
+    $perk_desc = $_REQUEST['perk_desc'];
+    $perk_type = $_REQUEST['perk_type'];
+    $perk_impact_change = $_REQUEST['perk_impact_change'];
+    $perk_range_change = $_REQUEST['perk_range_change'];
+    $perk_stab_change = $_REQUEST['perk_stab_change'];
+    $perk_handling_change = $_REQUEST['perk_handling_change'];
+    $perk_reload_change = $_REQUEST['perk_reload_change'];
+    $perk_AA_change = $_REQUEST['perk_AA_change'];
+    $perk_zoom_change = $_REQUEST['perk_zoom_change'];
+    $perk_recoil_change = $_REQUEST['perk_recoil_change'];
+    $perk_RPM_change = $_REQUEST['perk_RPM_change'];
+    $perk_draw_time_change = $_REQUEST['perk_draw_time_change'];
+    $perk_accuracy_change = $_REQUEST['perk_accuracy_change'];
+    $perk_mag_size_change = $_REQUEST['perk_mag_size_change'];
+    $perk_dmg_buff = $_REQUEST['perk_dmg_buff'];
+    $perk_drowned_cost = $_REQUEST['perk_drowned_cost'];
+    $perk_res_element_cost = $_REQUEST['perk_res_element_cost'];
+    $perk_res_alloy_cost = $_REQUEST['perk_res_alloy_cost'];
+    $perk_ascendant_alloy_cost = $_REQUEST['perk_ascendant_alloy_cost'];
+    $perk_glimmer_cost = $_REQUEST['perk_glimmer_cost'];
+    $perk_e_core_cost = $_REQUEST['perk_e_core_cost'];
+    $icon_file_path = $_REQUEST['icon_file_path'];
     
     $sql = "INSERT INTO perks(perk_name, perk_desc, perk_type, perk_impact_change, perk_range_change, perk_stab_change, perk_handling_change, perk_reload_change, perk_AA_change, perk_zoom_change, perk_recoil_change, perk_RPM_change, perk_draw_time_change, perk_accuracy_change, perk_mag_size_change, perk_dmg_buff, perk_drowned_cost, perk_res_element_cost, perk_res_alloy_cost, perk_ascendant_alloy_cost, perk_glimmer_cost, perk_e_core_cost, icon_file_path)VALUES('$perk_name', '$perk_desc', '$perk_type', '$perk_impact_change', '$perk_range_change', '$perk_stab_change', '$perk_handling_change', '$perk_reload_change', '$perk_AA_change', '$perk_zoom_change', '$perk_recoil_change', '$perk_RPM_change', '$perk_draw_time_change', '$perk_accuracy_change', '$perk_mag_size_change', '$perk_dmg_buff', '$perk_drowned_cost', '$perk_res_element_cost', '$perk_res_alloy_cost', '$perk_ascendant_alloy_cost', '$perk_glimmer_cost', '$perk_e_core_cost', '$icon_file_path')";
 
@@ -116,9 +116,9 @@ function addToLogon(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $usernameInput = "username";
-    $passwordInput = "password";
-    $admin = "admin";
+    $usernameInput = $_REQUEST['username'];
+    $passwordInput = $_REQUEST['passwordInput'];
+    $admin = $_REQUEST['admin'];
 
     $sql = "INSERT INTO logon('username', 'password', 'admin') VALUES($usernameInput, $passwordInput, $admin)";
     
@@ -141,8 +141,8 @@ function addToFrames(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $frameWepID = "frame_bridge_weapon_ID";
-    $framePerkID = "weapon_frame_ID";
+    $frameWepID = $_REQUEST['frameWepID'];
+    $framePerkID = $_REQUEST['framePerkID'];
 
     $sql = "INSERT INTO framebridge('frame_bridge_weapon_ID', 'weapon_frame_ID')VALUES($frameWepID, $framePerkID)";
     
@@ -160,8 +160,8 @@ function addToFrames(){
 function addToBarrels(){
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $barrelWepID = "barrel_bridge_weapon_ID";
-    $barrelPerkID = "weapon_barrel_ID";
+    $barrelWepID = $_REQUEST['barrelWepID'];
+    $barrelPerkID = $_REQUEST['barrelPerkID'];
 
     $sql = "INSERT INTO barrelbridge('barrel_bridge_weapon_ID', 'weapon_barrel_ID')VALUES($barrelWepID, $barrelPerkID)";
     
@@ -179,8 +179,8 @@ function addToBarrels(){
 function addToMags(){
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $magWepID = "mag_bridge_weapon_ID";
-    $magPerkID = "weapon_mag_ID";
+    $magWepID = $_REQUEST['magWepID'];
+    $magPerkID = $_REQUEST['magPerkID'];
 
     $sql = "INSERT INTO magbridge('mag_bridge_weapon_ID', 'weapon_mag_ID')VALUES($magWepID, $magPerkID)";
     
@@ -198,8 +198,8 @@ function addToMags(){
 function addToTrait1(){
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $trait1WepID = "trait1_bridge_weapon_ID";
-    $trait1PerkID = "weapon_barrel_ID";
+    $trait1WepID = $_REQUEST['trait1WepID'];
+    $trait1PerkID = $_REQUEST['trait1PerkID'];
 
     $sql = "INSERT INTO trait1bridge('trait1_bridge_weapon_ID', 'weapon_trait1_ID')VALUES($trait1WepID, $trait1PerkID)";
     
@@ -217,8 +217,8 @@ function addToTrait1(){
 function addToTrait2(){
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $trait2WepID = "trait2_bridge_weapon_ID";
-    $trait2PerkID = "weapon_trait2_ID";
+    $trait2WepID = $_REQUEST['trait2WepID'];
+    $trait2PerkID = $_REQUEST['trait2PerkID'];
 
     $sql = "INSERT INTO trait2bridge('trait2_bridge_weapon_ID', 'weapon_trait2_ID')VALUES($trait2WepID, $trait2PerkID)";
     
