@@ -190,7 +190,7 @@ function desktopChoice(){
             document.getElementById('logon_form_desktop').style.visibility = 'hidden';
             document.getElementById('frame_form_desktop').style.visibility = 'hidden';
             document.getElementById('barrel_form_desktop').style.visibility = 'hidden';
-            document.getElementById('mag_form_desktop').style.visibility = 'visible';
+            document.getElementById('mag_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait1_form_desktop').style.zIndex = '100';
             document.getElementById('trait1_form_desktop').style.visibility = 'visible';
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
@@ -202,7 +202,7 @@ function desktopChoice(){
             document.getElementById('frame_form_desktop').style.visibility = 'hidden';
             document.getElementById('barrel_form_desktop').style.visibility = 'hidden';
             document.getElementById('mag_form_desktop').style.visibility = 'hidden';
-            document.getElementById('trait1_form_desktop').style.visibility = 'visible';
+            document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait2_form_desktop').style.zIndex = '100';
             document.getElementById('trait2_form_desktop').style.visibility = 'visible';
         break;

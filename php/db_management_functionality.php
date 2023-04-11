@@ -117,10 +117,10 @@ function addToLogon(){
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
     $usernameInput = $_REQUEST['username'];
-    $passwordInput = $_REQUEST['passwordInput'];
+    $passwordInput = $_REQUEST['password'];
     $admin = $_REQUEST['admin'];
 
-    $sql = "INSERT INTO logon('username', 'password', 'admin') VALUES($usernameInput, $passwordInput, $admin)";
+    $sql = "INSERT INTO logon(username, password, admin) VALUES($usernameInput, $passwordInput, $admin)";
     
     if(mysqli_query($conn, $sql)){
         echo "<h3>Record added to database</h3>";
@@ -144,7 +144,7 @@ function addToFrames(){
     $frameWepID = $_REQUEST['frameWepID'];
     $framePerkID = $_REQUEST['framePerkID'];
 
-    $sql = "INSERT INTO framebridge('frame_bridge_weapon_ID', 'weapon_frame_ID')VALUES($frameWepID, $framePerkID)";
+    $sql = "INSERT INTO framebridge(frame_bridge_weapon_ID, weapon_frame_ID)VALUES($frameWepID, $framePerkID)";
     
     if(mysqli_query($conn, $sql)){
         echo "<h3>Record added to database</h3>";
@@ -163,7 +163,7 @@ function addToBarrels(){
     $barrelWepID = $_REQUEST['barrelWepID'];
     $barrelPerkID = $_REQUEST['barrelPerkID'];
 
-    $sql = "INSERT INTO barrelbridge('barrel_bridge_weapon_ID', 'weapon_barrel_ID')VALUES($barrelWepID, $barrelPerkID)";
+    $sql = "INSERT INTO barrelbridge(barrel_bridge_weapon_ID, weapon_barrel_ID)VALUES($barrelWepID, $barrelPerkID)";
     
     if(mysqli_query($conn, $sql)){
         echo "<h3>Record added to database</h3>";
@@ -182,7 +182,7 @@ function addToMags(){
     $magWepID = $_REQUEST['magWepID'];
     $magPerkID = $_REQUEST['magPerkID'];
 
-    $sql = "INSERT INTO magbridge('mag_bridge_weapon_ID', 'weapon_mag_ID')VALUES($magWepID, $magPerkID)";
+    $sql = "INSERT INTO magbridge(mag_bridge_weapon_ID, weapon_mag_ID)VALUES($magWepID, $magPerkID)";
     
     if(mysqli_query($conn, $sql)){
         echo "<h3>Record added to database</h3>";
@@ -201,7 +201,7 @@ function addToTrait1(){
     $trait1WepID = $_REQUEST['trait1WepID'];
     $trait1PerkID = $_REQUEST['trait1PerkID'];
 
-    $sql = "INSERT INTO trait1bridge('trait1_bridge_weapon_ID', 'weapon_trait1_ID')VALUES($trait1WepID, $trait1PerkID)";
+    $sql = "INSERT INTO trait1bridge(trait1_bridge_weapon_ID, weapon_trait1_I)VALUES($trait1WepID, $trait1PerkID)";
     
     if(mysqli_query($conn, $sql)){
         echo "<h3>Record added to database</h3>";
@@ -220,7 +220,7 @@ function addToTrait2(){
     $trait2WepID = $_REQUEST['trait2WepID'];
     $trait2PerkID = $_REQUEST['trait2PerkID'];
 
-    $sql = "INSERT INTO trait2bridge('trait2_bridge_weapon_ID', 'weapon_trait2_ID')VALUES($trait2WepID, $trait2PerkID)";
+    $sql = "INSERT INTO trait2bridge(trait2_bridge_weapon_ID, weapon_trait2_ID)VALUES($trait2WepID, $trait2PerkID)";
     
     if(mysqli_query($conn, $sql)){
         echo "<h3>Record added to database</h3>";
