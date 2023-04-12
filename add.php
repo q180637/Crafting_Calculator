@@ -145,8 +145,8 @@
                         }
                     ?>
                     <form id="frame_form" method="post">
-                        <input type="text" id="frame_bridge_weapon_ID" name="frame_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
-                        <input type="text" id="weapon_frame_ID" name="weapon_frame_ID" value="Insert a Frame Perk ID"></imput>
+                        <input type="text" id="frame_bridge_weapon_ID" name="frame_bridge_weapon_ID" value="Insert A Weapon ID"></input>
+                        <input type="text" id="weapon_frame_ID" name="weapon_frame_ID" value="Insert a Frame Perk ID"></input>
                         <input class="save" type="submit" value="Save and add to database" name="save_frames">
                         </input>
                     </form>
@@ -158,8 +158,8 @@
                         }
                     ?>
                     <form id="barrel_form" method="post">
-                        <input type="text" id="barrel_bridge_weapon_ID" name="barrel_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
-                        <input type="text" id="weapon_barrel_ID" name="weapon_barrel_ID" value="Insert A Barrel Perk ID"></imput>
+                        <input type="text" id="barrel_bridge_weapon_ID" name="barrel_bridge_weapon_ID" value="Insert A Weapon ID"></input>
+                        <input type="text" id="weapon_barrel_ID" name="weapon_barrel_ID" value="Insert A Barrel Perk ID"></input>
                         <input class="save" type="submit" value="Save and add to database" name="save_barrels">
                         </input>
                     </form>
@@ -171,8 +171,8 @@
                         }
                     ?>
                     <form id="mag_form" method="post">
-                        <input type="text" id="mag_bridge_weapon_ID" name="mag_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
-                        <input type="text" id="weapon_mag_ID" name="weapon_mag_ID" value="Insert A Mag Perk ID"></imput>
+                        <input type="text" id="mag_bridge_weapon_ID" name="mag_bridge_weapon_ID" value="Insert A Weapon ID"></input>
+                        <input type="text" id="weapon_mag_ID" name="weapon_mag_ID" value="Insert A Mag Perk ID"></input>
                         <input class="save" type="submit" value="Save and add to database" name="save_mags">
                         </input>
                     </form>
@@ -184,8 +184,8 @@
                         }
                     ?>
                     <form id="trait1_form" method="post">
-                        <input type="text" id="trait1_bridge_weapon_ID" name="trait1_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
-                        <input type="text" id="weapon_trait_ID" name="weapon_trait_ID" value="Insert A Trait Column 1 Perk ID"></imput>
+                        <input type="text" id="trait1_bridge_weapon_ID" name="trait1_bridge_weapon_ID" value="Insert A Weapon ID"></input>
+                        <input type="text" id="weapon_trait_ID" name="weapon_trait_ID" value="Insert A Trait Column 1 Perk ID"></input>
                         <input class="save" type="submit" value="Save and add to database" name="save_trait1">
                         </input>
                     </form>
@@ -197,8 +197,8 @@
                         }
                     ?>
                     <form id="trait2_form">
-                        <input type="text" id="trait2_bridge_weapon_ID" name="trait2_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
-                        <input type="text" id="weapon_trait2_ID" name="weapon_trait2_ID" value="Insert A Trait Column 2 Perk ID"></imput>
+                        <input type="text" id="trait2_bridge_weapon_ID" name="trait2_bridge_weapon_ID" value="Insert A Weapon ID"></input>
+                        <input type="text" id="weapon_trait2_ID" name="weapon_trait2_ID" value="Insert A Trait Column 2 Perk ID"></input>
                         <input class="save" type="submit" value="Save and add to database" name="save_trait2">
                         </input>
                     </form>
@@ -224,7 +224,7 @@
                 </ul>
             </nav>
             <div class="body_wrapper">
-                <header>
+                <header id="pageTitle">
                     Add a Record
                 </header>
                 <div class="selectTable">
@@ -245,10 +245,10 @@
                     <div id="desktop_weapons">
                         <?php
                             if(array_key_exists('save', $_POST)){
-                            addToPerks();
+                            addToWeapon();
                             }
                         ?>
-                        <div id="weapon_form_desktop">
+                        <form id="weapon_form_desktop" method="post">
                             <input type="text" id="desktop_weapon_name" name="weapon_name" value="Insert Weapon Name"></input> 
                             <input type="text" id="desktop_weapon_type" name="weapon_type" value="Insert Weapon Type"></input>
                             <input type="text" id="desktop_weapon_source" name="weapon_source" value="Insert Weapon Source"></input>
@@ -267,7 +267,7 @@
                             <input type="text" id="desktop_base_mag" name="base_mag" value="Insert Weapon Mag Size"></input>
                             <input type="text" id="desktop_icon_file_path" name="icon_file_path" value="Insert Weapon Image file Path"></input>
                             <input id="save" type="submit" value="Save and add to database" name="save"></input>
-                        </div>
+                        </form>
                     </div>
                     <div id="desktop_perks" >
                         <?php
@@ -305,7 +305,7 @@
                     <div id="desktop_logon">
                         <?php
                             if(array_key_exists('save_logon', $_POST)){
-                            addToPerks();
+                            addToLogon();
                             }
                         ?>
                         <form id="logon_form_desktop" method="post">
@@ -323,31 +323,31 @@
                     <div id="desktop_frames">
                         <?php
                             if(array_key_exists('save_frames', $_POST)){
-                            addToPerks();
+                            addToFrames();
                             }
                         ?>
                         <form id="frame_form_desktop" method="post">
-                            <input type="text" id="frame_bridge_weapon_ID" name="frame_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
-                            <input type="text" id="weapon_frame_ID" name="weapon_frame_ID" value="Insert a Frame Perk ID"></imput>
+                            <input type="text" id="frame_bridge_weapon_ID" name="frame_bridge_weapon_ID" value="Insert A Weapon ID"></input>
+                            <input type="text" id="weapon_frame_ID" name="weapon_frame_ID" value="Insert a Frame Perk ID"></input>
                             <input id="save" type="submit" value="Save and add to database" name="save_frames"></input>
                         </form>
                     </div>
                     <div id="desktop_barrels">
                         <?php
                             if(array_key_exists('save_barrels', $_POST)){
-                            addToPerks();
+                            addToBarrels();
                             }
                         ?>
                         <form id="barrel_form_desktop" method="post">
-                            <input type="text" id="barrel_bridge_weapon_ID" name="barrel_bridge_weapon_ID" value="Insert A Weapon ID"></imput>
-                            <input type="text" id="weapon_barrel_ID" name="weapon_barrel_ID" value="Insert A Barrel Perk ID"></imput>
+                            <input type="text" id="barrel_bridge_weapon_ID" name="barrel_bridge_weapon_ID" value="Insert A Weapon ID"></input>
+                            <input type="text" id="weapon_barrel_ID" name="weapon_barrel_ID" value="Insert A Barrel Perk ID"></input>
                             <input id="save" type="submit" value="Save and add to database" name="save_barrels"></input>
                         </form>
                     </div>
                     <div id="desktop_mags">
                         <?php
                             if(array_key_exists('save_mags', $_POST)){
-                            addToPerks();
+                            addToMags();
                             }
                         ?>
                         <form id="mag_form_desktop" method="post">
@@ -359,7 +359,7 @@
                     <div id="desktop_trait1">
                         <?php
                             if(array_key_exists('save_trait1', $_POST)){
-                            addToPerks();
+                            addToTrait1();
                             }
                         ?>
                         <form id="trait1_form_desktop" method="post">
@@ -371,7 +371,7 @@
                     <div id="desktop_trait2">
                         <?php
                             if(array_key_exists('save_trait2', $_POST)){
-                            addToPerks();
+                            addToTrait2();
                             }
                         ?>
                         <form id="trait2_form_desktop" method="post">

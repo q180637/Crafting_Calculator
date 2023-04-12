@@ -1,6 +1,13 @@
 //loads mobile fields
 var e = document.getElementById('tableList');
 
+// e.onchange = clearFeedbackMessage();
+
+// function clearFeedbackMessage(){
+//     document.getElementById('insertSuccess').style.visibility = "hidden";
+//     document.getElementById('insertFail').style.visibility = "hidden";
+// }
+
 function answer(){
     if (e.value =="logon"){
         document.getElementById('weapon_form').style.visibility = 'hidden';
@@ -119,6 +126,7 @@ function desktopChoice(){
     // uses clickedButton to check which button is clicked and display fields
     switch (clickedButton){
         case "wepButton":
+            document.getElementById('pageTitle').innerHTML = "Add a Weapon Record";
             document.getElementById('weapon_form_desktop').style.visibility = 'visible';
             document.getElementById('weapon_form_desktop').style.zIndex = '100';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
@@ -130,6 +138,7 @@ function desktopChoice(){
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
         break;
         case "perksButton":
+            document.getElementById('pageTitle').innerHTML = "Add a Perk Record";
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'visible';
             document.getElementById('perks_form_desktop').style.zIndex = '100';
@@ -141,6 +150,7 @@ function desktopChoice(){
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
         break;
         case "logonButton":
+            document.getElementById('pageTitle').innerHTML = "Add a User Record";
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'visible';
@@ -152,6 +162,7 @@ function desktopChoice(){
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
         break;
         case "frameButton":
+            document.getElementById('pageTitle').innerHTML = "Add a Frame Combination";
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'hidden';
@@ -163,6 +174,7 @@ function desktopChoice(){
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
         break;
         case "barrelButton":
+            document.getElementById('pageTitle').innerHTML = "Add a Barrel Combination";
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'hidden';
@@ -174,6 +186,7 @@ function desktopChoice(){
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
         break;
         case "magButton":
+            document.getElementById('pageTitle').innerHTML = "Add a Mag Combination";
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'hidden';
@@ -185,6 +198,7 @@ function desktopChoice(){
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
         break;
         case "trait1Button":
+            document.getElementById('pageTitle').innerHTML = "Add a Trait Column 1 Combination";
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'hidden';
@@ -196,6 +210,7 @@ function desktopChoice(){
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
         break;
         case "trait2Button":
+            document.getElementById('pageTitle').innerHTML = "Add a Trait Column 2 Combination";
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'hidden';
@@ -207,6 +222,7 @@ function desktopChoice(){
             document.getElementById('trait2_form_desktop').style.visibility = 'visible';
         break;
         case "":
+            document.getElementsByTagName('header').innerHTML = "Add a Record";
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'hidden';
