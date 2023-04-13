@@ -22,7 +22,6 @@ html a {
   .mobile {
     display: grid;
     grid-template-rows: 15vh 85vh;
-    overflow: hidden;
   }
   .mobile nav {
     grid-row: 1;
@@ -103,7 +102,6 @@ html a {
   .desktop {
     display: grid;
     grid-template-rows: 15vh 85vh;
-    overflow: hidden;
   }
   .desktop nav {
     grid-row: 1;

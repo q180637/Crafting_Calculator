@@ -4,7 +4,7 @@
     .body_wrapper{
         display: grid;
         grid-template-columns: 25vw 50vw 25vw;
-        grid-template-rows: repeat(5, 3vh);
+        grid-template-rows: repeat(6, 3vh);
         gap: 1vw;
         input{
             color:white;
@@ -41,6 +41,15 @@
             background-color: $button_background;
             border-style: solid;
             border-color: $button_border;
+        }
+        .signup_link{
+            grid-row: 6;
+            grid-column: 2;
+            text-align: center;
+            a{
+                text-align: center;
+                text-decoration: underline;
+            }
         }
     }
 }
@@ -87,6 +96,15 @@
             background-color: $button_background;
             border-style: solid;
             border-color: $button_border;
+        }
+        .signup_link{
+            grid-row: 6;
+            grid-column: 2;
+            text-align: center;
+            a{
+                text-align: center;
+                text-decoration: underline;
+            }
         }
     }
 }

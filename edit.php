@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <?php
+        require 'php/db_management_functionality.php';
+    ?>
+    <?php 
+        ini_set('display_errors', 1);  
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+    ?>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +19,7 @@
         <link rel="stylesheet" href="css/edit.css">
         <link rel="icon" href="img/destiny_logo.png" title="Destiny logo favicon" alt="Destiny logo favicon">
         <script src="js/burger_menu.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     </head>
     <body>
         <div class="mobile">
@@ -35,26 +44,26 @@
                 <label for="tableList" id="tablesDropdown">
                     Select table to edit
                 </label>
-                <select name="tableList" id="tableList">
-                    <option value="default" selected="selected" hidden="hidden" onclick="answer()">Choose a Weapon</option>
-                    <option value ="logon" onclick="answer()">Logon</option>
-                    <option value ="perks" onclick="answer()">Perks</option>
-                    <option value ="weapons" onclick="answer()">Weapons</option>
-                    <option value ="frameBridge" onclick="answer()">Frame Combinations</option>
-                    <option value ="barrelBridge" onclick="answer()">Barrel Combinations</option>
-                    <option value ="magBridge" onclick="answer()">Mag Combinations</option>
-                    <option value ="trait1Bridge" onclick="answer()">Trait Column 1 Combinations</option>
-                    <option value ="trait2Bridge" onclick="answer()">Trait Column 2 Combinations</option>
-                </select>
+                    <select name="tableList" id="tableList" method="post" onchange="fillMobileForm()">
+                        <option value="default" selected="selected" hidden="hidden">Choose a Table to edit</option>
+                        <option value ="weapons">Weapons</option> 
+                        <option value ="perks">Perks</option>
+                        <option value ="logon">Logon</option>
+                        <option value ="frameBridge">Frame Combinations</option>
+                        <option value ="barrelBridge">Barrel Combinations</option>
+                        <option value ="magBridge">Mag Combinations</option>
+                        <option value ="trait1Bridge">Trait Column 1 Combinations</option>
+                        <option value ="trait2Bridge">Trait Column 2 Combinations</option>
+                    </select>
                 <select name="recordList" id="recordList">
                     <?php
-                        // require_once "php/db_management_functionality.php";
-                        // $selectedTable = fillRecordList();
-                        // $i = 0;
-                        // foreach()
-
                         // this needs to fill with the records in the table selected in tableList
-                        
+                        $records=fillWeaponRecordList();
+                        $i = 0;
+                        foreach($records as $list){
+                            echo $records[$i];
+                            $i++;
+                        }
                     ?>
                     <option value="default" selected="selected" hidden="hidden">Choose a Table to Add to</option>
                 </select>
@@ -132,7 +141,7 @@
                     ?>
                     <form id="logon_form" method="post">
                         <input type="text" id="username" name="username"></input>
-                        <label for="password" class="passLabel">Insert the user's password</label>
+                        <label for="password" class="passLabel">Edit the user's password</label>
                         <input type="password" id="password" name="password"></input>
                         <label for="admin" class="adminLabel">Choose if the user is an admin</label>
                         <select id="admin" name="admin">
@@ -152,8 +161,8 @@
                         }
                     ?>
                     <form id="frame_form" method="post">
-                        <input type="text" id="frame_bridge_weapon_ID" name="frame_bridge_weapon_I></input>
-                        <input type="text" id="weapon_frame_ID" name="weapon_frame_I></input>
+                        <input type="text" id="frame_bridge_weapon_ID" name="frame_bridge_weapon_ID"></input>
+                        <input type="text" id="weapon_frame_ID" name="weapon_frame_ID"></input>
                         <input id="save" type="submit" value="Save and add to database" name="save_frames">
                         </input>
                         <input id="delete" type="submit" value="Delete and remove from database" name="delete">
@@ -205,7 +214,7 @@
                         </input>
                     </form>
                 </div>
-                <div id="trait2" method="post">
+                <div id="trait2">
                     <?php
                         if(array_key_exists('save_trait2', $_POST)){
                             addToTrait2();
@@ -415,6 +424,32 @@
                 </div>
             </div>
         </div>
-        <script src="js/add_form.js"></script>
     </body>
+    <script src="js/edit_form.js"></script>
+    <script>
+        document.getElementById('tableList').onchange = mobileTableFill;
+
+        function mobileTableFill(){
+            let t = document.getElementById('tableList')
+            
+            let table = t.options[t.selectedIndex].text;
+            jQuery.ajax(
+                {
+                    type: "POST",
+                    url: 'php/db_management_functionality.php',
+                    dataType: 'json',
+                    data: {functonname: 'fillWeaponRecordList', arguments: table },
+
+                    success: function (obj, textstatus){
+                        if (!('error' in obj)){
+                            demoVar = obj.result;
+                        }
+                        else{
+                            console.log(obj.error);
+                        }
+                    }
+                }
+            )
+        }
+    </script>
 </html>

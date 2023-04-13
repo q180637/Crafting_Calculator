@@ -2,7 +2,7 @@
   .body_wrapper {
     display: grid;
     grid-template-columns: 25vw 50vw 25vw;
-    grid-template-rows: repeat(5, 3vh);
+    grid-template-rows: repeat(6, 3vh);
     gap: 1vw;
   }
   .body_wrapper input {
@@ -38,6 +38,15 @@
     background-color: #b78c25;
     border-style: solid;
     border-color: #ffce1f;
+  }
+  .body_wrapper .signup_link {
+    grid-row: 6;
+    grid-column: 2;
+    text-align: center;
+  }
+  .body_wrapper .signup_link a {
+    text-align: center;
+    text-decoration: underline;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -81,5 +90,14 @@
     background-color: #b78c25;
     border-style: solid;
     border-color: #ffce1f;
+  }
+  .body_wrapper .signup_link {
+    grid-row: 6;
+    grid-column: 2;
+    text-align: center;
+  }
+  .body_wrapper .signup_link a {
+    text-align: center;
+    text-decoration: underline;
   }
 }/*# sourceMappingURL=login.css.map */

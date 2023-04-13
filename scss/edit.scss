@@ -10,15 +10,17 @@
             grid-row: 1;
             text-align: center;
         }
-        #tableList{
-            grid-row:2;
-            border-radius: 0;
-            background-color: $secondary_container_backgrounds;
-            border-style: solid;
-            border-color: $border_colour;
-            color: white;
-            text-align: center;
-        }
+            
+            #tableList{
+                grid-row:2;
+                grid-column: 1;
+                border-radius: 0;
+                background-color: $secondary_container_backgrounds;
+                border-style: solid;
+                border-color: $border_colour;
+                color: white;
+                text-align: center;
+            }
         #recordList{
             grid-row:3;
             border-radius: 0;

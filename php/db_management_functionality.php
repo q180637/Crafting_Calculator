@@ -253,7 +253,9 @@ function addToTrait2(){
     mysqli_close($conn);
 }
 
-function fillRecordList(){
+function fillWeaponRecordList(){
+    header('Content-Type: application/json');
+
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -261,5 +263,17 @@ function fillRecordList(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $sql = "";
+    $sql = "SELECT weapon_ID, weapon_name from weapons";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        $records = array();
+        while($row = $result->fetch_assoc()){
+            $arrayadd = "<option class =".$row["weapon_name"]." id=w".$row["weapon_ID"]." onclick=\"answer()\" value=".$row["weapon_name"].">";
+            array_push($records, $arrayadd);
+        }return $records;
+    } else{
+        echo "No records";
+    }
+    mysqli_close($conn);
 }

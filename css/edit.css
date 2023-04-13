@@ -11,6 +11,7 @@
   }
   .body_wrapper #tableList {
     grid-row: 2;
+    grid-column: 1;
     border-radius: 0;
     background-color: #2b2b33;
     border-style: solid;
