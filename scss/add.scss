@@ -6,8 +6,9 @@
         grid-template-columns: 95vw;
         grid-template-rows: 5vh 5vh auto 5vh;
         max-width: 95%;
-        label{
+        #tablesDropdown{
             grid-row: 1;
+            text-align: center;
         }
         select{
             grid-row:2;

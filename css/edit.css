@@ -5,8 +5,9 @@
     grid-template-rows: 5vh 5vh 5vh auto 5vh;
     max-width: 95%;
   }
-  .body_wrapper label {
+  .body_wrapper #tablesDropdown {
     grid-row: 1;
+    text-align: center;
   }
   .body_wrapper #tableList {
     grid-row: 2;

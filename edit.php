@@ -32,7 +32,7 @@
                 </ul>
             </nav>
             <div class="body_wrapper">
-                <label for="tableList">
+                <label for="tableList" id="tablesDropdown">
                     Select table to edit
                 </label>
                 <select name="tableList" id="tableList">
