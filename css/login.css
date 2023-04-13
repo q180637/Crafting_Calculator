@@ -1,1 +1,85 @@
-/*# sourceMappingURL=login.css.map */
+@media screen and (max-width: 1199px) {
+  .body_wrapper {
+    display: grid;
+    grid-template-columns: 25vw 50vw 25vw;
+    grid-template-rows: repeat(5, 3vh);
+    gap: 1vw;
+  }
+  .body_wrapper input {
+    color: white;
+  }
+  .body_wrapper .username {
+    grid-row: 1;
+    grid-column: 2;
+    text-align: center;
+  }
+  .body_wrapper #username {
+    grid-row: 2;
+    grid-column: 2;
+    background-color: #2b2b33;
+    border-style: solid;
+    border-color: #23232a;
+  }
+  .body_wrapper .passLabel {
+    grid-row: 3;
+    grid-column: 2;
+    text-align: center;
+  }
+  .body_wrapper #password {
+    grid-row: 4;
+    grid-column: 2;
+    background-color: #2b2b33;
+    border-style: solid;
+    border-color: #23232a;
+  }
+  .body_wrapper #sign_in {
+    grid-row: 5;
+    grid-column: 2;
+    background-color: #b78c25;
+    border-style: solid;
+    border-color: #ffce1f;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .body_wrapper {
+    display: grid;
+    grid-template-columns: 33vw 33vw 33vw;
+    grid-template-rows: repeat(5, 3vh);
+    gap: 1vw;
+    padding-top: 10vh;
+  }
+  .body_wrapper input {
+    color: white;
+  }
+  .body_wrapper .username {
+    grid-row: 1;
+    grid-column: 2;
+    text-align: center;
+  }
+  .body_wrapper #username {
+    grid-row: 2;
+    grid-column: 2;
+    background-color: #2b2b33;
+    border-style: solid;
+    border-color: #23232a;
+  }
+  .body_wrapper .passLabel {
+    grid-row: 3;
+    grid-column: 2;
+    text-align: center;
+  }
+  .body_wrapper #password {
+    grid-row: 4;
+    grid-column: 2;
+    background-color: #2b2b33;
+    border-style: solid;
+    border-color: #23232a;
+  }
+  .body_wrapper #sign_in {
+    grid-row: 5;
+    grid-column: 2;
+    background-color: #b78c25;
+    border-style: solid;
+    border-color: #ffce1f;
+  }
+}/*# sourceMappingURL=login.css.map */

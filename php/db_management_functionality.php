@@ -261,5 +261,5 @@ function fillRecordList(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $sql = ""
+    $sql = "";
 }

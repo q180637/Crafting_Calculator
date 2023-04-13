@@ -1,0 +1,92 @@
+@import "imports.scss";
+
+@media screen and (max-width: 1199px) {
+    .body_wrapper{
+        display: grid;
+        grid-template-columns: 25vw 50vw 25vw;
+        grid-template-rows: repeat(5, 3vh);
+        gap: 1vw;
+        input{
+            color:white;
+        }
+        .username{
+            grid-row: 1;
+            grid-column: 2;
+            text-align: center;
+
+        }
+        #username{
+            grid-row: 2;
+            grid-column: 2;
+            background-color: $secondary_container_backgrounds;
+            border-style: solid;
+            border-color: $border_colour;
+        }
+        .passLabel{
+            grid-row: 3;
+            grid-column: 2;
+            text-align: center;
+
+        }
+        #password{
+            grid-row: 4;
+            grid-column: 2;
+            background-color: $secondary_container_backgrounds;
+            border-style: solid;
+            border-color: $border_colour;
+        }
+        #sign_in{
+            grid-row: 5;
+            grid-column: 2;
+            background-color: $button_background;
+            border-style: solid;
+            border-color: $button_border;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .body_wrapper{
+        display: grid;
+        grid-template-columns: 33vw 33vw 33vw;
+        grid-template-rows: repeat(5, 3vh);
+        gap: 1vw;
+        padding-top: 10vh;
+        input{
+            color:white;
+        }
+        .username{
+            grid-row: 1;
+            grid-column: 2;
+            text-align: center;
+
+        }
+        #username{
+            grid-row: 2;
+            grid-column: 2;
+            background-color: $secondary_container_backgrounds;
+            border-style: solid;
+            border-color: $border_colour;
+        }
+        .passLabel{
+            grid-row: 3;
+            grid-column: 2;
+            text-align: center;
+
+        }
+        #password{
+            grid-row: 4;
+            grid-column: 2;
+            background-color: $secondary_container_backgrounds;
+            border-style: solid;
+            border-color: $border_colour;
+        }
+        #sign_in{
+            grid-row: 5;
+            grid-column: 2;
+            background-color: $button_background;
+            border-style: solid;
+            border-color: $button_border;
+        }
+    }
+}

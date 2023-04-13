@@ -10,6 +10,7 @@
         <link href="css/main.css" rel="stylesheet">
         <link rel="stylesheet" href="css/edit.css">
         <link rel="icon" href="img/destiny_logo.png" title="Destiny logo favicon" alt="Destiny logo favicon">
+        <script src="js/burger_menu.js"></script>
     </head>
     <body>
         <div class="mobile">
@@ -130,7 +131,7 @@
                         }
                     ?>
                     <form id="logon_form" method="post">
-                        <input type="text" id="username" name="usern></input>
+                        <input type="text" id="username" name="username"></input>
                         <label for="password" class="passLabel">Insert the user's password</label>
                         <input type="password" id="password" name="password"></input>
                         <label for="admin" class="adminLabel">Choose if the user is an admin</label>
