@@ -158,6 +158,11 @@ function addToFrames(){
 }
 
 function addToBarrels(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
     $barrelWepID = $_REQUEST['barrel_bridge_weapon_ID'];
@@ -177,6 +182,11 @@ function addToBarrels(){
 }
 
 function addToMags(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
     $magWepID = $_REQUEST['mag_bridge_weapon_ID'];
@@ -196,6 +206,11 @@ function addToMags(){
 }
 
 function addToTrait1(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
     $trait1WepID = $_REQUEST['trait1_bridge_weapon_ID'];
@@ -215,6 +230,11 @@ function addToTrait1(){
 }
 
 function addToTrait2(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
     $trait2WepID = $_REQUEST['trait2_bridge_weapon_ID'];
@@ -231,4 +251,15 @@ function addToTrait2(){
     }
     
     mysqli_close($conn);
+}
+
+function fillRecordList(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
+
+    $sql = ""
 }

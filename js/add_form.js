@@ -127,6 +127,7 @@ function desktopChoice(){
     switch (clickedButton){
         case "wepButton":
             document.getElementById('pageTitle').innerHTML = "Add a Weapon Record";
+            document.getElementById('wepButton').style.backgroundColor = '#b78c25';
             document.getElementById('weapon_form_desktop').style.visibility = 'visible';
             document.getElementById('weapon_form_desktop').style.zIndex = '100';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
@@ -136,9 +137,17 @@ function desktopChoice(){
             document.getElementById('mag_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+            document.getElementById('perksButton').style.backgroundColor = 'white';
+            document.getElementById('logonButton').style.backgroundColor = 'white';
+            document.getElementById('frameButton').style.backgroundColor = 'white';
+            document.getElementById('barrelButton').style.backgroundColor = 'white';
+            document.getElementById('magButton').style.backgroundColor = 'white';
+            document.getElementById('trait1Button').style.backgroundColor = 'white';
+            document.getElementById('trait2Button').style.backgroundColor = 'white';
         break;
         case "perksButton":
             document.getElementById('pageTitle').innerHTML = "Add a Perk Record";
+            document.getElementById('perksButton').style.backgroundColor = '#b78c25';
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'visible';
             document.getElementById('perks_form_desktop').style.zIndex = '100';
@@ -148,9 +157,17 @@ function desktopChoice(){
             document.getElementById('mag_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+            document.getElementById('wepButton').style.backgroundColor = 'white';
+            document.getElementById('logonButton').style.backgroundColor = 'white';
+            document.getElementById('frameButton').style.backgroundColor = 'white';
+            document.getElementById('barrelButton').style.backgroundColor = 'white';
+            document.getElementById('magButton').style.backgroundColor = 'white';
+            document.getElementById('trait1Button').style.backgroundColor = 'white';
+            document.getElementById('trait2Button').style.backgroundColor = 'white';
         break;
         case "logonButton":
             document.getElementById('pageTitle').innerHTML = "Add a User Record";
+            document.getElementById('logonButton').style.backgroundColor = '#b78c25';
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'visible';
@@ -160,9 +177,17 @@ function desktopChoice(){
             document.getElementById('mag_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+            document.getElementById('wepButton').style.backgroundColor = 'white';
+            document.getElementById('perksButton').style.backgroundColor = 'white';
+            document.getElementById('frameButton').style.backgroundColor = 'white';
+            document.getElementById('barrelButton').style.backgroundColor = 'white';
+            document.getElementById('magButton').style.backgroundColor = 'white';
+            document.getElementById('trait1Button').style.backgroundColor = 'white';
+            document.getElementById('trait2Button').style.backgroundColor = 'white';
         break;
         case "frameButton":
             document.getElementById('pageTitle').innerHTML = "Add a Frame Combination";
+            document.getElementById('frameButton').style.backgroundColor = '#b78c25';
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'hidden';
@@ -172,9 +197,17 @@ function desktopChoice(){
             document.getElementById('mag_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+            document.getElementById('wepButton').style.backgroundColor = 'white';
+            document.getElementById('perksButton').style.backgroundColor = 'white';
+            document.getElementById('logonButton').style.backgroundColor = 'white';
+            document.getElementById('barrelButton').style.backgroundColor = 'white';
+            document.getElementById('magButton').style.backgroundColor = 'white';
+            document.getElementById('trait1Button').style.backgroundColor = 'white';
+            document.getElementById('trait2Button').style.backgroundColor = 'white';
         break;
         case "barrelButton":
             document.getElementById('pageTitle').innerHTML = "Add a Barrel Combination";
+            document.getElementById('barrelButton').style.backgroundColor = '#b78c25';
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'hidden';
@@ -184,9 +217,17 @@ function desktopChoice(){
             document.getElementById('mag_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+            document.getElementById('wepButton').style.backgroundColor = 'white';
+            document.getElementById('perksButton').style.backgroundColor = 'white';
+            document.getElementById('logonButton').style.backgroundColor = 'white';
+            document.getElementById('frameButton').style.backgroundColor = 'white';
+            document.getElementById('magButton').style.backgroundColor = 'white';
+            document.getElementById('trait1Button').style.backgroundColor = 'white';
+            document.getElementById('trait2Button').style.backgroundColor = 'white';
         break;
         case "magButton":
             document.getElementById('pageTitle').innerHTML = "Add a Mag Combination";
+            document.getElementById('magButton').style.backgroundColor = '#b78c25';
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'hidden';
@@ -196,9 +237,17 @@ function desktopChoice(){
             document.getElementById('mag_form_desktop').style.visibility = 'visible';
             document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+            document.getElementById('wepButton').style.backgroundColor = 'white';
+            document.getElementById('perksButton').style.backgroundColor = 'white';
+            document.getElementById('logonButton').style.backgroundColor = 'white';
+            document.getElementById('frameButton').style.backgroundColor = 'white';
+            document.getElementById('barrelButton').style.backgroundColor = 'white';
+            document.getElementById('trait1Button').style.backgroundColor = 'white';
+            document.getElementById('trait2Button').style.backgroundColor = 'white';
         break;
         case "trait1Button":
             document.getElementById('pageTitle').innerHTML = "Add a Trait Column 1 Combination";
+            document.getElementById('trait1Button').style.backgroundColor = '#b78c25';
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'hidden';
@@ -208,9 +257,17 @@ function desktopChoice(){
             document.getElementById('trait1_form_desktop').style.zIndex = '100';
             document.getElementById('trait1_form_desktop').style.visibility = 'visible';
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+            document.getElementById('wepButton').style.backgroundColor = 'white';
+            document.getElementById('perksButton').style.backgroundColor = 'white';
+            document.getElementById('logonButton').style.backgroundColor = 'white';
+            document.getElementById('frameButton').style.backgroundColor = 'white';
+            document.getElementById('barrelButton').style.backgroundColor = 'white';
+            document.getElementById('magButton').style.backgroundColor = 'white';
+            document.getElementById('trait2Button').style.backgroundColor = 'white';
         break;
         case "trait2Button":
             document.getElementById('pageTitle').innerHTML = "Add a Trait Column 2 Combination";
+            document.getElementById('trait2Button').style.backgroundColor = '#b78c25';
             document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
             document.getElementById('perks_form_desktop').style.visibility = 'hidden';
             document.getElementById('logon_form_desktop').style.visibility = 'hidden';
@@ -220,6 +277,13 @@ function desktopChoice(){
             document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait2_form_desktop').style.zIndex = '100';
             document.getElementById('trait2_form_desktop').style.visibility = 'visible';
+            document.getElementById('wepButton').style.backgroundColor = 'white';
+            document.getElementById('perksButton').style.backgroundColor = 'white';
+            document.getElementById('logonButton').style.backgroundColor = 'white';
+            document.getElementById('frameButton').style.backgroundColor = 'white';
+            document.getElementById('barrelButton').style.backgroundColor = 'white';
+            document.getElementById('magButton').style.backgroundColor = 'white';
+            document.getElementById('trait1Button').style.backgroundColor = 'white';
         break;
         case "":
             document.getElementsByTagName('header').innerHTML = "Add a Record";
@@ -231,6 +295,14 @@ function desktopChoice(){
             document.getElementById('mag_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
             document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+            document.getElementById('wepButton').style.backgroundColor = 'white';
+            document.getElementById('perksButton').style.backgroundColor = 'white';
+            document.getElementById('logonButton').style.backgroundColor = 'white';
+            document.getElementById('frameButton').style.backgroundColor = 'white';
+            document.getElementById('barrelButton').style.backgroundColor = 'white';
+            document.getElementById('magButton').style.backgroundColor = 'white';
+            document.getElementById('trait1Button').style.backgroundColor = 'white';
+            document.getElementById('trait2Button').style.backgroundColor = 'white';
         break;
     }
     return clickedButton;

@@ -47,7 +47,7 @@
                     Select table to add to
                 </label>
                 <select name="tableList" id="tableList">
-                    <option value="default" selected="selected" hidden="hidden">Choose a Weapon</option>
+                    <option value="default" selected="selected" hidden="hidden">Choose a Table to Add to</option>
                     <option value ="logon" onclick="answer()">Logon</option>
                     <option value ="perks" onclick="answer()">Perks</option>
                     <option value ="weapons" onclick="answer()">Weapons</option>
@@ -386,6 +386,3 @@
         <script src="js/add_form.js"></script>
     </body>
 </html>
-
-
-<!-- TODO test mobile and add func to desktop -->

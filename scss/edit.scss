@@ -1,0 +1,700 @@
+@import "imports.scss";
+
+@media screen and (max-width: 1199px){
+    .body_wrapper{
+        display: grid;
+        grid-template-columns: 95vw;
+        grid-template-rows: 5vh 5vh 5vh auto 5vh;
+        max-width: 95%;
+        label{
+            grid-row: 1;
+        }
+        #tableList{
+            grid-row:2;
+            border-radius: 0;
+            background-color: $secondary_container_backgrounds;
+            border-style: solid;
+            border-color: $border_colour;
+            color: white;
+            text-align: center;
+        }
+        #recordList{
+            grid-row:3;
+            border-radius: 0;
+            background-color: $secondary_container_backgrounds;
+            border-style: solid;
+            border-color: $border_colour;
+            color: white;
+            text-align: center;
+        }
+        #weapons{
+            grid-row: 4;
+            grid-column: 1;
+            #weapon_form{
+                position: relative;
+                visibility: hidden;
+                display: grid;
+                grid-template-columns: 95vw;
+                grid-template-rows: repeat(19, 2.9vh);
+                padding-top: 2%;
+                gap: 1%;
+            }
+            #save{
+                grid-row:18;
+                background-color: $button_background;
+                border: solid;
+                border-color: $button_border;
+                position: relative;
+            }
+            #delete{
+                grid-row: 19;
+                background-color: $button_background;
+                border-style: solid;
+                border-color: $button_border;
+            }
+        }
+        #perks{
+            grid-row: 4;
+            grid-column: 1;
+            #perks_form{
+                position: relative;
+                visibility: hidden;
+                display: grid;
+                grid-template-columns: 95vw;
+                grid-template-rows: repeat(25, 2.2vh);
+                padding-top: 2%;
+                gap: 1%;
+            }
+            #save{
+                grid-row:24 ;
+                background-color: $button_background;
+                border: solid;
+                border-color: $button_border;
+                position: relative;
+            }
+            #delete{
+                grid-row: 25;
+                background-color: $button_background;
+                border-style: solid;
+                border-color: $button_border;
+            }
+        }
+        #logon{
+            grid-row: 4;
+            grid-column: 1;
+            #logon_form{
+                position: relative;
+                visibility: hidden;
+                padding-top: 2%;
+                display: grid;
+                grid-template-columns: 95vw;
+                grid-template-rows: repeat(7, 7.1vw);
+                gap:1%;
+                #username{
+                    grid-column: 1;
+                    grid-row: 1;
+                }
+                .passLabel{
+                    grid-column: 1;
+                    grid-row: 2;
+                    padding:0;
+                    padding-top:1%;
+                }
+                #password{
+                    grid-column: 1;
+                    grid-row: 3;
+                }
+                .adminLabel{
+                    grid-column: 1;
+                    grid-row: 4;
+                    padding:0;
+                    padding-top: 1%;
+                }
+                #admin{
+                    grid-column: 1;
+                    grid-row: 5;
+                }
+                #save{
+                    grid-row:6;
+                    background-color: $button_background;
+                    border: solid;
+                    border-color: $button_border;
+                    position: relative;
+                }
+                #delete{
+                    grid-row: 7;
+                    background-color: $button_background;
+                    border-style: solid;
+                    border-color: $button_border;
+                }
+            }
+        }
+        #frames{
+            grid-row: 4;
+            grid-column: 1;
+            #frame_form{
+                position: relative;
+                visibility: hidden;
+                display: grid;
+                grid-template-columns: 95vw;
+                grid-template-rows: repeat(4, 7.1vw);
+                padding-top: 2%;
+                gap:6%;
+                #frame_bridge_weapon_ID{
+                    grid-row: 1;
+                }
+                #weapon_frame_ID{
+                    grid-row: 2;
+                }
+                #save{
+                    grid-row:3;
+                    background-color: $button_background;
+                    border: solid;
+                    border-color: $button_border;
+                    position: relative;
+                }
+                #delete{
+                    grid-row: 4;
+                    background-color: $button_background;
+                    border-style: solid;
+                    border-color: $button_border;
+                }
+            }
+        }
+        #barrels{
+            grid-row: 4;
+            grid-column: 1;
+            #barrel_form{
+                position: relative;
+                visibility: hidden;
+                display: grid;
+                grid-template-columns: 95vw;
+                grid-template-rows: repeat(4, 7.1vw);
+                padding-top: 2%;
+                gap:6%;
+                #barrel_bridge_weapon_ID{
+                    grid-row: 1;
+                }
+                #weapon_barrel_ID{
+                    grid-row: 2;
+                }
+                #save{
+                    grid-row:3;
+                    background-color: $button_background;
+                    border: solid;
+                    border-color: $button_border;
+                    position: relative;
+                }
+                #delete{
+                    grid-row: 4;
+                    background-color: $button_background;
+                    border-style: solid;
+                    border-color: $button_border;
+                }
+            }
+        }
+        #mags{
+            grid-row: 4;
+            grid-column: 1;
+            #mag_form{
+                position: relative;
+                visibility: hidden;
+                display: grid;
+                grid-template-columns: 95vw;
+                grid-template-rows: repeat(4, 7.1vw);
+                padding-top: 2%;
+                gap:6%;
+                #mag_bridge_weapon_ID{
+                    grid-row: 1;
+                }
+                #weapon_mag_ID{
+                    grid-row: 2;
+                }
+                #save{
+                    grid-row:3;
+                    background-color: $button_background;
+                    border: solid;
+                    border-color: $button_border;
+                    position: relative;
+                }
+                #delete{
+                    grid-row: 4;
+                    background-color: $button_background;
+                    border-style: solid;
+                    border-color: $button_border;
+                }
+            }
+        }
+        #trait1{
+            grid-row: 4;
+            grid-column: 1;
+            #trait1_form{
+                position: relative;
+                visibility: hidden;
+                display: grid;
+                grid-template-columns: 95vw;
+                grid-template-rows: repeat(4, 7.1vw);
+                padding-top: 2%;
+                gap:6%;;
+                #trait1_bridge_weapon_ID{
+                    grid-row: 1;
+                }
+                #weapon_trait_ID{
+                    grid-row: 2;
+                }
+                #save{
+                    grid-row:3;
+                    background-color: $button_background;
+                    border: solid;
+                    border-color: $button_border;
+                    position: relative;
+                }
+                #delete{
+                    grid-row: 4;
+                    background-color: $button_background;
+                    border-style: solid;
+                    border-color: $button_border;
+                }
+            }
+        }
+        #trait2{
+            grid-row: 4;
+            grid-column: 1;
+            #trait2_form{
+                position: relative;
+                visibility: hidden;
+                display: grid;
+                grid-template-columns: 95vw;
+                grid-template-rows: repeat(4, 7.1vw);
+                padding-top: 2%;
+                gap:3%;
+                #trait2_bridge_weapon_ID{
+                    grid-row: 1;
+                }
+                #weapon_trait2_ID{
+                    grid-row: 2;
+                }
+                #save{
+                    grid-row:3;
+                    background-color: $button_background;
+                    border: solid;
+                    border-color: $button_border;
+                    position: relative;
+                }
+                #delete{
+                    grid-row:4;
+                    background-color: $button_background;
+                    border-style: solid;
+                    border-color: $button_border;
+                }
+            }
+        }
+        
+        input{
+            background-color: $secondary_container_backgrounds;
+            border: solid;
+            border-color: $border_colour;
+            color: white;
+        }
+    }
+}
+
+
+@media screen and (min-width:1200px){
+    .body_wrapper{
+        display: grid;
+        grid-template-columns: 31.35vw 63.65vw;
+        grid-template-rows: 10vh 90vh;
+        padding-top: 5vh;
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
+        padding-bottom: 5vh;
+        header{
+            grid-row: 1;
+            grid-column: 1 / span 2;
+            justify-content: center;
+            text-align: center;
+            font-size:xx-large;
+            width:95vw;
+            padding: 0;
+            margin:0;
+            height: fit-content;
+        }
+        .selectTable{
+            display: grid;
+            grid-template-columns: 31.35vw;
+            grid-template-rows: repeat(9,5vh);
+            text-align: center;
+            .menuHeader{
+                border: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 1;
+            }
+            .wepButton{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 2;
+            }
+            .perksButton{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 3;
+            }
+            .logonButton{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 4;
+            }
+            .frameButton{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 5;
+            }
+            .barrelButton{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 6;
+            }
+            .magButton{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 7;
+            }
+            .trait1Button{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 8;
+            }
+            .trait2Button{
+                border-bottom: solid;
+                border-left: solid;
+                border-right: solid;
+                border-color: black;
+                border-collapse: collapse;
+                grid-column: 1;
+                grid-row: 9;
+            }
+        }
+        .form_area{
+            grid-column: 2;
+            grid-row:2;
+            display: grid;
+            grid-template-columns: 42.42vw;
+            grid-template-rows: 75vh;
+            justify-content: center;
+            #desktop_weapons{
+                grid-row: 1;
+                grid-column: 1;
+                gap:2%;
+                #weapon_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: repeat(10, 2.9vh);
+                    padding-top: 2%;
+                    gap: 2%;
+                    #save{
+                        grid-column: 1;
+                        grid-row:10;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                    #delete{
+                        grid-column: 2;
+                        grid-row:10;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                }
+            }
+            #desktop_perks{
+                grid-row: 1;
+                grid-column: 1;
+                gap:2%;
+                #perks_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: repeat(13, 2.9vh);
+                    padding-top: 2%;
+                    gap: 2%;
+                    #save{
+                        grid-column: 1;
+                        grid-row:13;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                    #delete{
+                        grid-column: 2;
+                        grid-row:13;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                }
+            }
+            #desktop_logon{
+                grid-row: 1;
+                grid-column: 1;
+                gap:2%;
+                #logon_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    padding-top: 2%;
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: repeat(7, 2.9vh);
+                    gap: 2%;
+                    #username{
+                        grid-column: 1 / span 2;
+                        grid-row: 1;
+                    }
+                    .passLabel{
+                        grid-column: 1 / span 2;
+                        grid-row: 2;
+                        padding:0;
+                        padding-top:1%;
+                    }
+                    #password{
+                        grid-column: 1 / span 2;
+                        grid-row: 3;
+                    }
+                    .adminLabel{
+                        grid-column: 1 / span 2;
+                        grid-row: 4;
+                        padding:0;
+                        padding-top: 1%;
+                    }
+                    #admin{
+                        grid-column: 1 / span 2;
+                        grid-row: 5;
+                    }
+                    #save{
+                        grid-row:7;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                    #delete{
+                        grid-column: 2;
+                        grid-row:7;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                }
+            }
+            #desktop_frames{
+                grid-row: 1;
+                grid-column: 1;
+                gap:2%;
+                #frame_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: repeat(3, 2.9vh);
+                    padding-top: 2%;
+                    gap: 3%;
+                    #frame_bridge_weapon_ID{
+                        grid-column: 1 / span 2;
+                        grid-row: 1;
+                    }
+                    #weapon_frame_ID{
+                        grid-column: 1 / span 2;
+                        grid-row: 2;
+                    }
+                    #save{
+                        grid-row:3;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                    #delete{
+                        grid-column: 2;
+                        grid-row:3;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                }
+            }
+            #desktop_barrels{
+                grid-row: 1;
+                grid-column: 1;
+                gap:2%;
+                #barrel_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: repeat(3, 2.9vh);
+                    padding-top: 2%;
+                    gap:3%;
+                    #barrel_bridge_weapon_ID{
+                        grid-column: 1 / span 2;
+                        grid-row: 1;
+                    }
+                    #weapon_barrel_ID{
+                        grid-column: 1 / span 2;
+                        grid-row: 2;
+                    }
+                    #save{
+                        grid-row:3;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                    #delete{
+                        grid-column: 2;
+                        grid-row:3;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                }
+            }
+            #desktop_mags{
+                grid-row: 1;
+                grid-column: 1;
+                gap:2%;
+                #mag_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: repeat(3, 2.9vh);
+                    padding-top: 2%;
+                    gap:3%;
+                    #mag_bridge_weapon_ID{
+                        grid-column: 1 / span 2;
+                        grid-row: 1;
+                    }
+                    #weapon_mag_ID{
+                        grid-column: 1 / span 2;
+                        grid-row: 2;
+                    }
+                    #save{
+                        grid-row:3;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                    #delete{
+                        grid-column: 2;
+                        grid-row:3;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                }
+            }
+            #desktop_trait1{
+                grid-row: 1;
+                grid-column: 1;
+                #trait1_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: repeat(3, 2.9vh);
+                    padding-top: 2%;
+                    gap:6%;;
+                    #trait1_bridge_weapon_ID{
+                        grid-column: 1 / span 2;
+                        grid-row: 1;
+                    }
+                    #weapon_trait_ID{
+                        grid-column: 1 / span 2;
+                        grid-row: 2;
+                    }
+                    #save{
+                        grid-column: 1;
+                        grid-row:3;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                    #delete{
+                        grid-column: 2;
+                        grid-row:3;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                }
+            }
+            #desktop_trait2{
+                grid-row: 1;
+                grid-column: 1;
+                #trait2_form_desktop{
+                    position: relative;
+                    visibility: hidden;
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: repeat(3, 2.9vh);
+                    padding-top: 2%;
+                    gap:6%;
+                    #trait2_bridge_weapon_ID{
+                        grid-column: 1 / span 2;
+                        grid-row: 1;
+                    }
+                    #weapon_trait2_ID{
+                        grid-column: 1 / span 2;
+                        grid-row: 2;
+                    }
+                    #save{
+                        grid-column: 1;
+                        grid-row:3;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                    #delete{
+                        grid-column: 2;
+                        grid-row:3;
+                        background-color: $button_background;
+                        border-style: solid;
+                        border-color: $button_border;
+                    }
+                }
+            }
+        }
+    }
+}
+
