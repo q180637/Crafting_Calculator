@@ -1,13 +1,6 @@
 //loads mobile fields
 var e = document.getElementById('tableList');
 
-// e.onchange = clearFeedbackMessage();
-
-// function clearFeedbackMessage(){
-//     document.getElementById('insertSuccess').style.visibility = "hidden";
-//     document.getElementById('insertFail').style.visibility = "hidden";
-// }
-
 function answer(){
     if (e.value =="logon"){
         document.getElementById('weapon_form').style.visibility = 'hidden';

@@ -430,24 +430,14 @@
         document.getElementById('tableList').onchange = mobileTableFill;
 
         function mobileTableFill(){
-            let t = document.getElementById('tableList')
+            // let t = document.getElementById('tableList');
             
-            let table = t.options[t.selectedIndex].text;
-            jQuery.ajax(
+            // let table = t.options[t.selectedIndex].text;
+            $.ajax(
                 {
-                    type: "POST",
+                    method: 'POST',
                     url: 'php/db_management_functionality.php',
-                    dataType: 'json',
-                    data: {functonname: 'fillWeaponRecordList', arguments: table },
-
-                    success: function (obj, textstatus){
-                        if (!('error' in obj)){
-                            demoVar = obj.result;
-                        }
-                        else{
-                            console.log(obj.error);
-                        }
-                    }
+                    data: "function=fillWeaponRecordList",
                 }
             )
         }

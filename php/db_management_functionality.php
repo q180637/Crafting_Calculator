@@ -277,3 +277,9 @@ function fillWeaponRecordList(){
     }
     mysqli_close($conn);
 }
+
+if(isset($_GET['function'])){
+    if($_GET['function'] == 'fillWeaponRecordList'){
+        fillWeaponRecordList();
+    }
+}
