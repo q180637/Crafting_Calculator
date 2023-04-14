@@ -50,7 +50,9 @@ function addToWeapon(){
     //     $base_RPM = "NULL";
     // }
 
-    $sql ="INSERT INTO weapons(weapon_name, weapon_type, weapon_source, pattern_count, base_impact, base_range, base_stability, base_handling, base_reload, base_AA, base_zoom, base_recoil, base_RPM, base_draw, base_accuracy, base_mag, icon_file_path) VALUES ('$weapon_name', '$weapon_type', '$weapon_source', '$pattern_count', '$base_impact', '$base_range', '$base_stability', '$base_handling', '$base_reload', '$base_AA', '$base_zoom', '$base_recoil', '$base_RPM', '$base_draw', '$base_accuracy', '$base_mag', '$icon_file_path')";
+    $sql ="INSERT INTO weapons(weapon_name, weapon_type, weapon_source, pattern_count, base_impact, base_range, base_stability, base_handling, base_reload, base_AA, base_zoom, base_recoil, base_RPM, base_draw, base_accuracy, base_mag, icon_file_path) VALUES ('$weapon_name', '$weapon_type', '$weapon_source', '$pattern_count', '$base_impact', NULLIF('$base_range',''), '$base_stability', '$base_handling', '$base_reload', '$base_AA', '$base_zoom', '$base_recoil', NULLIF('$base_RPM',''), NULLIF('$base_draw',''), NULLIF('$base_accuracy',''), '$base_mag', '$icon_file_path')";
+
+
 
     if(mysqli_query($conn, $sql)){
         echo "<h3>Record added to database</h3>";

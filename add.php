@@ -58,11 +58,6 @@
                     <option value ="trait2Bridge" onclick="answer()">Trait Column 2 Combinations</option>
                 </select>
                 <div id="weapons">
-                    <?php
-                        if(array_key_exists('save', $_POST)){
-                            addToWeapon();
-                        }
-                    ?>
                     <form id="weapon_form" method="post">
                         <input type="text" id="weapon_name" name="weapon_name" placeholder="Insert Weapon Name"></input>
                         <input type="text" id="weapon_type" name="weapon_type" placeholder="Insert Weapon Type"></input>
@@ -86,11 +81,6 @@
                     </form>
                 </div>
                 <div id="perks">
-                    <?php
-                        if(array_key_exists('save_perks', $_POST)){
-                            addToPerks();
-                        }
-                    ?>
                     <form id="perks_form" method="post">
                         <input type="text" id="perk_name" name="perk_name" placeholder="Insert Perk Name"></input>
                         <input type="text" id="perk_desc" name="perk_desc" placeholder="Insert Perk Description"></input>
@@ -120,11 +110,6 @@
                     </form>
                 </div>
                 <div id="logon">
-                    <?php
-                        if(array_key_exists('save_logon', $_POST)){
-                            addToLogon();
-                        }
-                    ?>
                     <form id="logon_form" method="post">
                         <input type="text" id="username" name="username" placeholder="Insert username"></input>
                         <label for="password" class="passLabel">Insert the user's password</label>
@@ -139,11 +124,6 @@
                     </form>
                 </div>
                 <div id="frames">
-                    <?php
-                        if(array_key_exists('save_frames', $_POST)){
-                            addToFrames();
-                        }
-                    ?>
                     <form id="frame_form" method="post">
                         <input type="text" id="frame_bridge_weapon_ID" name="frame_bridge_weapon_ID" placeholder="Insert A Weapon ID"></input>
                         <input type="text" id="weapon_frame_ID" name="weapon_frame_ID" placeholder="Insert a Frame Perk ID"></input>
@@ -152,11 +132,6 @@
                     </form>
                 </div>
                 <div id="barrels">
-                    <?php
-                        if(array_key_exists('save_barrels', $_POST)){
-                            addToBarrels();
-                        }
-                    ?>
                     <form id="barrel_form" method="post">
                         <input type="text" id="barrel_bridge_weapon_ID" name="barrel_bridge_weapon_ID" placeholder="Insert A Weapon ID"></input>
                         <input type="text" id="weapon_barrel_ID" name="weapon_barrel_ID" placeholder="Insert A Barrel Perk ID"></input>
@@ -165,11 +140,6 @@
                     </form>
                 </div>
                 <div id="mags">
-                    <?php
-                        if(array_key_exists('save_mags', $_POST)){
-                            addToMags();
-                        }
-                    ?>
                     <form id="mag_form" method="post">
                         <input type="text" id="mag_bridge_weapon_ID" name="mag_bridge_weapon_ID" placeholder="Insert A Weapon ID"></input>
                         <input type="text" id="weapon_mag_ID" name="weapon_mag_ID" placeholder="Insert A Mag Perk ID"></input>
@@ -178,11 +148,6 @@
                     </form>
                 </div>
                 <div id="trait1">
-                    <?php
-                        if(array_key_exists('save_trait1', $_POST)){
-                            addToTrait1();
-                        }
-                    ?>
                     <form id="trait1_form" method="post">
                         <input type="text" id="trait1_bridge_weapon_ID" name="trait1_bridge_weapon_ID" placeholder="Insert A Weapon ID"></input>
                         <input type="text" id="weapon_trait_ID" name="weapon_trait_ID" placeholder="Insert A Trait Column 1 Perk ID"></input>
@@ -191,11 +156,6 @@
                     </form>
                 </div>
                 <div id="trait2" method="post">
-                    <?php
-                        if(array_key_exists('save_trait2', $_POST)){
-                            addToTrait2();
-                        }
-                    ?>
                     <form id="trait2_form">
                         <input type="text" id="trait2_bridge_weapon_ID" name="trait2_bridge_weapon_ID" placeholder="Insert A Weapon ID"></input>
                         <input type="text" id="weapon_trait2_ID" name="weapon_trait2_ID" placeholder="Insert A Trait Column 2 Perk ID"></input>
@@ -243,11 +203,7 @@
                 </div>
                 <div class="form_area">
                     <div id="desktop_weapons">
-                        <?php
-                            if(array_key_exists('save', $_POST)){
-                            addToWeapon();
-                            }
-                        ?>
+                        
                         <form id="weapon_form_desktop" method="post">
                             <input type="text" id="desktop_weapon_name" name="weapon_name" placeholder="Insert Weapon Name"></input> 
                             <input type="text" id="desktop_weapon_type" name="weapon_type" placeholder="Insert Weapon Type"></input>
@@ -266,15 +222,10 @@
                             <input type="text" id="desktop_base_accuracy" name="base_accuracy" placeholder="Insert Weapon Accuracy Stat if applicable"></input>
                             <input type="text" id="desktop_base_mag" name="base_mag" placeholder="Insert Weapon Mag Size"></input>
                             <input type="text" id="desktop_icon_file_path" name="icon_file_path" placeholder="Insert Weapon Image file Path"></input>
-                            <input id="save" type="submit" value="Save and add to database" name="save"></input>
+                            <input id="save" type="submit" value=" and add to database" name="save"></input>
                         </form>
                     </div>
                     <div id="desktop_perks" >
-                        <?php
-                            if(array_key_exists('save_perks', $_POST)){
-                            addToPerks();
-                            }
-                        ?>
                         <form id="perks_form_desktop" method="post">
                             <input type="text" id="perk_name" name="perk_name" placeholder="Insert Perk Name"></input>
                             <input type="text" id="perk_desc" name="perk_desc" placeholder="Insert Perk Description"></input>
@@ -303,11 +254,6 @@
                         </form>
                     </div>
                     <div id="desktop_logon">
-                        <?php
-                            if(array_key_exists('save_logon', $_POST)){
-                            addToLogon();
-                            }
-                        ?>
                         <form id="logon_form_desktop" method="post">
                             <input type="text" id="username" name="username" placeholder="Insert username"></input>
                             <label for="password" class="passLabel">Insert the user's password</label>
@@ -321,11 +267,6 @@
                         </form>
                     </div>
                     <div id="desktop_frames">
-                        <?php
-                            if(array_key_exists('save_frames', $_POST)){
-                            addToFrames();
-                            }
-                        ?>
                         <form id="frame_form_desktop" method="post">
                             <input type="text" id="frame_bridge_weapon_ID" name="frame_bridge_weapon_ID" placeholder="Insert A Weapon ID"></input>
                             <input type="text" id="weapon_frame_ID" name="weapon_frame_ID" placeholder="Insert a Frame Perk ID"></input>
@@ -333,11 +274,6 @@
                         </form>
                     </div>
                     <div id="desktop_barrels">
-                        <?php
-                            if(array_key_exists('save_barrels', $_POST)){
-                            addToBarrels();
-                            }
-                        ?>
                         <form id="barrel_form_desktop" method="post">
                             <input type="text" id="barrel_bridge_weapon_ID" name="barrel_bridge_weapon_ID" placeholder="Insert A Weapon ID"></input>
                             <input type="text" id="weapon_barrel_ID" name="weapon_barrel_ID" placeholder="Insert A Barrel Perk ID"></input>
@@ -345,11 +281,6 @@
                         </form>
                     </div>
                     <div id="desktop_mags">
-                        <?php
-                            if(array_key_exists('save_mags', $_POST)){
-                            addToMags();
-                            }
-                        ?>
                         <form id="mag_form_desktop" method="post">
                             <input type="text" id="mag_bridge_weapon_ID" name="mag_bridge_weapon_ID" placeholder="Insert A Weapon ID"></input>
                             <input type="text" id="weapon_mag_ID" name="weapon_mag_ID" placeholder="Insert A Mag Perk ID"></input>
@@ -357,11 +288,6 @@
                         </form>
                     </div>
                     <div id="desktop_trait1">
-                        <?php
-                            if(array_key_exists('save_trait1', $_POST)){
-                            addToTrait1();
-                            }
-                        ?>
                         <form id="trait1_form_desktop" method="post">
                             <input type="text" id="trait1_bridge_weapon_ID" name="trait1_bridge_weapon_ID" placeholder="Insert A Weapon ID"></input>
                             <input type="text" id="weapon_trait_ID" name="weapon_trait_ID" placeholder="Insert A Trait Column 1 Perk ID"></input>
@@ -369,11 +295,6 @@
                         </form>
                     </div>
                     <div id="desktop_trait2">
-                        <?php
-                            if(array_key_exists('save_trait2', $_POST)){
-                            addToTrait2();
-                            }
-                        ?>
                         <form id="trait2_form_desktop" method="post">
                             <input type="text" id="trait2_bridge_weapon_ID" name="trait2_bridge_weapon_ID" placeholder="Insert A Weapon ID"></input>
                             <input type="text" id="weapon_trait2_ID" name="weapon_trait2_ID" placeholder="Insert A Trait Column 2 Perk ID"></input>
@@ -384,5 +305,31 @@
             </div>
         </div>
         <script src="js/add_form.js"></script>
+        <?php
+            if(array_key_exists('save', $_POST)){
+            addToWeapon();
+            }
+            else if(array_key_exists('save_perks', $_POST)){
+                addToPerks();
+            }
+            else if(array_key_exists('save_logon', $_POST)){
+                addToLogon();
+            }
+            else if(array_key_exists('save_frames', $_POST)){
+                addToFrames();
+            }
+            else if(array_key_exists('save_barrels', $_POST)){
+                addToBarrels();
+            }
+            else if(array_key_exists('save_mags', $_POST)){
+                addToMags();
+            }
+            else if(array_key_exists('save_trait1', $_POST)){
+                addToTrait1();
+            }
+            else if(array_key_exists('save_trait2', $_POST)){
+                addToTrait2();
+            }
+        ?>
     </body>
 </html>
