@@ -240,6 +240,11 @@
   }
 }
 @media screen and (min-width: 1200px) {
+  body .success {
+    position: absolute;
+    top: 40vh;
+    left: 60vw;
+  }
   .body_wrapper {
     display: grid;
     grid-template-columns: 31.35vw 63.65vw;

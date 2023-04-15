@@ -21,7 +21,6 @@
         <link href="css/add.css" rel="stylesheet">
         <link rel="icon" href="img/destiny_logo.png" title="Destiny logo favicon" alt="Destiny logo favicon">
         <script src="js/burger_menu.js"></script>
-
     </head>
     <body>
         <div class="mobile">

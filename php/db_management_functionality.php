@@ -55,7 +55,7 @@ function addToWeapon(){
 
 
     if(mysqli_query($conn, $sql)){
-        echo "<h3>Record added to database</h3>";
+        echo "<h3 class=\"success\">Record added to database</h3>";
     }
     else{
         echo "Error: Record failed to add. $sql. "
@@ -100,7 +100,7 @@ function addToPerks(){
     $sql = "INSERT INTO perks(perk_name, perk_desc, perk_type, perk_impact_change, perk_range_change, perk_stab_change, perk_handling_change, perk_reload_change, perk_AA_change, perk_zoom_change, perk_recoil_change, perk_RPM_change, perk_draw_time_change, perk_accuracy_change, perk_mag_size_change, perk_dmg_buff, perk_drowned_cost, perk_res_element_cost, perk_res_alloy_cost, perk_ascendant_alloy_cost, perk_glimmer_cost, perk_e_core_cost, icon_file_path)VALUES('$perk_name', '$perk_desc', '$perk_type', '$perk_impact_change', '$perk_range_change', '$perk_stab_change', '$perk_handling_change', '$perk_reload_change', '$perk_AA_change', '$perk_zoom_change', '$perk_recoil_change', '$perk_RPM_change', '$perk_draw_time_change', '$perk_accuracy_change', '$perk_mag_size_change', '$perk_dmg_buff', '$perk_drowned_cost', '$perk_res_element_cost', '$perk_res_alloy_cost', '$perk_ascendant_alloy_cost', '$perk_glimmer_cost', '$perk_e_core_cost', '$icon_file_path')";
 
     if(mysqli_query($conn, $sql)){
-        echo "<h3>Record added to database</h3>";
+        echo "<h3 class=\"success\">Record added to database</h3>";
     }
     else{
         echo "Error: Record failed to add. $sql. "
@@ -125,7 +125,7 @@ function addToLogon(){
     $sql = "INSERT INTO logon(account_username, account_password, is_admin) VALUES('$usernameInput', '$passwordInput', '$admin')";
     
     if(mysqli_query($conn, $sql)){
-        echo "<h3 id=\"insertSuccess\"> Record added to database</h3>";
+        echo "<h3 id=\"insertSuccess\" class=\"success\"> Record added to database</h3>";
     }
     else{
         echo "<h3 id=\"insertFail\">Error: Record failed to add. $sql. </h3>"
@@ -149,7 +149,7 @@ function addToFrames(){
     $sql = "INSERT INTO framebridge(frame_bridge_weapon_ID, weapon_frame_ID)VALUES('$frameWepID', '$framePerkID')";
     
     if(mysqli_query($conn, $sql)){
-        echo "<h3>Record added to database</h3>";
+        echo "<h3 class=\"success\">Record added to database</h3>";
     }
     else{
         echo "Error: Record failed to add. $sql. "
@@ -170,10 +170,10 @@ function addToBarrels(){
     $barrelWepID = $_REQUEST['barrel_bridge_weapon_ID'];
     $barrelPerkID = $_REQUEST['weapon_barrel_ID'];
 
-    $sql = "INSERT INTO barrelbridge(barrel_bridge_weapon_ID, weapon_barrel_ID)VALUES($barrelWepID, $barrelPerkID)";
+    $sql = "INSERT INTO barrelbridge(barrel_bridge_weapon_ID, weapon_barrel_ID)VALUES('$barrelWepID', '$barrelPerkID')";
     
     if(mysqli_query($conn, $sql)){
-        echo "<h3>Record added to database</h3>";
+        echo "<h3 class=\"success\">Record added to database</h3>";
     }
     else{
         echo "Error: Record failed to add. $sql. "
@@ -194,10 +194,10 @@ function addToMags(){
     $magWepID = $_REQUEST['mag_bridge_weapon_ID'];
     $magPerkID = $_REQUEST['weapon_mag_ID'];
 
-    $sql = "INSERT INTO magbridge(mag_bridge_weapon_ID, weapon_mag_ID)VALUES($magWepID, $magPerkID)";
+    $sql = "INSERT INTO magbridge(mag_bridge_weapon_ID, weapon_mag_ID)VALUES('$magWepID', '$magPerkID')";
     
     if(mysqli_query($conn, $sql)){
-        echo "<h3>Record added to database</h3>";
+        echo "<h3 class=\"success\">Record added to database</h3>";
     }
     else{
         echo "Error: Record failed to add. $sql. "
@@ -218,10 +218,10 @@ function addToTrait1(){
     $trait1WepID = $_REQUEST['trait1_bridge_weapon_ID'];
     $trait1PerkID = $_REQUEST['weapon_trait_ID'];
 
-    $sql = "INSERT INTO trait1bridge(trait1_bridge_weapon_ID, weapon_trait1_I)VALUES($trait1WepID, $trait1PerkID)";
+    $sql = "INSERT INTO trait1bridge(trait1_bridge_weapon_ID, weapon_trait1_I)VALUES('$trait1WepID', 'trait1PerkID')";
     
     if(mysqli_query($conn, $sql)){
-        echo "<h3>Record added to database</h3>";
+        echo "<h3 class=\"success\">Record added to database</h3>";
     }
     else{
         echo "Error: Record failed to add. $sql. "
@@ -242,10 +242,10 @@ function addToTrait2(){
     $trait2WepID = $_REQUEST['trait2_bridge_weapon_ID'];
     $trait2PerkID = $_REQUEST['weapon_trait2_ID'];
 
-    $sql = "INSERT INTO trait2bridge(trait2_bridge_weapon_ID, weapon_trait2_ID)VALUES($trait2WepID, $trait2PerkID)";
+    $sql = "INSERT INTO trait2bridge(trait2_bridge_weapon_ID, weapon_trait2_ID)VALUES('$trait2WepID', '$trait2PerkID')";
     
     if(mysqli_query($conn, $sql)){
-        echo "<h3>Record added to database</h3>";
+        echo "<h3 class=\"success\">Record added to database</h3>";
     }
     else{
         echo "Error: Record failed to add. $sql. "
@@ -256,8 +256,6 @@ function addToTrait2(){
 }
 
 function fillWeaponRecordList(){
-    header('Content-Type: application/json');
-
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -271,7 +269,7 @@ function fillWeaponRecordList(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option class =".$row["weapon_name"]." id=w".$row["weapon_ID"]." onclick=\"answer()\" value=".$row["weapon_name"].">";
+            $arrayadd = "<option id=w".$row["weapon_ID"]." onclick=\"load()\" value=".$row["weapon_name"].">".$row['weapon_name']."</option>";
             array_push($records, $arrayadd);
         }return $records;
     } else{

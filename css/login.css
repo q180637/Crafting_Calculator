@@ -8,43 +8,43 @@
   .body_wrapper input {
     color: white;
   }
-  .body_wrapper .username {
+  .body_wrapper #mobileSignup .username {
     grid-row: 1;
     grid-column: 2;
     text-align: center;
   }
-  .body_wrapper #username {
+  .body_wrapper #mobileSignup #username {
     grid-row: 2;
     grid-column: 2;
     background-color: #2b2b33;
     border-style: solid;
     border-color: #23232a;
   }
-  .body_wrapper .passLabel {
+  .body_wrapper #mobileSignup .passLabel {
     grid-row: 3;
     grid-column: 2;
     text-align: center;
   }
-  .body_wrapper #password {
+  .body_wrapper #mobileSignup #password {
     grid-row: 4;
     grid-column: 2;
     background-color: #2b2b33;
     border-style: solid;
     border-color: #23232a;
   }
-  .body_wrapper #sign_in {
+  .body_wrapper #mobileSignup #sign_in {
     grid-row: 5;
     grid-column: 2;
     background-color: #b78c25;
     border-style: solid;
     border-color: #ffce1f;
   }
-  .body_wrapper .signup_link {
+  .body_wrapper #mobileSignup .signup_link {
     grid-row: 6;
     grid-column: 2;
     text-align: center;
   }
-  .body_wrapper .signup_link a {
+  .body_wrapper #mobileSignup .signup_link a {
     text-align: center;
     text-decoration: underline;
   }
@@ -60,43 +60,43 @@
   .body_wrapper input {
     color: white;
   }
-  .body_wrapper .username {
+  .body_wrapper #desktopSignup .username {
     grid-row: 1;
     grid-column: 2;
     text-align: center;
   }
-  .body_wrapper #username {
+  .body_wrapper #desktopSignup #username {
     grid-row: 2;
     grid-column: 2;
     background-color: #2b2b33;
     border-style: solid;
     border-color: #23232a;
   }
-  .body_wrapper .passLabel {
+  .body_wrapper #desktopSignup .passLabel {
     grid-row: 3;
     grid-column: 2;
     text-align: center;
   }
-  .body_wrapper #password {
+  .body_wrapper #desktopSignup #password {
     grid-row: 4;
     grid-column: 2;
     background-color: #2b2b33;
     border-style: solid;
     border-color: #23232a;
   }
-  .body_wrapper #sign_in {
+  .body_wrapper #desktopSignup #sign_in {
     grid-row: 5;
     grid-column: 2;
     background-color: #b78c25;
     border-style: solid;
     border-color: #ffce1f;
   }
-  .body_wrapper .signup_link {
+  .body_wrapper #desktopSignup .signup_link {
     grid-row: 6;
     grid-column: 2;
     text-align: center;
   }
-  .body_wrapper .signup_link a {
+  .body_wrapper #desktopSignup .signup_link a {
     text-align: center;
     text-decoration: underline;
   }

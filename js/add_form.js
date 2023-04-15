@@ -2,6 +2,10 @@
 var e = document.getElementById('tableList');
 
 function answer(){
+    const remove = document.querySelectorAll('.success');
+    for (const el of remove){
+        el.remove();
+    }
     if (e.value =="logon"){
         document.getElementById('weapon_form').style.visibility = 'hidden';
         document.getElementById('perks_form').style.visibility = 'hidden';
@@ -113,6 +117,10 @@ document.getElementById("trait1Button").onclick = desktopChoice;
 document.getElementById("trait2Button").onclick = desktopChoice;
 
 function desktopChoice(){
+    const remove = document.querySelectorAll('.success');
+    for (const el of remove){
+        el.remove();
+    }
     // sets a variable to use in comparison
     var clickedButton = (this.id)
 

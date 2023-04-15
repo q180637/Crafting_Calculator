@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+        require 'php/db_management_functionality.php';
+    ?>
+    <?php 
+        ini_set('display_errors', 1);  
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+?>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -32,12 +40,14 @@
                 </ul>
             </nav>
             <div class="body_wrapper">
-                <label for="username" class="username">Choose a username</label>
-                <input type="text" id="username" name="username"></input>
-                <label for="password" class="passLabel">Choose a password</label>
-                <input type="password" id="password" name="password"></input>
-                <input id="sign_in" type="submit" value="Sign in" name="sign_up">
-                </input>
+                <form id="mobileSignup" method="post">
+                    <label for="username" class="username">Choose a username</label>
+                    <input type="text" id="username" name="username"></input>
+                    <label for="password" class="passLabel">Choose a password</label>
+                    <input type="password" id="password" name="password"></input>
+                    <input id="sign_in" type="submit" value="Sign in" name="sign_up">
+                    </input>
+                </form>
             </div>
         </div>
         <div class="desktop">
@@ -58,13 +68,20 @@
                 </ul>
             </nav>
             <div class="body_wrapper">
-                <label for="username" class="username">Choose a username</label>
-                <input type="text" id="username" name="username"></input>
-                <label for="password" class="passLabel">Choose a password</label>
-                <input type="password" id="password" name="password"></input>
-                <input id="sign_in" type="submit" value="Sign in" name="save_logon">
-                </input>
+                <form id="destkopSignup" method="post">
+                    <label for="username" class="username">Choose a username</label>
+                    <input type="text" id="username" name="username"></input>
+                    <label for="password" class="passLabel">Choose a password</label>
+                    <input type="password" id="password" name="password"></input>
+                    <input id="sign_in" type="submit" value="Sign in" name="save_logon">
+                    </input>
+                </form>
             </div>
         </div>
+        <?php
+            if(array_key_exists('save', $_POST)){
+            addToLogon();
+            }
+        ?>
     </body>
 </html>

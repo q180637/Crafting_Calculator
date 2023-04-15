@@ -46,26 +46,26 @@
                 </label>
                     <select name="tableList" id="tableList" method="post" onchange="fillMobileForm()">
                         <option value="default" selected="selected" hidden="hidden">Choose a Table to edit</option>
-                        <option value ="weapons">Weapons</option> 
-                        <option value ="perks">Perks</option>
-                        <option value ="logon">Logon</option>
-                        <option value ="frameBridge">Frame Combinations</option>
-                        <option value ="barrelBridge">Barrel Combinations</option>
-                        <option value ="magBridge">Mag Combinations</option>
-                        <option value ="trait1Bridge">Trait Column 1 Combinations</option>
-                        <option value ="trait2Bridge">Trait Column 2 Combinations</option>
+                        <option value ="weapons" onclick="answer()">Weapons</option>
+                        <option value ="perks" onclick="answer()">Perks</option>
+                        <option value ="logon" onclick="answer()">Logon</option>    
+                        <option value ="frameBridge" onclick="answer()">Frame Combinations</option>
+                        <option value ="barrelBridge" onclick="answer()">Barrel Combinations</option>                                             
+                        <option value ="magBridge" onclick="answer()">Mag Combinations</option>
+                        <option value ="trait1Bridge" onclick="answer()">Trait Column 1 Combinations</option>
+                        <option value ="trait2Bridge" onclick="answer()">Trait Column 2 Combinations</option>
                     </select>
                 <select name="recordList" id="recordList">
                     <?php
                         // this needs to fill with the records in the table selected in tableList
-                        $records=fillWeaponRecordList();
+                        $fill=fillWeaponRecordList();
                         $i = 0;
-                        foreach($records as $list){
-                            echo $records[$i];
+                        foreach($fill as $list){
+                            echo $fill[$i];
                             $i++;
                         }
                     ?>
-                    <option value="default" selected="selected" hidden="hidden">Choose a Table to Add to</option>
+                    <option value="default" selected="selected" hidden="hidden">Choose a weapon to Edit</option>
                 </select>
                 <div id="weapons">
                     <?php
@@ -424,8 +424,10 @@
                 </div>
             </div>
         </div>
+        <script src="js/edit_form.js"></script>
+        <script> src="js/add_form.js"</script>
     </body>
-    <script src="js/edit_form.js"></script>
+    <!-- <script src="js/edit_form.js"></script> -->
     <script>
         document.getElementById('tableList').onchange = mobileTableFill;
 
@@ -442,4 +444,5 @@
             )
         }
     </script>
+    
 </html>
