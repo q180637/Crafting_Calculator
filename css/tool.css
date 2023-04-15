@@ -1,0 +1,242 @@
+@media screen and (max-width: 1199px) {
+  .body_wrapper {
+    display: grid;
+    grid-template-columns: 10vw 80vw 10vw;
+    grid-template-rows: auto auto auto auto;
+  }
+  .body_wrapper .dropdowns {
+    grid-row: 1;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(6, 4vh);
+  }
+  .body_wrapper .dropdowns #weapon {
+    grid-row: 1;
+  }
+  .body_wrapper .dropdowns #frame {
+    grid-row: 2;
+  }
+  .body_wrapper .dropdowns #barrel {
+    grid-row: 3;
+  }
+  .body_wrapper .dropdowns #mag {
+    grid-row: 4;
+  }
+  .body_wrapper .dropdowns #trait1 {
+    grid-row: 5;
+  }
+  .body_wrapper .dropdowns #trait2 {
+    grid-row: 6;
+  }
+  .body_wrapper .stats {
+    grid-row: 2;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 8vh 48vh;
+  }
+  .body_wrapper .stats .statHeader {
+    grid-row: 1;
+    text-align: center;
+  }
+  .body_wrapper .stats .statList {
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: repeat(12, 4vh);
+    text-align: center;
+  }
+  .body_wrapper .stats .statList #impact {
+    grid-row: 1;
+  }
+  .body_wrapper .stats .statList #range {
+    grid-row: 2;
+  }
+  .body_wrapper .stats .statList #stab {
+    grid-row: 3;
+  }
+  .body_wrapper .stats .statList #handling {
+    grid-row: 4;
+  }
+  .body_wrapper .stats .statList #reload {
+    grid-row: 5;
+  }
+  .body_wrapper .stats .statList #aa {
+    grid-row: 6;
+  }
+  .body_wrapper .stats .statList #zoom {
+    grid-row: 7;
+  }
+  .body_wrapper .stats .statList #recoilDir {
+    grid-row: 8;
+  }
+  .body_wrapper .stats .statList #rpm {
+    grid-row: 9;
+  }
+  .body_wrapper .stats .statList #draw {
+    grid-row: 10;
+  }
+  .body_wrapper .stats .statList #accuracy {
+    grid-row: 11;
+  }
+  .body_wrapper .stats .statList #mag {
+    grid-row: 12;
+  }
+  .body_wrapper .cost {
+    grid-row: 3;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 8vh 24vh;
+  }
+  .body_wrapper .cost .weaponCost {
+    grid-row: 1;
+    text-align: center;
+  }
+  .body_wrapper .cost .costList {
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: repeat(6, 4vh);
+    text-align: center;
+  }
+  .body_wrapper .cost .costList #resonantElement {
+    grid-row: 1;
+  }
+  .body_wrapper .cost .costList #drownedElement {
+    grid-row: 2;
+  }
+  .body_wrapper .cost .costList #glimmer {
+    grid-row: 3;
+  }
+  .body_wrapper .cost .costList #ecore {
+    grid-row: 4;
+  }
+  .body_wrapper .cost .costList #ascendantAlloy {
+    grid-row: 5;
+  }
+  .body_wrapper .cost .costList .saveBuild {
+    grid-row: 6;
+    margin-bottom: 1vh;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .body_wrapper {
+    padding: 1.5%;
+    display: grid;
+    grid-template-columns: 31.35vw 62.7vw;
+    grid-template-rows: 5vh 70vh;
+    gap: 2vh;
+  }
+  .body_wrapper header {
+    grid-row: 1;
+    grid-column: 1/span 2;
+    text-align: center;
+    font-size: xx-large;
+  }
+  .body_wrapper .weaponList {
+    grid-row: 2;
+    grid-column: 1;
+    background-color: #2b2b33;
+    max-height: 75vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(50, auto);
+    border-style: solid;
+    border-color: #23232a;
+  }
+  .body_wrapper .weaponList .wepListHead {
+    text-align: center;
+    padding: 1%;
+    font-size: larger;
+    border-bottom: solid;
+    border-color: #23232a;
+    grid-row: 1;
+    border-collapse: collapse;
+  }
+  .body_wrapper .toolArea {
+    grid-row: 2;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 66% 33%;
+    max-height: 75vh;
+    gap: 0.5vh;
+  }
+  .body_wrapper .toolArea .perkArea {
+    grid-row: 1;
+    background-color: #2b2b33;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    border-style: solid;
+    border-color: #23232a;
+  }
+  .body_wrapper .toolArea .perkArea .frameHolder {
+    grid-column: 1;
+    border-right: solid;
+    border-color: #23232a;
+  }
+  .body_wrapper .toolArea .perkArea .barrelHolder {
+    grid-column: 2;
+    border-right: solid;
+    border-color: #23232a;
+  }
+  .body_wrapper .toolArea .perkArea .magHolder {
+    grid-column: 3;
+    border-right: solid;
+    border-color: #23232a;
+  }
+  .body_wrapper .toolArea .perkArea .col1Holder {
+    grid-column: 4;
+    border-right: solid;
+    border-color: #23232a;
+  }
+  .body_wrapper .toolArea .perkArea .col2Holder {
+    grid-column: 5;
+  }
+  .body_wrapper .toolArea .statArea {
+    grid-row: 2;
+    background-color: #2b2b33;
+    border-style: solid;
+    border-color: #23232a;
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(6, 16%);
+    align-items: center;
+  }
+  .body_wrapper .toolArea .statArea h4 {
+    font-weight: normal;
+  }
+  .body_wrapper .toolArea .statArea .impact, .body_wrapper .toolArea .statArea .range, .body_wrapper .toolArea .statArea .stab, .body_wrapper .toolArea .statArea .handling, .body_wrapper .toolArea .statArea .reload, .body_wrapper .toolArea .statArea .aa {
+    grid-column: 1;
+  }
+  .body_wrapper .toolArea .statArea .zoom, .body_wrapper .toolArea .statArea .recoil, .body_wrapper .toolArea .statArea .rpm, .body_wrapper .toolArea .statArea .draw, .body_wrapper .toolArea .statArea .accuracy, .body_wrapper .toolArea .statArea .mag {
+    grid-column: 2;
+  }
+  .body_wrapper .toolArea .statArea .resElement, .body_wrapper .toolArea .statArea .drownedElement, .body_wrapper .toolArea .statArea .glimmer, .body_wrapper .toolArea .statArea .ecore, .body_wrapper .toolArea .statArea .ascendantAlloy, .body_wrapper .toolArea .statArea .saveBuild {
+    grid-column: 3;
+  }
+  .body_wrapper .toolArea .statArea .impact, .body_wrapper .toolArea .statArea .zoom, .body_wrapper .toolArea .statArea .resElement {
+    grid-row: 1;
+  }
+  .body_wrapper .toolArea .statArea .range, .body_wrapper .toolArea .statArea .recoil, .body_wrapper .toolArea .statArea .drownedElement {
+    grid-row: 2;
+  }
+  .body_wrapper .toolArea .statArea .stab, .body_wrapper .toolArea .statArea .rpm, .body_wrapper .toolArea .statArea .glimmer {
+    grid-row: 3;
+  }
+  .body_wrapper .toolArea .statArea .handling, .body_wrapper .toolArea .statArea .draw, .body_wrapper .toolArea .statArea .ecore {
+    grid-row: 4;
+  }
+  .body_wrapper .toolArea .statArea .reload, .body_wrapper .toolArea .statArea .accuracy, .body_wrapper .toolArea .statArea .ascendantAlloy {
+    grid-row: 5;
+  }
+  .body_wrapper .toolArea .statArea .aa, .body_wrapper .toolArea .statArea .mag, .body_wrapper .toolArea .statArea .saveBuild {
+    grid-row: 6;
+  }
+  .body_wrapper .toolArea .statArea .saveBuild {
+    background-color: #b78c25;
+    border: solid #ffce1f;
+    color: white;
+    height: 75%;
+  }
+}/*# sourceMappingURL=tool.css.map */
