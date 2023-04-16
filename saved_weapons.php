@@ -22,7 +22,7 @@
                 </header>
                 <ul id="mobile_links">
                     <li class="tool">
-                        <a href="index.html">Calculator Tool</a>
+                        <a href="index.php">Calculator Tool</a>
                     </li>
                     <li class="login">
                         <a href="login.php">Login</a>
@@ -111,10 +111,10 @@
             <nav>
                 <ul class="links">
                     <li>   
-                        <img class="logo" src="img/destiny_logo.png" alt="Destiny Logo for Button" href = "index.html">
+                        <img class="logo" src="img/destiny_logo.png" alt="Destiny Logo for Button" href = "index.php">
                     </li> 
                     <li class="tool">
-                        <a href="index.html">Calculator Tool</a>
+                        <a href="index.php">Calculator Tool</a>
                     </li>
                     <li class="login">
                         <a href="login.php">Login</a>

@@ -16,7 +16,7 @@
         <meta name="description" content="">
         <title>Sign Up</title>
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/signup.css">
         <link rel="icon" href="img/destiny_logo.png" title="Destiny logo favicon" alt="Destiny logo favicon">
         <script src="js/burger_menu.js"></script>
     </head>
@@ -29,7 +29,7 @@
                 </header>
                 <ul id="mobile_links">
                     <li class="tool">
-                        <a href="index.html">Calculator Tool</a>
+                        <a href="index.php">Calculator Tool</a>
                     </li>
                     <li class="login">
                         <a href="login.php">Login</a>
@@ -54,10 +54,10 @@
             <nav>
                 <ul class="links">
                     <li>   
-                        <img class="logo" src="img/destiny_logo.png" alt="Destiny Logo for Button" href = "index.html">
+                        <img class="logo" src="img/destiny_logo.png" alt="Destiny Logo for Button" href = "index.php">
                     </li> 
                     <li class="tool">
-                        <a href="index.html">Calculator Tool</a>
+                        <a href="index.php">Calculator Tool</a>
                     </li>
                     <li class="login">
                         <a href="login.php">Login</a>
@@ -68,7 +68,8 @@
                 </ul>
             </nav>
             <div class="body_wrapper">
-                <form id="destkopSignup" method="post">
+                <header>Sign Up</header>
+                <form id="desktopSignup" method="post">
                     <label for="username" class="username">Choose a username</label>
                     <input type="text" id="username" name="username"></input>
                     <label for="password" class="passLabel">Choose a password</label>

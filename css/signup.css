@@ -2,102 +2,106 @@
   .body_wrapper {
     display: grid;
     grid-template-columns: 25vw 50vw 25vw;
-    grid-template-rows: repeat(6, 3vh);
+    grid-template-rows: repeat(2, 10vh);
     gap: 1vw;
   }
   .body_wrapper input {
     color: white;
   }
-  .body_wrapper .username {
-    grid-row: 1;
+  .body_wrapper #mobileSignup {
     grid-column: 2;
-    text-align: center;
-  }
-  .body_wrapper #username {
     grid-row: 2;
-    grid-column: 2;
-    background-color: #2b2b33;
-    border-style: solid;
-    border-color: #23232a;
+    display: grid;
+    grid-template-rows: repeat(5, 3vh);
+    grid-template-columns: 100%;
+    gap: 2vw;
   }
-  .body_wrapper .passLabel {
-    grid-row: 3;
-    grid-column: 2;
+  .body_wrapper #mobileSignup .username {
+    grid-row: 1;
+    grid-column: 1;
     text-align: center;
   }
-  .body_wrapper #password {
-    grid-row: 4;
-    grid-column: 2;
+  .body_wrapper #mobileSignup #username {
+    grid-row: 2;
+    grid-column: 1;
     background-color: #2b2b33;
     border-style: solid;
     border-color: #23232a;
   }
-  .body_wrapper #sign_in {
+  .body_wrapper #mobileSignup .passLabel {
+    grid-row: 3;
+    grid-column: 1;
+    text-align: center;
+  }
+  .body_wrapper #mobileSignup #password {
+    grid-row: 4;
+    grid-column: 1;
+    background-color: #2b2b33;
+    border-style: solid;
+    border-color: #23232a;
+  }
+  .body_wrapper #mobileSignup #sign_in {
     grid-row: 5;
-    grid-column: 2;
+    grid-column: 1;
     background-color: #b78c25;
     border-style: solid;
     border-color: #ffce1f;
-  }
-  .body_wrapper .signup_link {
-    grid-row: 6;
-    grid-column: 2;
-    text-align: center;
-  }
-  .body_wrapper .signup_link a {
-    text-align: center;
-    text-decoration: underline;
   }
 }
 @media screen and (min-width: 1200px) {
   .body_wrapper {
     display: grid;
     grid-template-columns: 33vw 33vw 33vw;
-    grid-template-rows: repeat(5, 3vh);
+    grid-template-rows: repeat(2, 10vh);
     gap: 1vw;
     padding-top: 10vh;
   }
   .body_wrapper input {
     color: white;
   }
-  .body_wrapper .username {
+  .body_wrapper header {
     grid-row: 1;
     grid-column: 2;
     text-align: center;
+    font-size: xx-large;
   }
-  .body_wrapper #username {
+  .body_wrapper #desktopSignup {
+    grid-column: 2;
     grid-row: 2;
-    grid-column: 2;
-    background-color: #2b2b33;
-    border-style: solid;
-    border-color: #23232a;
+    display: grid;
+    grid-template-rows: repeat(5, 3vh);
+    grid-template-columns: 100%;
+    gap: 2vw;
   }
-  .body_wrapper .passLabel {
-    grid-row: 3;
-    grid-column: 2;
+  .body_wrapper #desktopSignup .username {
+    grid-row: 1;
+    grid-column: 1;
     text-align: center;
   }
-  .body_wrapper #password {
-    grid-row: 4;
-    grid-column: 2;
+  .body_wrapper #desktopSignup #username {
+    grid-row: 2;
+    grid-column: 1;
     background-color: #2b2b33;
     border-style: solid;
     border-color: #23232a;
   }
-  .body_wrapper #sign_in {
+  .body_wrapper #desktopSignup .passLabel {
+    grid-row: 3;
+    grid-column: 1;
+    text-align: center;
+  }
+  .body_wrapper #desktopSignup #password {
+    grid-row: 4;
+    grid-column: 1;
+    background-color: #2b2b33;
+    border-style: solid;
+    border-color: #23232a;
+  }
+  .body_wrapper #desktopSignup #sign_in {
     grid-row: 5;
-    grid-column: 2;
+    grid-column: 1;
     background-color: #b78c25;
     border-style: solid;
     border-color: #ffce1f;
   }
-  .body_wrapper .signup_link {
-    grid-row: 6;
-    grid-column: 2;
-    text-align: center;
-  }
-  .body_wrapper .signup_link a {
-    text-align: center;
-    text-decoration: underline;
-  }
-}/*# sourceMappingURL=login.css.map */
+}/*# sourceMappingURL=signup.css.map */

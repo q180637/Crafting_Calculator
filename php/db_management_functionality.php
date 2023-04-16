@@ -269,7 +269,7 @@ function fillWeaponRecordList(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=w".$row["weapon_ID"]." onclick=\"load()\" value=".$row["weapon_name"].">".$row['weapon_name']."</option>";
+            $arrayadd = "<option id=w".$row["weapon_ID"]." onclick=\"loadWeapons()\" value=".$row["weapon_name"].">".$row['weapon_name']."</option>";
             array_push($records, $arrayadd);
         }return $records;
     } else{
@@ -278,8 +278,126 @@ function fillWeaponRecordList(){
     mysqli_close($conn);
 }
 
+function fillPerksRecordList(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
+
+    $sql = "SELECT perk_ID,  perk_name from perks";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        $records = array();
+        while($row = $result->fetch_assoc()){
+            $arrayadd = "<option id=p".$row["perk_ID"]." onclick=\"loadPerks()\" value=".$row["perk_name"].">".$row['perk_name']."</option>";
+            array_push($records, $arrayadd);
+        }return $records;
+    } else{
+        echo "No records";
+    }
+    mysqli_close($conn);
+}
+
+function fillLogonRecordList(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
+
+    $sql = "SELECT user_ID,  account_username from perks";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        $records = array();
+        while($row = $result->fetch_assoc()){
+            $arrayadd = "<option id=l".$row["user_ID"]." onclick=\"loadLogon()\" value=".$row["account_username"].">".$row['account_username']."</option>";
+            array_push($records, $arrayadd);
+        }return $records;
+    } else{
+        echo "No records";
+    }
+    mysqli_close($conn);
+}
+
+function fillFrameRecordList(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
+
+    $sql = "SELECT frameBridge.frame_bridge_weapon_ID,framebridge.weapon_frame_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from framebridge INNER JOIN perks on framebridge.frame_bridge_weapon_ID = perks.perk_ID INNER join weapons on framebridge.weapon_frame_ID = weapons.weapon_ID";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        $records = array();
+        while($row = $result->fetch_assoc()){
+            $arrayadd = "<option id=f".$row["frame_bridge_weapon_ID"].$row["weapon_frame_ID"]." onclick=\"loadFrames()\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"].$row["perk_name"]."</option>";
+            array_push($records, $arrayadd);
+        }return $records;
+    } else{
+        echo "No records";
+    }
+    mysqli_close($conn);
+}
+
+
+
+
+function loadWeaponForm(){
+    $test = "test";
+
+    echo $test;
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
+
+    $sql = "SELECT * FROM weapons";
+    $result = $conn->query($sql);
+
+    var_dump($sql);
+
+    mysqli_close($conn);
+
+    echo json_encode($sql);
+}
+
 if(isset($_GET['function'])){
     if($_GET['function'] == 'fillWeaponRecordList'){
         fillWeaponRecordList();
+    }
+    else  if($_GET['function'] == 'fillPerksRecordList'){
+        fillPerksRecordList();
+    }
+    else  if($_GET['function'] == 'fillLogonRecordList'){
+        fillLogonRecordList();
+    }
+    else  if($_GET['function'] == 'fillFrameRecordList'){
+        fillFrameRecordList();
+    }
+    else  if($_GET['function'] == 'fillBarrelRecordList'){
+        fillBarrelRecordList();
+    }
+    else  if($_GET['function'] == 'fillMagRecordList'){
+        fillMagRecordList();
+    }
+    else  if($_GET['function'] == 'fillTrait1RecordList'){
+        fillTrait1RecordList();
+    }
+    else  if($_GET['function'] == 'fillTrait2RecordList'){
+        fillTrait2RecordList();
+    }
+    else  if($_GET['function'] == 'loadWeaponForm'){
+        loadWeaponForm();
     }
 }

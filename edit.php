@@ -30,7 +30,7 @@
                 </header>
                 <ul id="mobile_links">
                     <li class="tool">
-                        <a href="index.html">Calculator Tool</a>
+                        <a href="index.php">Calculator Tool</a>
                     </li>
                     <li class="login">
                         <a href="login.php">Login</a>
@@ -44,7 +44,7 @@
                 <label for="tableList" id="tablesDropdown">
                     Select table to edit
                 </label>
-                    <select name="tableList" id="tableList" method="post" onchange="fillMobileForm()">
+                    <select name="tableList" id="tableList" method="post" onchange="mobileTableFill()">
                         <option value="default" selected="selected" hidden="hidden">Choose a Table to edit</option>
                         <option value ="weapons" onclick="answer()">Weapons</option>
                         <option value ="perks" onclick="answer()">Perks</option>
@@ -58,12 +58,25 @@
                 <select name="recordList" id="recordList">
                     <?php
                         // this needs to fill with the records in the table selected in tableList
-                        $fill=fillWeaponRecordList();
+                        $fillWep=fillWeaponRecordList();
                         $i = 0;
-                        foreach($fill as $list){
-                            echo $fill[$i];
+                        foreach($fillWep as $list){
+                            echo $fillWep[$i];
                             $i++;
                         }
+                        // $fillPerks=fillPerksRecordList();
+                        // $i = 0;
+                        // foreach($fillPerks as $list){
+                        //     echo $fillPerks[$i];
+                        //     $i++;
+                        // }
+                        // $fillFrames=fillFrameRecordList();
+                        // $i = 0;
+                        // foreach($fillFrames as $list){
+                        //     echo $fillFrames[$i];
+                        //     $i++;
+                        // }
+                        
                     ?>
                     <option value="default" selected="selected" hidden="hidden">Choose a weapon to Edit</option>
                 </select>
@@ -236,10 +249,10 @@
             <nav>
                 <ul class="links">
                     <li>   
-                        <img class="logo" src="img/destiny_logo.png" alt="Destiny Logo for Button" href = "index.html">
+                        <img class="logo" src="img/destiny_logo.png" alt="Destiny Logo for Button" href = "index.php">
                     </li> 
                     <li class="tool">
-                        <a href="index.html">Calculator Tool</a>
+                        <a href="index.php">Calculator Tool</a>
                     </li>
                     <li class="login">
                         <a href="login.php">Login</a>
@@ -424,25 +437,217 @@
                 </div>
             </div>
         </div>
-        <script src="js/edit_form.js"></script>
+        <!-- <script src="js/edit_form.js"></script> -->
         <script> src="js/add_form.js"</script>
     </body>
-    <!-- <script src="js/edit_form.js"></script> -->
-    <script>
-        document.getElementById('tableList').onchange = mobileTableFill;
+    <script> //putting the form on screen on tablelist change
+        var e = document.getElementById('tableList');
 
-        function mobileTableFill(){
-            // let t = document.getElementById('tableList');
-            
-            // let table = t.options[t.selectedIndex].text;
-            $.ajax(
-                {
-                    method: 'POST',
-                    url: 'php/db_management_functionality.php',
-                    data: "function=fillWeaponRecordList",
-                }
-            )
+        function answer(){
+            const remove = document.querySelectorAll('.success');
+            for (const el of remove){
+                el.remove();
+            }
+            if (e.value =="logon"){
+                document.getElementById('weapon_form').style.visibility = 'hidden';
+                document.getElementById('perks_form').style.visibility = 'hidden';
+                document.getElementById('logon_form').style.visibility = 'visible';
+                document.getElementById('logon_form').style.zIndex = '100';
+                document.getElementById('frame_form').style.visibility = 'hidden';
+                document.getElementById('barrel_form').style.visibility = 'hidden';
+                document.getElementById('mag_form').style.visibility = 'hidden';
+                document.getElementById('trait1_form').style.visibility = 'hidden';
+                document.getElementById('trait2_form').style.visibility = 'hidden';
+            }
+            else if (e.value =="perks"){
+                document.getElementById('weapon_form').style.visibility = 'hidden';
+                document.getElementById('perks_form').style.visibility = 'visible';
+                document.getElementById('perks_form').style.zIndex = '100';
+                document.getElementById('logon_form').style.visibility = 'hidden';
+                document.getElementById('frame_form').style.visibility = 'hidden';
+                document.getElementById('barrel_form').style.visibility = 'hidden';
+                document.getElementById('mag_form').style.visibility = 'hidden';
+                document.getElementById('trait1_form').style.visibility = 'hidden';
+                document.getElementById('trait2_form').style.visibility = 'hidden';
+            }
+            else if (e.value =="weapons"){
+                document.getElementById('weapon_form').style.visibility = 'visible';
+                document.getElementById('weapon_form').style.zIndex = '100';
+                document.getElementById('perks_form').style.visibility = 'hidden';
+                document.getElementById('logon_form').style.visibility = 'hidden';
+                document.getElementById('frame_form').style.visibility = 'hidden';
+                document.getElementById('barrel_form').style.visibility = 'hidden';
+                document.getElementById('mag_form').style.visibility = 'hidden';
+                document.getElementById('trait1_form').style.visibility = 'hidden';
+                document.getElementById('trait2_form').style.visibility = 'hidden';
+            }
+            else if (e.value =="frameBridge"){
+                document.getElementById('weapon_form').style.visibility = 'hidden';
+                document.getElementById('perks_form').style.visibility = 'hidden';
+                document.getElementById('logon_form').style.visibility = 'hidden';
+                document.getElementById('frame_form').style.visibility = 'visible';
+                document.getElementById('frame_form').style.zIndex = '100';
+                document.getElementById('barrel_form').style.visibility = 'hidden';
+                document.getElementById('mag_form').style.visibility = 'hidden';
+                document.getElementById('trait1_form').style.visibility = 'hidden';
+                document.getElementById('trait2_form').style.visibility = 'hidden';
+            }
+            else if (e.value =="barrelBridge"){
+                document.getElementById('weapon_form').style.visibility = 'hidden';
+                document.getElementById('perks_form').style.visibility = 'hidden';
+                document.getElementById('logon_form').style.visibility = 'hidden';
+                document.getElementById('frame_form').style.visibility = 'hidden';
+                document.getElementById('barrel_form').style.visibility = 'visible';
+                document.getElementById('barrel_form').style.zIndex = '100';
+                document.getElementById('mag_form').style.visibility = 'hidden';
+                document.getElementById('trait1_form').style.visibility = 'hidden';
+                document.getElementById('trait2_form').style.visibility = 'hidden';
+            }
+            else if (e.value =="magBridge"){
+                document.getElementById('weapon_form').style.visibility = 'hidden';
+                document.getElementById('perks_form').style.visibility = 'hidden';
+                document.getElementById('logon_form').style.visibility = 'hidden';
+                document.getElementById('frame_form').style.visibility = 'hidden';
+                document.getElementById('barrel_form').style.visibility = 'hidden';
+                document.getElementById('mag_form').style.visibility = 'visible';
+                document.getElementById('mag_form').style.zIndex = '100';
+                document.getElementById('trait1_form').style.visibility = 'hidden';
+                document.getElementById('trait2_form').style.visibility = 'hidden';
+            }
+            else if (e.value =="trait1Bridge"){
+                document.getElementById('weapon_form').style.visibility = 'hidden';
+                document.getElementById('perks_form').style.visibility = 'hidden';
+                document.getElementById('logon_form').style.visibility = 'hidden';
+                document.getElementById('frame_form').style.visibility = 'hidden';
+                document.getElementById('barrel_form').style.visibility = 'hidden';
+                document.getElementById('mag_form').style.visibility = 'hidden';
+                document.getElementById('trait1_form').style.visibility = 'visible';
+                document.getElementById('trait1_form').style.zIndex = '100';
+                document.getElementById('trait2_form').style.visibility = 'hidden';
+            }
+            else if (e.value =="trait2Bridge"){
+                document.getElementById('weapon_form').style.visibility = 'hidden';
+                document.getElementById('perks_form').style.visibility = 'hidden';
+                document.getElementById('logon_form').style.visibility = 'hidden';
+                document.getElementById('frame_form').style.visibility = 'hidden';
+                document.getElementById('barrel_form').style.visibility = 'hidden';
+                document.getElementById('mag_form').style.visibility = 'hidden';
+                document.getElementById('trait1_form').style.visibility = 'hidden';
+                document.getElementById('trait2_form').style.visibility = 'visible';
+                document.getElementById('trait2_form').style.zIndex = '100';
+            }
+            else{
+                document.getElementById('weapon_form').style.visibility = 'hidden';
+                document.getElementById('perks_form').style.visibility = 'hidden';
+                document.getElementById('logon_form').style.visibility = 'hidden';
+                document.getElementById('frame_form').style.visibility = 'hidden';
+                document.getElementById('barrel_form').style.visibility = 'hidden';
+                document.getElementById('mag_form').style.visibility = 'hidden';
+                document.getElementById('trait1_form').style.visibility = 'hidden';
+                document.getElementById('trait2_form').style.visibility = 'hidden';
+            }
         }
     </script>
-    
+    <script> // sends ajax request to fill record list
+
+            function mobileTableFill(){
+                let t = document.getElementById('tableList');
+                if(t.value =="weapons"){
+                    $.ajax(
+                        {
+                            method: 'POST',
+                            url: 'php/db_management_functionality.php',
+                            data: "function=fillWeaponRecordList",
+                        }
+                    )
+                }
+                else if(t.value == "perks"){
+                    $.ajax(
+                        {
+                            method: 'POST',
+                            url: 'php/db_management_functionality.php',
+                            data: "function=fillPerksRecordList",
+                        }
+                    )
+                }
+                else if(t.value == "logon"){
+                    $.ajax(
+                        {
+                            method: 'POST',
+                            url: 'php/db_management_functionality.php',
+                            data: "function=fillLogonRecordList",
+                        }
+                    )
+                }
+                else if (t.value == "frameBridge"){
+                    $.ajax(
+                        {
+                            method: 'POST',
+                            url: 'php/db_management_functionality.php',
+                            data: "function=fillFrameRecordList",
+                        }
+                    )
+                }
+                else if(t.value == "barrelBridge"){
+                    $.ajax(
+                        {
+                            method: 'POST',
+                            url: 'php/db_management_functionality.php',
+                            data: "function=fillBarrelRecordList",
+                        }
+                    )
+                }
+                else if(t.value == "magBridge"){
+                    $.ajax(
+                        {
+                            method: 'POST',
+                            url: 'php/db_management_functionality.php',
+                            data: "function=fillMagRecordList",
+                        }
+                    )
+                }
+                else if(t.value == "trait1Bridge"){
+                    $.ajax(
+                        {
+                            method: 'POST',
+                            url: 'php/db_management_functionality.php',
+                            data: "function=fillTrait1RecordList",
+                        }
+                    )
+                }
+                else if(t.value == "trait2Bridge"){
+                    $.ajax(
+                        {
+                            method: 'POST',
+                            url: 'php/db_management_functionality.php',
+                            data: "function=fillTrait2RecordList",
+                        }
+                    )
+                }
+            }
+            function loadWeapons(){
+                $.ajax(
+                    {
+                        method: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=loadWeaponForm",
+                    }
+                )
+                // fetch("php/db_management_functionality.php")
+                //     .then((response) => {
+                //         if(!response.ok){
+                //             throw new Error("Failed");
+                //         }
+                //         return response.json();
+                //     })
+                //     .then((data)=>{
+                //         console.log(data);
+                //     })
+                //     .catch((error)=> {
+                //         // error handlers here
+                //     });
+                
+            }
+            
+    </script>
 </html>
