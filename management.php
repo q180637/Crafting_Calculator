@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION['username'])){
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -42,6 +48,11 @@
                         Edit/Delete Record
                     </a>
                 </div>
+                <div class="logout_button">
+                    <a href="php/logout.php">
+                        Logout
+                    </a>
+                </div>
             </div>
         </div>
         <div class="desktop">
@@ -68,11 +79,23 @@
                     </a>
                 </div>
                 <div class="edit_button">
-                <a href="edit.php">
+                    <a href="edit.php">
                         Edit/Delete Record
+                    </a>
+                </div>
+                <div class="logout_button">
+                    <a href="php/logout.php">
+                        Logout
                     </a>
                 </div>
             </div>
         </div>        
     </body>
 </html>
+<?php
+}
+
+else{
+    header("Location: login.php");
+    exit();
+}

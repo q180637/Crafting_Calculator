@@ -2,49 +2,66 @@
   .body_wrapper {
     display: grid;
     grid-template-columns: 25vw 50vw 25vw;
-    grid-template-rows: repeat(6, 3vh);
+  }
+  .body_wrapper .form {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(7, 3vh);
     gap: 1vw;
   }
-  .body_wrapper input {
+  .body_wrapper .form input {
     color: white;
   }
-  .body_wrapper .username {
+  .body_wrapper .form .username {
     grid-row: 1;
-    grid-column: 2;
+    grid-column: 1;
     text-align: center;
   }
-  .body_wrapper #username {
+  .body_wrapper .form #username {
     grid-row: 2;
-    grid-column: 2;
+    grid-column: 1;
     background-color: #2b2b33;
     border-style: solid;
     border-color: #23232a;
   }
-  .body_wrapper .passLabel {
+  .body_wrapper .form .passLabel {
     grid-row: 3;
-    grid-column: 2;
+    grid-column: 1;
     text-align: center;
   }
-  .body_wrapper #password {
+  .body_wrapper .form #password {
     grid-row: 4;
-    grid-column: 2;
+    grid-column: 1;
     background-color: #2b2b33;
     border-style: solid;
     border-color: #23232a;
   }
-  .body_wrapper #sign_in {
+  .body_wrapper .form #sign_in {
     grid-row: 5;
-    grid-column: 2;
+    grid-column: 1;
     background-color: #b78c25;
     border-style: solid;
     border-color: #ffce1f;
   }
-  .body_wrapper .signup_link {
+  .body_wrapper .form .logout_button {
+    grid-column: 1;
     grid-row: 6;
-    grid-column: 2;
+  }
+  .body_wrapper .form .logout_button a {
+    display: block;
+    background-color: #b78c25;
+    border-style: solid;
+    border-color: #ffce1f;
+    width: 100%;
     text-align: center;
   }
-  .body_wrapper .signup_link a {
+  .body_wrapper .form .signup_link {
+    grid-row: 7;
+    grid-column: 1;
+    text-align: center;
+  }
+  .body_wrapper .form .signup_link a {
     text-align: center;
     text-decoration: underline;
   }
@@ -53,50 +70,67 @@
   .body_wrapper {
     display: grid;
     grid-template-columns: 33vw 33vw 33vw;
-    grid-template-rows: repeat(5, 3vh);
+  }
+  .body_wrapper .form {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(7, 3vh);
     gap: 1vw;
     padding-top: 10vh;
   }
-  .body_wrapper input {
+  .body_wrapper .form input {
     color: white;
   }
-  .body_wrapper .username {
+  .body_wrapper .form .username {
     grid-row: 1;
-    grid-column: 2;
+    grid-column: 1;
     text-align: center;
   }
-  .body_wrapper #username {
+  .body_wrapper .form #username {
     grid-row: 2;
-    grid-column: 2;
+    grid-column: 1;
     background-color: #2b2b33;
     border-style: solid;
     border-color: #23232a;
   }
-  .body_wrapper .passLabel {
+  .body_wrapper .form .passLabel {
     grid-row: 3;
-    grid-column: 2;
+    grid-column: 1;
     text-align: center;
   }
-  .body_wrapper #password {
+  .body_wrapper .form #password {
     grid-row: 4;
-    grid-column: 2;
+    grid-column: 1;
     background-color: #2b2b33;
     border-style: solid;
     border-color: #23232a;
   }
-  .body_wrapper #sign_in {
+  .body_wrapper .form #sign_in {
     grid-row: 5;
-    grid-column: 2;
+    grid-column: 1;
     background-color: #b78c25;
     border-style: solid;
     border-color: #ffce1f;
   }
-  .body_wrapper .signup_link {
+  .body_wrapper .form .logout_button {
+    grid-column: 1;
     grid-row: 6;
-    grid-column: 2;
+  }
+  .body_wrapper .form .logout_button a {
+    display: block;
+    background-color: #b78c25;
+    border-style: solid;
+    border-color: #ffce1f;
+    width: 100%;
     text-align: center;
   }
-  .body_wrapper .signup_link a {
+  .body_wrapper .form .signup_link {
+    grid-row: 7;
+    grid-column: 1;
+    text-align: center;
+  }
+  .body_wrapper .form .signup_link a {
     text-align: center;
     text-decoration: underline;
   }

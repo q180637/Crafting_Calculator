@@ -32,15 +32,25 @@
                 </ul>
             </nav>
             <div class="body_wrapper">
-                <label for="username" class="username">Insert your username</label>
-                <input type="text" id="username" name="username"></input>
-                <label for="password" class="passLabel">Insert your password</label>
-                <input type="password" id="password" name="password"></input>
-                <input id="sign_in" type="submit" value="Sign in" name="sign_up">
-                </input>
-                <div class="signup_link">
-                    <h5>Don't have an account? Sign up <a href="sign_up.php">here</a></h5>
-                </div>
+                <form action="php/login_func.php" method="post" class="form">
+                    <?php if(isset($_GET["error"])){ ?>
+                        <p class="error"> <?php echo $_GET["error"]; ?> </p> <?php
+                    }?>
+                    <label for="username" class="username">Insert your username</label>
+                    <input type="text" id="username" name="username"></input>
+                    <label for="password" class="passLabel">Insert your password</label>
+                    <input type="password" id="password" name="password"></input>
+                    <input id="sign_in" type="submit" value="Sign in" name="sign_up">
+                    </input>
+                    <div class="logout_button">
+                        <a href="php/logout.php">
+                            Logout
+                        </a>
+                    </div>
+                    <div class="signup_link">
+                        <h5>Don't have an account? Sign up <a href="sign_up.php">here</a></h5>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="desktop">
@@ -61,15 +71,22 @@
                 </ul>
             </nav>
             <div class="body_wrapper">
-                <label for="username" class="username">Insert your username</label>
-                <input type="text" id="username" name="username"></input>
-                <label for="password" class="passLabel">Insert your password</label>
-                <input type="password" id="password" name="password"></input>
-                <input id="sign_in" type="submit" value="Sign in" name="save_logon">
-                </input>
-                <div class="signup_link">
-                    <h5>Don't have an account? Sign up <a href="sign_up.php">here</a></h5>
-                </div>
+                <form action="php/login_func.php" method="post" class="form">
+                    <label for="username" class="username">Insert your username</label>
+                    <input type="text" id="username" name="username"></input>
+                    <label for="password" class="passLabel">Insert your password</label>
+                    <input type="password" id="password" name="password"></input>
+                    <input id="sign_in" type="submit" value="Sign in" name="save_logon">
+                    </input>
+                    <div class="logout_button">
+                        <a href="php/logout.php">
+                            Logout
+                        </a>
+                    </div>
+                    <div class="signup_link">
+                        <h5>Don't have an account? Sign up <a href="sign_up.php">here</a></h5>
+                    </div>
+                </form>
             </div>
         </div>
     </body>

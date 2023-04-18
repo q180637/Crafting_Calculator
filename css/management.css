@@ -8,11 +8,16 @@
   border-color: #ffce1f;
 }
 
+.logout_button a {
+  border-style: solid;
+  border-color: #ffce1f;
+}
+
 @media screen and (max-width: 1199px) {
   .body_wrapper {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     justify-content: center;
     text-align: center;
   }
@@ -30,10 +35,23 @@
     padding-top: 7.5%;
   }
   .body_wrapper .edit_button {
+    align-self: center;
     grid-column: 2;
     grid-row: 2;
   }
   .body_wrapper .edit_button a {
+    display: block;
+    background-color: #b78c25;
+    width: 100%;
+    height: 5vh;
+    text-align: center;
+    padding-top: 7.5%;
+  }
+  .body_wrapper .logout_button {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .body_wrapper .logout_button a {
     display: block;
     background-color: #b78c25;
     width: 100%;
@@ -46,7 +64,7 @@
   .body_wrapper {
     display: grid;
     grid-template-columns: 33vw 33vw 33vw;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     justify-content: center;
     text-align: center;
   }
@@ -73,5 +91,17 @@
     height: 5vh;
     text-align: center;
     padding-top: 2rem;
+  }
+  .body_wrapper .logout_button {
+    grid-column: 2;
+    grid-row: 4;
+  }
+  .body_wrapper .logout_button a {
+    display: block;
+    background-color: #b78c25;
+    width: 100%;
+    height: 5vh;
+    text-align: center;
+    padding-top: 7.5%;
   }
 }/*# sourceMappingURL=management.css.map */
