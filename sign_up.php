@@ -54,7 +54,7 @@
             <nav>
                 <ul class="links">
                     <li>   
-                        <img class="logo" src="img/destiny_logo.png" alt="Destiny Logo for Button" href = "index.php">
+                        <a href="index.php"><img class="logo" src="img/destiny_logo.png" alt="Destiny Logo for Button" href = "index.php"></a>
                     </li> 
                     <li class="tool">
                         <a href="index.php">Calculator Tool</a>

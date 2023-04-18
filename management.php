@@ -59,7 +59,7 @@ if(isset($_SESSION['username'])){
             <nav>
                 <ul class="links">
                     <li>   
-                        <img class="logo" src="img/destiny_logo.png" alt="Destiny Logo for Button" href = "index.html">
+                        <a href="index.php"><img class="logo" src="img/destiny_logo.png" alt="Destiny Logo for Button" href = "index.html"></a>
                     </li> 
                     <li class="tool">
                         <a href="index.html">Calculator Tool</a>
