@@ -378,32 +378,3 @@ if(isset($_POST['function'])){
         fillTrait2RecordList();
     }
 }
-
-if(isset($_POST['loadWeaponForm'])){
-    function loadWeaponForm(){
-        header('Content-Type: application/json');
-        $test = "test";
-    
-        echo $test;
-    
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-    
-        $selected = $_REQUEST['recordList'];
-    
-        var_dump($selected);
-    
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
-    
-        $sql = "SELECT * FROM weapons";
-        $result = $conn->query($sql);
-    
-        var_dump($sql);
-        
-        echo json_encode(array($result));
-    
-        mysqli_close($conn);
-    }
-}
