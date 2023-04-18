@@ -350,54 +350,60 @@ function fillFrameRecordList(){
 
 
 
-function loadWeaponForm(){
-    $test = "test";
 
-    echo $test;
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
-
-    $sql = "SELECT * FROM weapons";
-    $result = $conn->query($sql);
-
-    var_dump($sql);
-
-    mysqli_close($conn);
-
-    echo json_encode($sql);
-}
-
-if(isset($_GET['function'])){
-    if($_GET['function'] == 'fillWeaponRecordList'){
+if(isset($_POST['function'])){
+    if($_POST['function'] == 'fillWeaponRecordList'){
         fillWeaponRecordList();
     }
-    else  if($_GET['function'] == 'fillPerksRecordList'){
+    else  if($_POST['function'] == 'fillPerksRecordList'){
         fillPerksRecordList();
     }
-    else  if($_GET['function'] == 'fillLogonRecordList'){
+    else  if($_POST['function'] == 'fillLogonRecordList'){
         fillLogonRecordList();
     }
-    else  if($_GET['function'] == 'fillFrameRecordList'){
+    else  if($_POST['function'] == 'fillFrameRecordList'){
         fillFrameRecordList();
     }
-    else  if($_GET['function'] == 'fillBarrelRecordList'){
+    else  if($_POST['function'] == 'fillBarrelRecordList'){
         fillBarrelRecordList();
     }
-    else  if($_GET['function'] == 'fillMagRecordList'){
+    else  if($_POST['function'] == 'fillMagRecordList'){
         fillMagRecordList();
     }
-    else  if($_GET['function'] == 'fillTrait1RecordList'){
+    else  if($_POST['function'] == 'fillTrait1RecordList'){
         fillTrait1RecordList();
     }
-    else  if($_GET['function'] == 'fillTrait2RecordList'){
+    else  if($_POST['function'] == 'fillTrait2RecordList'){
         fillTrait2RecordList();
     }
-    else  if($_GET['function'] == 'loadWeaponForm'){
-        loadWeaponForm();
+}
+
+if(isset($_POST['loadWeaponForm'])){
+    function loadWeaponForm(){
+        header('Content-Type: application/json');
+        $test = "test";
+    
+        echo $test;
+    
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+    
+        $selected = $_REQUEST['recordList'];
+    
+        var_dump($selected);
+    
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
+    
+        $sql = "SELECT * FROM weapons";
+        $result = $conn->query($sql);
+    
+        var_dump($sql);
+        
+        echo json_encode(array($result));
+    
+        mysqli_close($conn);
     }
 }

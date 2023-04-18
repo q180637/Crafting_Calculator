@@ -548,106 +548,104 @@
             }
         }
     </script>
-    <script> // sends ajax request to fill record list
-
-            function mobileTableFill(){
-                let t = document.getElementById('tableList');
-                if(t.value =="weapons"){
-                    $.ajax(
-                        {
-                            method: 'POST',
-                            url: 'php/db_management_functionality.php',
-                            data: "function=fillWeaponRecordList",
-                        }
-                    )
-                }
-                else if(t.value == "perks"){
-                    $.ajax(
-                        {
-                            method: 'POST',
-                            url: 'php/db_management_functionality.php',
-                            data: "function=fillPerksRecordList",
-                        }
-                    )
-                }
-                else if(t.value == "logon"){
-                    $.ajax(
-                        {
-                            method: 'POST',
-                            url: 'php/db_management_functionality.php',
-                            data: "function=fillLogonRecordList",
-                        }
-                    )
-                }
-                else if (t.value == "frameBridge"){
-                    $.ajax(
-                        {
-                            method: 'POST',
-                            url: 'php/db_management_functionality.php',
-                            data: "function=fillFrameRecordList",
-                        }
-                    )
-                }
-                else if(t.value == "barrelBridge"){
-                    $.ajax(
-                        {
-                            method: 'POST',
-                            url: 'php/db_management_functionality.php',
-                            data: "function=fillBarrelRecordList",
-                        }
-                    )
-                }
-                else if(t.value == "magBridge"){
-                    $.ajax(
-                        {
-                            method: 'POST',
-                            url: 'php/db_management_functionality.php',
-                            data: "function=fillMagRecordList",
-                        }
-                    )
-                }
-                else if(t.value == "trait1Bridge"){
-                    $.ajax(
-                        {
-                            method: 'POST',
-                            url: 'php/db_management_functionality.php',
-                            data: "function=fillTrait1RecordList",
-                        }
-                    )
-                }
-                else if(t.value == "trait2Bridge"){
-                    $.ajax(
-                        {
-                            method: 'POST',
-                            url: 'php/db_management_functionality.php',
-                            data: "function=fillTrait2RecordList",
-                        }
-                    )
-                }
-            }
-            function loadWeapons(){
+    <script>
+        function mobileTableFill(){
+            let t = document.getElementById('tableList');
+            if(t.value =="weapons"){
                 $.ajax(
                     {
+                        contentType: 'application/json',
                         method: 'POST',
                         url: 'php/db_management_functionality.php',
-                        data: "function=loadWeaponForm",
+                        data: "function=fillWeaponRecordList",
                     }
                 )
-                // fetch("php/db_management_functionality.php")
-                //     .then((response) => {
-                //         if(!response.ok){
-                //             throw new Error("Failed");
-                //         }
-                //         return response.json();
-                //     })
-                //     .then((data)=>{
-                //         console.log(data);
-                //     })
-                //     .catch((error)=> {
-                //         // error handlers here
-                //     });
-                
             }
-            
+            else if(t.value == "perks"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        method: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillPerksRecordList",
+                    }
+                )
+            }
+            else if(t.value == "logon"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        method: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillLogonRecordList",
+                    }
+                )
+            }
+            else if (t.value == "frameBridge"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        method: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillFrameRecordList",
+                    }
+                )
+            }
+            else if(t.value == "barrelBridge"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        method: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillBarrelRecordList",
+                    }
+                )
+            }
+            else if(t.value == "magBridge"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        method: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillMagRecordList",
+                    }
+                )
+            }
+            else if(t.value == "trait1Bridge"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        method: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillTrait1RecordList",
+                    }
+                )
+            }
+            else if(t.value == "trait2Bridge"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        method: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillTrait2RecordList",
+                    }
+                )
+            }
+        }
+    </script>
+    <script>
+        let r = document.getElementById('recordList');
+        let record = r.value;
+        function loadWeapons(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4 && xhttp.status == 200){
+                    console.log(xhttp);
+                }
+            };
+            xhttp.open("POST", "php/db_management_functionality.php", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send("loadWeaponForm");
+        }
     </script>
 </html>
