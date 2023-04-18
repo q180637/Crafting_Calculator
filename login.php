@@ -72,6 +72,9 @@
             </nav>
             <div class="body_wrapper">
                 <form action="php/login_func.php" method="post" class="form">
+                <?php if(isset($_GET["error"])){ ?>
+                        <p class="error"> <?php echo $_GET["error"]; ?> </p> <?php
+                    }?>
                     <label for="username" class="username">Insert your username</label>
                     <input type="text" id="username" name="username"></input>
                     <label for="password" class="passLabel">Insert your password</label>
