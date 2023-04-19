@@ -92,9 +92,9 @@ if(isset($_SESSION['username'])){
                             })
                         } else if (t.value == "logon") {
                             $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
                                 url: 'php/db_management_functionality.php',
+                                type: 'POST',
+                                contentType: 'json',
                                 data: "function=fillLogonRecordList",
                             })
                         } else if (t.value == "frameBridge") {
@@ -137,22 +137,51 @@ if(isset($_SESSION['username'])){
                     </script>
                     <?php
                         // this needs to fill with the records in the table selected in tableList
-                        
-                        // $fillPerks=fillPerksRecordList();
-                        // $i = 0;
-                        // foreach($fillPerks as $list){
-                        //     echo $fillPerks[$i];
-                        //     $i++;
-                        // }
-                        // $fillFrames=fillFrameRecordList();
-                        // $i = 0;
-                        // foreach($fillFrames as $list){
-                        //     echo $fillFrames[$i];
-                        //     $i++;
-                        // }
-                        
+                            
+                        $fillPerks=fillPerksRecordList();
+                        $i = 0;
+                        foreach($fillPerks as $list){
+                            echo $fillPerks[$i];
+                            $i++;
+                        }
+                        $fillLogon=fillLogonRecordList();
+                        $i = 0;
+                        foreach($fillLogon as $list){
+                            echo $fillLogon[$i];
+                            $i++;
+                        }
+                        $fillFrames=fillFrameRecordList();
+                        $i = 0;
+                        foreach($fillFrames as $list){
+                            echo $fillFrames[$i];
+                            $i++;
+                        }
+                        $fillBarrels=fillBarrelRecordList();
+                        $i = 0;
+                        foreach($fillBarrels as $list){
+                            echo $fillBarrels[$i];
+                            $i++;
+                        }
+                        $fillMag=fillMagRecordList();
+                        $i = 0;
+                        foreach($fillMag as $list){
+                            echo $fillMag[$i];
+                            $i++;
+                        }
+                        $fillTrait1=fillTrait1RecordList();
+                        $i = 0;
+                        foreach($fillTrait1 as $list){
+                            echo $fillTrait1[$i];
+                            $i++;
+                        }
+                        $fillTrait2=fillTrait2RecordList();
+                        $i = 0;
+                        foreach($fillTrait2 as $list){
+                            echo $fillTrait2[$i];
+                            $i++;
+                        }
                     ?>
-                    <option value="default" selected="selected" hidden="hidden">Choose a weapon to Edit</option>
+                    <option value="default" selected="selected" hidden="hidden">Choose a record to Edit</option>
                 </select>
                 <div id="weapons">
                     <?php
@@ -345,14 +374,14 @@ if(isset($_SESSION['username'])){
                     <div class="menuHeader">
                         Choose a Table to Edit
                     </div>
-                    <button id="wepButton">Weapons</button>
-                    <button id="perksButton">Perks</button>
-                    <button id="logonButton">Logon</button>
-                    <button id="frameButton"> Frame Bridge</button>
-                    <button id="barrelButton"> Barrel Bridge</button>
-                    <button id="magButton"> Magazine Bridge</button>
-                    <button id="trait1Button"> First Trait Bridge</button>
-                    <button id="trait2Button"> Second Trait Bridge</button>
+                    <button id="wepButton" onclick="desktopChoice()">Weapons</button>
+                    <button id="perksButton" onclick="desktopChoice()">Perks</button>
+                    <button id="logonButton" onclick="desktopChoice()">Logon</button>
+                    <button id="frameButton" onclick="desktopChoice()"> Frame Bridge</button>
+                    <button id="barrelButton" onclick="desktopChoice()"> Barrel Bridge</button>
+                    <button id="magButton" onclick="desktopChoice()"> Magazine Bridge</button>
+                    <button id="trait1Button" onclick="desktopChoice()"> First Trait Bridge</button>
+                    <button id="trait2Button" onclick="desktopChoice()"> Second Trait Bridge</button>
                 </div>
                 <div class="form_area">
                     <div id="desktop_weapons">
@@ -518,12 +547,12 @@ if(isset($_SESSION['username'])){
     <script> //putting the form on screen on tablelist change
         var e = document.getElementById('tableList');
 
-        function answer(){
+        function answer() {
             const remove = document.querySelectorAll('.success');
-            for (const el of remove){
+            for (const el of remove) {
                 el.remove();
             }
-            if (e.value =="logon"){
+            if (e.value == "logon") {
                 document.getElementById('weapon_form').style.visibility = 'hidden';
                 document.getElementById('perks_form').style.visibility = 'hidden';
                 document.getElementById('logon_form').style.visibility = 'visible';
@@ -533,8 +562,7 @@ if(isset($_SESSION['username'])){
                 document.getElementById('mag_form').style.visibility = 'hidden';
                 document.getElementById('trait1_form').style.visibility = 'hidden';
                 document.getElementById('trait2_form').style.visibility = 'hidden';
-            }
-            else if (e.value =="perks"){
+            } else if (e.value == "perks") {
                 document.getElementById('weapon_form').style.visibility = 'hidden';
                 document.getElementById('perks_form').style.visibility = 'visible';
                 document.getElementById('perks_form').style.zIndex = '100';
@@ -544,8 +572,7 @@ if(isset($_SESSION['username'])){
                 document.getElementById('mag_form').style.visibility = 'hidden';
                 document.getElementById('trait1_form').style.visibility = 'hidden';
                 document.getElementById('trait2_form').style.visibility = 'hidden';
-            }
-            else if (e.value =="weapons"){
+            } else if (e.value == "weapons") {
                 document.getElementById('weapon_form').style.visibility = 'visible';
                 document.getElementById('weapon_form').style.zIndex = '100';
                 document.getElementById('perks_form').style.visibility = 'hidden';
@@ -555,8 +582,7 @@ if(isset($_SESSION['username'])){
                 document.getElementById('mag_form').style.visibility = 'hidden';
                 document.getElementById('trait1_form').style.visibility = 'hidden';
                 document.getElementById('trait2_form').style.visibility = 'hidden';
-            }
-            else if (e.value =="frameBridge"){
+            } else if (e.value == "frameBridge") {
                 document.getElementById('weapon_form').style.visibility = 'hidden';
                 document.getElementById('perks_form').style.visibility = 'hidden';
                 document.getElementById('logon_form').style.visibility = 'hidden';
@@ -566,8 +592,7 @@ if(isset($_SESSION['username'])){
                 document.getElementById('mag_form').style.visibility = 'hidden';
                 document.getElementById('trait1_form').style.visibility = 'hidden';
                 document.getElementById('trait2_form').style.visibility = 'hidden';
-            }
-            else if (e.value =="barrelBridge"){
+            } else if (e.value == "barrelBridge") {
                 document.getElementById('weapon_form').style.visibility = 'hidden';
                 document.getElementById('perks_form').style.visibility = 'hidden';
                 document.getElementById('logon_form').style.visibility = 'hidden';
@@ -577,8 +602,7 @@ if(isset($_SESSION['username'])){
                 document.getElementById('mag_form').style.visibility = 'hidden';
                 document.getElementById('trait1_form').style.visibility = 'hidden';
                 document.getElementById('trait2_form').style.visibility = 'hidden';
-            }
-            else if (e.value =="magBridge"){
+            } else if (e.value == "magBridge") {
                 document.getElementById('weapon_form').style.visibility = 'hidden';
                 document.getElementById('perks_form').style.visibility = 'hidden';
                 document.getElementById('logon_form').style.visibility = 'hidden';
@@ -588,8 +612,7 @@ if(isset($_SESSION['username'])){
                 document.getElementById('mag_form').style.zIndex = '100';
                 document.getElementById('trait1_form').style.visibility = 'hidden';
                 document.getElementById('trait2_form').style.visibility = 'hidden';
-            }
-            else if (e.value =="trait1Bridge"){
+            } else if (e.value == "trait1Bridge") {
                 document.getElementById('weapon_form').style.visibility = 'hidden';
                 document.getElementById('perks_form').style.visibility = 'hidden';
                 document.getElementById('logon_form').style.visibility = 'hidden';
@@ -599,8 +622,7 @@ if(isset($_SESSION['username'])){
                 document.getElementById('trait1_form').style.visibility = 'visible';
                 document.getElementById('trait1_form').style.zIndex = '100';
                 document.getElementById('trait2_form').style.visibility = 'hidden';
-            }
-            else if (e.value =="trait2Bridge"){
+            } else if (e.value == "trait2Bridge") {
                 document.getElementById('weapon_form').style.visibility = 'hidden';
                 document.getElementById('perks_form').style.visibility = 'hidden';
                 document.getElementById('logon_form').style.visibility = 'hidden';
@@ -610,8 +632,7 @@ if(isset($_SESSION['username'])){
                 document.getElementById('trait1_form').style.visibility = 'hidden';
                 document.getElementById('trait2_form').style.visibility = 'visible';
                 document.getElementById('trait2_form').style.zIndex = '100';
-            }
-            else{
+            } else {
                 document.getElementById('weapon_form').style.visibility = 'hidden';
                 document.getElementById('perks_form').style.visibility = 'hidden';
                 document.getElementById('logon_form').style.visibility = 'hidden';
@@ -621,30 +642,482 @@ if(isset($_SESSION['username'])){
                 document.getElementById('trait1_form').style.visibility = 'hidden';
                 document.getElementById('trait2_form').style.visibility = 'hidden';
             }
+
         }
+        //loads desktop fields
+        document.getElementById("wepButton").onclick = desktopChoice;
+        document.getElementById("perksButton").onclick = desktopChoice;
+        document.getElementById("logonButton").onclick = desktopChoice;
+        document.getElementById("frameButton").onclick = desktopChoice;
+        document.getElementById("barrelButton").onclick = desktopChoice;
+        document.getElementById("magButton").onclick = desktopChoice;
+        document.getElementById("trait1Button").onclick = desktopChoice;
+        document.getElementById("trait2Button").onclick = desktopChoice;
+
+        function desktopChoice() {
+            const remove = document.querySelectorAll('.success');
+            for (const el of remove) {
+                el.remove();
+            }
+            // sets a variable to use in comparison
+            var clickedButton = (this.id)
+
+            // uses clickedButton to check which button is clicked and display fields
+            switch (clickedButton) {
+                case "wepButton":
+                    document.getElementById('pageTitle').innerHTML = "Add a Weapon Record";
+                    document.getElementById('wepButton').style.backgroundColor = '#b78c25';
+                    document.getElementById('weapon_form_desktop').style.visibility = 'visible';
+                    document.getElementById('weapon_form_desktop').style.zIndex = '100';
+                    document.getElementById('perks_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('logon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('frame_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('barrel_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('mag_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('perksButton').style.backgroundColor = 'white';
+                    document.getElementById('logonButton').style.backgroundColor = 'white';
+                    document.getElementById('frameButton').style.backgroundColor = 'white';
+                    document.getElementById('barrelButton').style.backgroundColor = 'white';
+                    document.getElementById('magButton').style.backgroundColor = 'white';
+                    document.getElementById('trait1Button').style.backgroundColor = 'white';
+                    document.getElementById('trait2Button').style.backgroundColor = 'white';
+                    break;
+                case "perksButton":
+                    document.getElementById('pageTitle').innerHTML = "Add a Perk Record";
+                    document.getElementById('perksButton').style.backgroundColor = '#b78c25';
+                    document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('perks_form_desktop').style.visibility = 'visible';
+                    document.getElementById('perks_form_desktop').style.zIndex = '100';
+                    document.getElementById('logon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('frame_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('barrel_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('mag_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('wepButton').style.backgroundColor = 'white';
+                    document.getElementById('logonButton').style.backgroundColor = 'white';
+                    document.getElementById('frameButton').style.backgroundColor = 'white';
+                    document.getElementById('barrelButton').style.backgroundColor = 'white';
+                    document.getElementById('magButton').style.backgroundColor = 'white';
+                    document.getElementById('trait1Button').style.backgroundColor = 'white';
+                    document.getElementById('trait2Button').style.backgroundColor = 'white';
+                    break;
+                case "logonButton":
+                    document.getElementById('pageTitle').innerHTML = "Add a User Record";
+                    document.getElementById('logonButton').style.backgroundColor = '#b78c25';
+                    document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('perks_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('logon_form_desktop').style.visibility = 'visible';
+                    document.getElementById('logon_form_desktop').style.zIndex = '100';
+                    document.getElementById('frame_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('barrel_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('mag_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('wepButton').style.backgroundColor = 'white';
+                    document.getElementById('perksButton').style.backgroundColor = 'white';
+                    document.getElementById('frameButton').style.backgroundColor = 'white';
+                    document.getElementById('barrelButton').style.backgroundColor = 'white';
+                    document.getElementById('magButton').style.backgroundColor = 'white';
+                    document.getElementById('trait1Button').style.backgroundColor = 'white';
+                    document.getElementById('trait2Button').style.backgroundColor = 'white';
+                    break;
+                case "frameButton":
+                    document.getElementById('pageTitle').innerHTML = "Add a Frame Combination";
+                    document.getElementById('frameButton').style.backgroundColor = '#b78c25';
+                    document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('perks_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('logon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('frame_form_desktop').style.visibility = 'visible';
+                    document.getElementById('frame_form_desktop').style.zIndex = '100';
+                    document.getElementById('barrel_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('mag_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('wepButton').style.backgroundColor = 'white';
+                    document.getElementById('perksButton').style.backgroundColor = 'white';
+                    document.getElementById('logonButton').style.backgroundColor = 'white';
+                    document.getElementById('barrelButton').style.backgroundColor = 'white';
+                    document.getElementById('magButton').style.backgroundColor = 'white';
+                    document.getElementById('trait1Button').style.backgroundColor = 'white';
+                    document.getElementById('trait2Button').style.backgroundColor = 'white';
+                    break;
+                case "barrelButton":
+                    document.getElementById('pageTitle').innerHTML = "Add a Barrel Combination";
+                    document.getElementById('barrelButton').style.backgroundColor = '#b78c25';
+                    document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('perks_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('logon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('frame_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('barrel_form_desktop').style.visibility = 'visible';
+                    document.getElementById('barrel_form_desktop').style.zIndex = '100';
+                    document.getElementById('mag_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('wepButton').style.backgroundColor = 'white';
+                    document.getElementById('perksButton').style.backgroundColor = 'white';
+                    document.getElementById('logonButton').style.backgroundColor = 'white';
+                    document.getElementById('frameButton').style.backgroundColor = 'white';
+                    document.getElementById('magButton').style.backgroundColor = 'white';
+                    document.getElementById('trait1Button').style.backgroundColor = 'white';
+                    document.getElementById('trait2Button').style.backgroundColor = 'white';
+                    break;
+                case "magButton":
+                    document.getElementById('pageTitle').innerHTML = "Add a Mag Combination";
+                    document.getElementById('magButton').style.backgroundColor = '#b78c25';
+                    document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('perks_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('logon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('frame_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('barrel_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('mag_form_desktop').style.zIndex = '100';
+                    document.getElementById('mag_form_desktop').style.visibility = 'visible';
+                    document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('wepButton').style.backgroundColor = 'white';
+                    document.getElementById('perksButton').style.backgroundColor = 'white';
+                    document.getElementById('logonButton').style.backgroundColor = 'white';
+                    document.getElementById('frameButton').style.backgroundColor = 'white';
+                    document.getElementById('barrelButton').style.backgroundColor = 'white';
+                    document.getElementById('trait1Button').style.backgroundColor = 'white';
+                    document.getElementById('trait2Button').style.backgroundColor = 'white';
+                    break;
+                case "trait1Button":
+                    document.getElementById('pageTitle').innerHTML = "Add a Trait Column 1 Combination";
+                    document.getElementById('trait1Button').style.backgroundColor = '#b78c25';
+                    document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('perks_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('logon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('frame_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('barrel_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('mag_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait1_form_desktop').style.zIndex = '100';
+                    document.getElementById('trait1_form_desktop').style.visibility = 'visible';
+                    document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('wepButton').style.backgroundColor = 'white';
+                    document.getElementById('perksButton').style.backgroundColor = 'white';
+                    document.getElementById('logonButton').style.backgroundColor = 'white';
+                    document.getElementById('frameButton').style.backgroundColor = 'white';
+                    document.getElementById('barrelButton').style.backgroundColor = 'white';
+                    document.getElementById('magButton').style.backgroundColor = 'white';
+                    document.getElementById('trait2Button').style.backgroundColor = 'white';
+                    break;
+                case "trait2Button":
+                    document.getElementById('pageTitle').innerHTML = "Add a Trait Column 2 Combination";
+                    document.getElementById('trait2Button').style.backgroundColor = '#b78c25';
+                    document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('perks_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('logon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('frame_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('barrel_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('mag_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait2_form_desktop').style.zIndex = '100';
+                    document.getElementById('trait2_form_desktop').style.visibility = 'visible';
+                    document.getElementById('wepButton').style.backgroundColor = 'white';
+                    document.getElementById('perksButton').style.backgroundColor = 'white';
+                    document.getElementById('logonButton').style.backgroundColor = 'white';
+                    document.getElementById('frameButton').style.backgroundColor = 'white';
+                    document.getElementById('barrelButton').style.backgroundColor = 'white';
+                    document.getElementById('magButton').style.backgroundColor = 'white';
+                    document.getElementById('trait1Button').style.backgroundColor = 'white';
+                    break;
+                case "":
+                    document.getElementsByTagName('header').innerHTML = "Add a Record";
+                    document.getElementById('weapon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('perks_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('logon_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('frame_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('barrel_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('mag_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait1_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('trait2_form_desktop').style.visibility = 'hidden';
+                    document.getElementById('wepButton').style.backgroundColor = 'white';
+                    document.getElementById('perksButton').style.backgroundColor = 'white';
+                    document.getElementById('logonButton').style.backgroundColor = 'white';
+                    document.getElementById('frameButton').style.backgroundColor = 'white';
+                    document.getElementById('barrelButton').style.backgroundColor = 'white';
+                    document.getElementById('magButton').style.backgroundColor = 'white';
+                    document.getElementById('trait1Button').style.backgroundColor = 'white';
+                    document.getElementById('trait2Button').style.backgroundColor = 'white';
+                    break;
+            }
+            return clickedButton;
+        }
+
     </script>
     
-    <script>
-        let r = document.getElementById('tableList');
-        let record = r.value;
+    <script> //puts records into form on recordlist change
         function loadWeapons(){
-            let w = document.getElementById('recordList').innerHTML;
             $.ajax(
                 {
                     url: 'php/edit_form_fill.php',
                     type: 'POST',
                     dataType: 'json',
-                    // data: JSON.stringify({functionName: "loadWeapons"} + {selectedWeapon: "w"}),
                     data: "function=loadWeapons",
                     success: function(response){
-                        // console.log("test");
-                        // console.log(response);
                         var weapon_name = response['weapon_name'];
                         var weapon_type = response['weapon_type'];
                         var weapon_source = response['weapon_source'];
+                        var pattern_count = response['pattern_count'];
+                        var base_impact = response['base_impact'];
+                        var base_range = response['base_range'];
+                        var base_stability = response['base_stability'];
+                        var base_handling = response['base_handling'];
+                        var base_reload = response['base_reload'];
+                        var base_AA = response['base_AA'];
+                        var base_zoom = response['base_zoom'];
+                        var base_recoil = response['base_recoil'];
+                        var base_RPM = response['base_RPM'];
+                        var base_draw = response['base_draw'];
+                        var base_accuracy = response['base_accuracy'];
+                        var base_mag = response['base_mag'];
+                        var icon_file_path = response['icon_file_path'];
 
                         let wepName = document.getElementById('weapon_name');
                         wepName.value = weapon_name;
+                        let wepType = document.getElementById('weapon_type');
+                        wepType.value = weapon_type;
+                        let wepSource = document.getElementById('weapon_source');
+                        wepSource.value = weapon_source;
+                        let patternCount = document.getElementById('pattern_count');
+                        patternCount.value = pattern_count;
+                        let impact = document.getElementById('base_impact');
+                        impact.value = base_impact;
+                        let range = document.getElementById('base_range');
+                        range.value = base_range;
+                        let stab = document.getElementById('base_stability');
+                        stab.value = base_stability;
+                        let handling = document.getElementById('base_handling');
+                        handling.value = base_handling;
+                        let reload = document.getElementById('base_reload');
+                        reload.value = base_reload;
+                        let aa = document.getElementById('base_AA');
+                        aa.value = base_AA;
+                        let zoom = document.getElementById('base_zoom');
+                        zoom.value = base_zoom;
+                        let recoil = document.getElementById('base_recoil');
+                        recoil.value = base_recoil;
+                        let rpm = document.getElementById('base_RPM');
+                        rpm.value = base_RPM;
+                        let draw = document.getElementById('base_draw');
+                        draw.value = base_draw;
+                        let accuracy = document.getElementById('base_accuracy');
+                        accuracy.value = base_accuracy;
+                        let mag = document.getElementById('base_mag')
+                        mag.value = base_mag;
+                        let file = document.getElementById('icon_file_path');
+                        file.value = icon_file_path;
+                    }
+                }
+            )
+        }
+        function loadPerks(){
+            $.ajax(
+                {
+                    url: 'php/edit_form_fill.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: "function=loadPerks",
+                    success: function(response){
+                        var perk_name = response['perk_name'];
+                        var perk_desc = response['perk_desc'];
+                        var perk_type = response['perk_type'];
+                        var perk_impact_change = response['perk_impact_change'];
+                        var perk_name = response['perk_name'];
+                        var perk_range_change = response['perk_range_change'];
+                        var perk_stab_change = response['perk_stab_change'];
+                        var perk_handling_change = response['perk_handling_change'];
+                        var perk_reload_change = response['perk_reload_change'];
+                        var perk_AA_change = response['perk_AA_change'];
+                        var perk_zoom_change = response['perk_zoom_change'];
+                        var perk_recoil_change = response['perk_recoil_change'];
+                        var perk_RPM_change = response['perk_RPM_change'];
+                        var perk_draw_time_change = response['perk_draw_time_change'];
+                        var perk_accuracy_change = response['perk_accuracy_change'];
+                        var perk_mag_size_change = response['perk_mag_size_change'];
+                        var perk_dmg_buff = response['perk_dmg_buff'];
+                        var perk_drowned_cost = response['perk_drowned_cost'];
+                        var perk_res_element_cost = response['perk_res_element_cost'];
+                        var perk_res_alloy_cost = response['perk_res_alloy_cost'];
+                        var perk_ascendant_alloy_cost = response['perk_ascendant_alloy_cost'];
+                        var perk_glimmer_cost = response['perk_glimmer_cost'];
+                        var perk_e_core_cost = response['perk_e_core_cost'];
+                        var icon_file_path = response['icon_file_path'];
+
+                        let perkName = document.getElementById('perk_name');
+                        perkName.value = perk_name;
+                        let perkDesc = document.getElementById('perk_desc');
+                        perkDesc.value = perk_desc;
+                        let perkType = document.getElementById('perk_type');
+                        perkType.value = perk_type;
+                        let perkImpact = document.getElementById('perk_impact_change');
+                        perkImpact.value = perk_impact_change;
+                        let perkRange = document.getElementById('perk_range_change');
+                        perkRange.value = perk_range_change;
+                        let perkStab = document.getElementById('perk_stab_change');
+                        perkStab.value = perk_stab_change;
+                        let perkHand = document.getElementById('perk_handling_change');
+                        perkHand.value = perk_handling_change;
+                        let perkReload = document.getElementById('perk_reload_change');
+                        perkReload.value = perk_reload_change;
+                        let perkAA = document.getElementById('perk_AA_change');
+                        perkAA.value = perk_AA_change;
+                        let perkZoom = document.getElementById('perk_zoom_change');
+                        perkZoom.value = perk_zoom_change;
+                        let perkRecoil = document.getElementById('perk_recoil_change');
+                        perkRecoil.value = perk_recoil_change;
+                        let perkRPM = document.getElementById('perk_RPM_change');
+                        perkRPM.value = perk_RPM_change;
+                        let perkDraw = document.getElementById('perk_draw_time_change');
+                        let perkAccuracy = document.getElementById('perk_accuracy_change');
+                        perkAccuracy.value = perk_accuracy_change;
+                        let perkMag = document.getElementById('perk_mag_size_change');
+                        perkMag.value = perk_mag_size_change;
+                        let perkDmg = document.getElementById('perk_dmg_buff');
+                        perkDmg.value = perk_dmg_buff;
+                        let drowned = document.getElementById('perk_drowned_cost');
+                        drowned.value = perk_drowned_cost;
+                        let resElement = document.getElementById('perk_res_element_cost');
+                        resElement.value = perk_res_element_cost;
+                        let resAlloy = document.getElementById('perk_res_alloy_cost');
+                        let ascAlloy = document.getElementById('perk_ascendant_alloy_cost');
+                        ascAlloy.value = perk_ascendant_alloy_cost;
+                        let glimmer = document.getElementById('perk_glimmer_cost');
+                        glimmer.value = perk_glimmer_cost;
+                        let ecore = document.getElementById('perk_e_core_cost');
+                        ecore.value = perk_e_core_cost;
+                        let file = document.getElementById('icon_file_path');
+                        file.value = icon_file_path;
+                    }
+                }
+            )
+        }
+        function loadLogon(){
+            $.ajax(
+                {
+                    url: 'php/edit_form_fill.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: "function=loadLogon",
+                    success: function(){
+                        var usernameInput = response['username'];
+                        var passwordInput = response['password'];
+                        var admin = response['admin'];
+
+                        let unameIn = document.getElementById('username');
+                        unameIn.value = usernameInput;
+                        let pwordIn = document.getElementById('password');
+                        pwordIn.value = passwordInput;
+                        let isAdmin = document.getElementById('admin');
+                        isAdmin.value = admin;
+                    }
+                }
+            )
+        }
+        function loadFrames(){
+            $.ajax(
+                {
+                    url: 'php/edit_form_fill.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: "function=loadFrames",
+                    success: function(response){
+                        var frameWepID = response['frame_bridge_weapon_ID'];
+                        var frameWepName = response['weapon_name'];
+                        var framePerkID = response['weapon_frame_ID'];
+                        var framePerkName = response['perk_name'];
+
+                        let fWepID = document.getElementById('frame_bridge_weapon_ID');
+                        fWepID.value = frameWepName;
+                        let fPerkID = document.getElementById('weapon_frame_ID');
+                        fPerkID.value = framePerkName;
+                    }
+                }
+            )
+        }
+        function loadBarrels(){
+            $.ajax(
+                {
+                    url: 'php/edit_form_fill.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: "function=loadBarrels",
+                    success: function(response){
+                        var barrelWepID = response['barrel_bridge_weapon_ID'];
+                        var barrelWepName = response['weapon_name'];
+                        var barrelPerkID = response['weapon_barrel_ID'];
+                        var barrelPerkName = response['perk_name'];
+
+                        let bWepID = document.getElementById('barrel_bridge_weapon_ID');
+                        bWepID.value = barrelWepName;
+                        let bPerkID = document.getElementById('weapon_barrel_ID');
+                        bPerkID.value = barrelPerkName;
+                    }
+                }
+            )
+        }
+        function loadMags(){
+            $.ajax(
+                {
+                    url: 'php/edit_form_fill.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: "function=loadMags",
+                    success: function(response){
+                        var magWepID = response['mag_bridge_weapon_ID'];
+                        var magWepName = response['weapon_name'];
+                        var magPerkID = response['weapon_mag_ID'];
+                        var magPerkName = response['perk_name'];
+
+                        let bWepID = document.getElementById('mag_bridge_weapon_ID');
+                        bWepID.value = magWepName;
+                        let bPerkID = document.getElementById('weapon_mag_ID');
+                        bPerkID.value = magPerkName;
+                    }
+                }
+            )
+        }
+        function loadTrait1(){
+            $.ajax(
+                {
+                    url: 'php/edit_form_fill.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: "function=loadTrait1",
+                    success: function(response){
+                        var trait1WepID = response['trait1_bridge_weapon_ID'];
+                        var trait1WepName = response['weapon_name'];
+                        var trait1PerkID = response['weapon_trait1_ID'];
+                        var trait1PerkName = response['perk_name'];
+
+                        let t1WepID = document.getElementById('trait1_bridge_weapon_ID');
+                        t1WepID.value = trait1WepName;
+                        let t1PerkID = document.getElementById('weapon_trait1_ID');
+                        t1PerkID.value = trait1PerkName;
+                    }
+                }
+            )
+        }
+        function loadTrait2(){
+            $.ajax(
+                {
+                    url: 'php/edit_form_fill.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: "function=loadTrait2",
+                    success: function(response){
+                        var trait2WepID = response['trait2_bridge_weapon_ID'];
+                        var trait2WepName = response['weapon_name'];
+                        var trait2PerkID = response['weapon_trait2_ID'];
+                        var trait2PerkName = response['perk_name'];
+
+                        let t2WepID = document.getElementById('trait2_bridge_weapon_ID');
+                        t2WepID.value = trait2WepName;
+                        let t2PerkID = document.getElementById('weapon_trait2_ID');
+                        t2PerkID.value = trait2PerkName;
                     }
                 }
             )
