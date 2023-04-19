@@ -64,100 +64,77 @@ if(isset($_SESSION['username'])){
                         <option value ="trait2Bridge" onclick="answer()">Trait Column 2 Combinations</option>
                     </select>
                 <select name="recordList" id="recordList">
+                <?php
+                    $fillWep=fillWeaponRecordList();
+                    $i = 0;
+                    foreach($fillWep as $list){
+                        echo $fillWep[$i];
+                        $i++;
+                    }
+                ?>
                 <script>
-        function mobileTableFill(){
-            let t = document.getElementById('tableList');
-            if(t.value =="weapons"){
-                $.ajax(
-                    {
-                        url: 'php/db_management_functionality.php',
-                        type: 'POST',
-                        contentType: 'json',                       
-                        data: "function=fillWeaponRecordList",
-                        success: function(response){
-                            console.log(response);}
-                            //  
-                            // $fillWep=fillWeaponRecordList();
-                            // $i = 0;
-                            // foreach($fillWep as $list){
-                            //     echo $fillWep[$i];
-                            //     $i++;
-                            // }?>
+                    function mobileTableFill() {
+                        let t = document.getElementById('tableList');
+                        if (t.value == "weapons") {
+
+                            $.ajax({
+                                url: 'php/db_management_functionality.php',
+                                type: 'POST',
+                                contentType: 'json',
+                                data: "function=fillWeaponRecordList",
+                            })
+                        } else if (t.value == "perks") {
+                            $.ajax({
+                                contentType: 'application/json',
+                                type: 'POST',
+                                url: 'php/db_management_functionality.php',
+                                data: "function=fillPerksRecordList",
+                            })
+                        } else if (t.value == "logon") {
+                            $.ajax({
+                                contentType: 'application/json',
+                                type: 'POST',
+                                url: 'php/db_management_functionality.php',
+                                data: "function=fillLogonRecordList",
+                            })
+                        } else if (t.value == "frameBridge") {
+                            $.ajax({
+                                contentType: 'application/json',
+                                type: 'POST',
+                                url: 'php/db_management_functionality.php',
+                                data: "function=fillFrameRecordList",
+                            })
+                        } else if (t.value == "barrelBridge") {
+                            $.ajax({
+                                contentType: 'application/json',
+                                type: 'POST',
+                                url: 'php/db_management_functionality.php',
+                                data: "function=fillBarrelRecordList",
+                            })
+                        } else if (t.value == "magBridge") {
+                            $.ajax({
+                                contentType: 'application/json',
+                                type: 'POST',
+                                url: 'php/db_management_functionality.php',
+                                data: "function=fillMagRecordList",
+                            })
+                        } else if (t.value == "trait1Bridge") {
+                            $.ajax({
+                                contentType: 'application/json',
+                                type: 'POST',
+                                url: 'php/db_management_functionality.php',
+                                data: "function=fillTrait1RecordList",
+                            })
+                        } else if (t.value == "trait2Bridge") {
+                            $.ajax({
+                                contentType: 'application/json',
+                                type: 'POST',
+                                url: 'php/db_management_functionality.php',
+                                data: "function=fillTrait2RecordList",
+                            })
+                        }
                     }
-                )
-            }
-            else if(t.value == "perks"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillPerksRecordList",
-                    }
-                )
-            }
-            else if(t.value == "logon"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillLogonRecordList",
-                    }
-                )
-            }
-            else if (t.value == "frameBridge"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillFrameRecordList",
-                    }
-                )
-            }
-            else if(t.value == "barrelBridge"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillBarrelRecordList",
-                    }
-                )
-            }
-            else if(t.value == "magBridge"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillMagRecordList",
-                    }
-                )
-            }
-            else if(t.value == "trait1Bridge"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillTrait1RecordList",
-                    }
-                )
-            }
-            else if(t.value == "trait2Bridge"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillTrait2RecordList",
-                    }
-                )
-            }
-        }
-    </script>
+                    </script>
                     <?php
                         // this needs to fill with the records in the table selected in tableList
                         
