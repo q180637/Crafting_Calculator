@@ -377,4 +377,5 @@ if(isset($_POST['function'])){
     else  if($_POST['function'] == 'fillTrait2RecordList'){
         fillTrait2RecordList();
     }
+   
 }

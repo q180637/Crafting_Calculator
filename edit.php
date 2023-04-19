@@ -64,14 +64,103 @@ if(isset($_SESSION['username'])){
                         <option value ="trait2Bridge" onclick="answer()">Trait Column 2 Combinations</option>
                     </select>
                 <select name="recordList" id="recordList">
+                <script>
+        function mobileTableFill(){
+            let t = document.getElementById('tableList');
+            if(t.value =="weapons"){
+                $.ajax(
+                    {
+                        url: 'php/db_management_functionality.php',
+                        type: 'POST',
+                        contentType: 'json',                       
+                        data: "function=fillWeaponRecordList",
+                        success: function(response){
+                            console.log(response);}
+                            //  
+                            // $fillWep=fillWeaponRecordList();
+                            // $i = 0;
+                            // foreach($fillWep as $list){
+                            //     echo $fillWep[$i];
+                            //     $i++;
+                            // }?>
+                    }
+                )
+            }
+            else if(t.value == "perks"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        type: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillPerksRecordList",
+                    }
+                )
+            }
+            else if(t.value == "logon"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        type: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillLogonRecordList",
+                    }
+                )
+            }
+            else if (t.value == "frameBridge"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        type: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillFrameRecordList",
+                    }
+                )
+            }
+            else if(t.value == "barrelBridge"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        type: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillBarrelRecordList",
+                    }
+                )
+            }
+            else if(t.value == "magBridge"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        type: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillMagRecordList",
+                    }
+                )
+            }
+            else if(t.value == "trait1Bridge"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        type: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillTrait1RecordList",
+                    }
+                )
+            }
+            else if(t.value == "trait2Bridge"){
+                $.ajax(
+                    {
+                        contentType: 'application/json',
+                        type: 'POST',
+                        url: 'php/db_management_functionality.php',
+                        data: "function=fillTrait2RecordList",
+                    }
+                )
+            }
+        }
+    </script>
                     <?php
                         // this needs to fill with the records in the table selected in tableList
-                        $fillWep=fillWeaponRecordList();
-                        $i = 0;
-                        foreach($fillWep as $list){
-                            echo $fillWep[$i];
-                            $i++;
-                        }
+                        
                         // $fillPerks=fillPerksRecordList();
                         // $i = 0;
                         // foreach($fillPerks as $list){
@@ -447,6 +536,7 @@ if(isset($_SESSION['username'])){
         </div>
         <!-- <script src="js/edit_form.js"></script> -->
         <script> src="js/add_form.js"</script>
+        <?php include "php/edit_form_fill.php"?>
     </body>
     <script> //putting the form on screen on tablelist change
         var e = document.getElementById('tableList');
@@ -556,108 +646,31 @@ if(isset($_SESSION['username'])){
             }
         }
     </script>
-    <script>
-        function mobileTableFill(){
-            let t = document.getElementById('tableList');
-            if(t.value =="weapons"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillWeaponRecordList",
-                    }
-                )
-            }
-            else if(t.value == "perks"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillPerksRecordList",
-                    }
-                )
-            }
-            else if(t.value == "logon"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillLogonRecordList",
-                    }
-                )
-            }
-            else if (t.value == "frameBridge"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillFrameRecordList",
-                    }
-                )
-            }
-            else if(t.value == "barrelBridge"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillBarrelRecordList",
-                    }
-                )
-            }
-            else if(t.value == "magBridge"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillMagRecordList",
-                    }
-                )
-            }
-            else if(t.value == "trait1Bridge"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillTrait1RecordList",
-                    }
-                )
-            }
-            else if(t.value == "trait2Bridge"){
-                $.ajax(
-                    {
-                        contentType: 'application/json',
-                        type: 'POST',
-                        url: 'php/db_management_functionality.php',
-                        data: "function=fillTrait2RecordList",
-                    }
-                )
-            }
-        }
-    </script>
+    
     <script>
         let r = document.getElementById('tableList');
         let record = r.value;
         function loadWeapons(){
+            let w = document.getElementById('recordList').innerHTML;
             $.ajax(
-                    {
-                        url: 'php/db_management_functionality.php',
-                        type: 'POST',
-                        dataType: 'json',
-                        data: "function=loadWeapons",
-                        success: function(response){
-                            console.log("test");
-                            console.log(response);
-                        }
+                {
+                    url: 'php/edit_form_fill.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    // data: JSON.stringify({functionName: "loadWeapons"} + {selectedWeapon: "w"}),
+                    data: "function=loadWeapons",
+                    success: function(response){
+                        // console.log("test");
+                        // console.log(response);
+                        var weapon_name = response['weapon_name'];
+                        var weapon_type = response['weapon_type'];
+                        var weapon_source = response['weapon_source'];
+
+                        let wepName = document.getElementById('weapon_name');
+                        wepName.value = weapon_name;
                     }
-                )
-            document.getElementById
+                }
+            )
         }
     </script>
 </html>
