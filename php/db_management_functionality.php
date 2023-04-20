@@ -263,7 +263,7 @@ function fillWeaponRecordList(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
     
-    $sql = "SELECT weapon_ID, weapon_name from weapons where weapon_name = $wepName";
+    $sql = "SELECT weapon_ID, weapon_name from weapons";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
@@ -485,8 +485,4 @@ if(isset($_POST['function'])){
     else  if($_POST['function'] == 'fillTrait2RecordList'){
         fillTrait2RecordList();
     }
-}
-
-if(isset($_POST['wepName'])){
-    $wepName = $_POST['wepName'];
 }

@@ -60,7 +60,7 @@ if(isset($_SESSION['username'])){
                         <option value ="trait1Bridge" onclick="answer()">Trait Column 1 Combinations</option>
                         <option value ="trait2Bridge" onclick="answer()">Trait Column 2 Combinations</option>
                     </select>
-                <select name="recordList" id="recordList">
+                <select name="recordList" id="recordList" method="post">
                 <script>
                     function mobileTableFill() {
                         let t = document.getElementById('tableList');
@@ -411,7 +411,7 @@ if(isset($_SESSION['username'])){
                         <option value ="trait1Bridge" onclick="desktopChoice()">Trait Column 1 Combinations</option>
                         <option value ="trait2Bridge" onclick="desktopChoice()">Trait Column 2 Combinations</option>
                     </select>
-                <select name="recordList" id="desktopRecordList">
+                <select name="recordList" id="desktopRecordList" method="post">
                     <script>
                         function desktopTableFill() {
                             let t = document.getElementById('desktopTableList');
@@ -420,13 +420,11 @@ if(isset($_SESSION['username'])){
                                     ele.remove();
                                 })  
                             if (t.value == "weapons") {
-                                var r = document.getElementById('desktopRecordList');
-                                var selected = r.value;
                                 $.ajax({
                                     url: 'php/db_management_functionality.php',
                                     type: 'POST',
                                     dataType: 'json',
-                                    data: {"function": "fillWeaponRecordList", "name": r},
+                                    data: "function=fillWeaponRecordList",
                                     success: function(response){
                                         let options = response.toString();
                                         let rows = options.split(",")

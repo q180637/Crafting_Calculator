@@ -8,7 +8,10 @@ function loadWeaponForm(){
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, 'db_calculator_tool');
 
-    $sql = "SELECT * FROM weapons";
+    $dselected = $_REQUEST['desktopRecordList'];
+    $mselected = $_REQUEST['recordList'];
+
+    $sql = "SELECT * FROM weapons where weapon_name = $dselected or $mselected";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
