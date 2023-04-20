@@ -102,9 +102,9 @@ function loadLogonForm(){
     if($result->num_rows > 0){
         $row = $result->fetch_assoc();
 
-        $usernameInput = $row['username'];
-        $passwordInput = $row['password'];
-        $admin = $row['admin'];
+        $usernameInput = $row['account_username'];
+        $passwordInput = $row['account_password'];
+        $admin = $row['is_admin'];
 
         echo json_encode($row);
 
@@ -207,7 +207,7 @@ function loadTrait1Form(){
         $row = $result->fetch_assoc();
 
         $trait1WepID = $row['trait1_bridge_weapon_ID'];
-        $trait1PerkID = $row[' weapon_trait_ID'];
+        $trait1PerkID = $row['weapon_trait_ID'];
 
         echo json_encode($row);
 

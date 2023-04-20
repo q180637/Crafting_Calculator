@@ -61,123 +61,153 @@ if(isset($_SESSION['username'])){
                         <option value ="trait2Bridge" onclick="answer()">Trait Column 2 Combinations</option>
                     </select>
                 <select name="recordList" id="recordList">
-                <?php
-                    $fillWep=fillWeaponRecordList();
-                    $i = 0;
-                    foreach($fillWep as $list){
-                        echo $fillWep[$i];
-                        $i++;
-                    }
-                ?>
                 <script>
                     function mobileTableFill() {
                         let t = document.getElementById('tableList');
-                        if (t.value == "weapons") {
-
-                            $.ajax({
-                                url: 'php/db_management_functionality.php',
-                                type: 'POST',
-                                contentType: 'json',
-                                data: "function=fillWeaponRecordList",
-                            })
-                        } else if (t.value == "perks") {
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
-                                url: 'php/db_management_functionality.php',
-                                data: "function=fillPerksRecordList",
-                            })
-                        } else if (t.value == "logon") {
-                            $.ajax({
-                                url: 'php/db_management_functionality.php',
-                                type: 'POST',
-                                contentType: 'json',
-                                data: "function=fillLogonRecordList",
-                            })
-                        } else if (t.value == "frameBridge") {
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
-                                url: 'php/db_management_functionality.php',
-                                data: "function=fillFrameRecordList",
-                            })
-                        } else if (t.value == "barrelBridge") {
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
-                                url: 'php/db_management_functionality.php',
-                                data: "function=fillBarrelRecordList",
-                            })
-                        } else if (t.value == "magBridge") {
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
-                                url: 'php/db_management_functionality.php',
-                                data: "function=fillMagRecordList",
-                            })
-                        } else if (t.value == "trait1Bridge") {
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
-                                url: 'php/db_management_functionality.php',
-                                data: "function=fillTrait1RecordList",
-                            })
-                        } else if (t.value == "trait2Bridge") {
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
-                                url: 'php/db_management_functionality.php',
-                                data: "function=fillTrait2RecordList",
-                            })
-                        }
+                        const reset = recordList.querySelectorAll("option");
+                        reset.forEach(ele => {
+                            ele.remove();
+                        })
+                            if (t.value == "weapons") {
+                                $.ajax({
+                                    url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: "function=fillWeaponRecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('recordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
+                                }
+                            )
+                            } else if (t.value == "perks") {
+                                $.ajax({
+                                    url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: "function=fillPerksRecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('recordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
+                                })
+                            } else if (t.value == "logon") {
+                                $.ajax({
+                                    url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: "function=fillLogonRecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('recordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
+                                })
+                            } else if (t.value == "frameBridge") {
+                                $.ajax({
+                                    url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: "function=fillFrameRecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('recordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
+                                })
+                            } else if (t.value == "barrelBridge") {
+                                $.ajax({
+                                    url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: "function=fillBarrelRecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('recordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
+                                })
+                            } else if (t.value == "magBridge") {
+                                $.ajax({
+                                    url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: "function=fillMagRecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('recordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
+                                })
+                            } else if (t.value == "trait1Bridge") {
+                                $.ajax({
+                                    url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: "function=fillTrait1RecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('recordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
+                                })
+                            } else if (t.value == "trait2Bridge") {
+                                $.ajax({
+                                    url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: "function=fillTrait2RecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('recordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
+                                })
+                            }
                     }
                     </script>
-                    <?php
-                        // this needs to fill with the records in the table selected in tableList
-                            
-                        $fillPerks=fillPerksRecordList();
-                        $i = 0;
-                        foreach($fillPerks as $list){
-                            echo $fillPerks[$i];
-                            $i++;
-                        }
-                        $fillLogon=fillLogonRecordList();
-                        $i = 0;
-                        foreach($fillLogon as $list){
-                            echo $fillLogon[$i];
-                            $i++;
-                        }
-                        $fillFrames=fillFrameRecordList();
-                        $i = 0;
-                        foreach($fillFrames as $list){
-                            echo $fillFrames[$i];
-                            $i++;
-                        }
-                        $fillBarrels=fillBarrelRecordList();
-                        $i = 0;
-                        foreach($fillBarrels as $list){
-                            echo $fillBarrels[$i];
-                            $i++;
-                        }
-                        $fillMag=fillMagRecordList();
-                        $i = 0;
-                        foreach($fillMag as $list){
-                            echo $fillMag[$i];
-                            $i++;
-                        }
-                        $fillTrait1=fillTrait1RecordList();
-                        $i = 0;
-                        foreach($fillTrait1 as $list){
-                            echo $fillTrait1[$i];
-                            $i++;
-                        }
-                        $fillTrait2=fillTrait2RecordList();
-                        $i = 0;
-                        foreach($fillTrait2 as $list){
-                            echo $fillTrait2[$i];
-                            $i++;
-                        }
-                    ?>
                     <option value="default" selected="selected" hidden="hidden">Choose a record to Edit</option>
                 </select>
                 <div id="weapons">
@@ -381,124 +411,156 @@ if(isset($_SESSION['username'])){
                         <option value ="trait1Bridge" onclick="desktopChoice()">Trait Column 1 Combinations</option>
                         <option value ="trait2Bridge" onclick="desktopChoice()">Trait Column 2 Combinations</option>
                     </select>
-                <select name="recordList" id="recordList">
-                    <?php
-                        $fillWep=fillWeaponRecordList();
-                        $i = 0;
-                        foreach($fillWep as $list){
-                            echo $fillWep[$i];
-                            $i++;
-                        }
-                    ?>
+                <select name="recordList" id="desktopRecordList">
                     <script>
                         function desktopTableFill() {
                             let t = document.getElementById('desktopTableList');
+                            const reset = desktopRecordList.querySelectorAll("option");
+                                reset.forEach(ele => {
+                                    ele.remove();
+                                })  
                             if (t.value == "weapons") {
-
+                                var r = document.getElementById('desktopRecordList');
+                                var selected = r.value;
                                 $.ajax({
                                     url: 'php/db_management_functionality.php',
                                     type: 'POST',
-                                    contentType: 'json',
-                                    data: "function=fillWeaponRecordList",
-                                })
+                                    dataType: 'json',
+                                    data: {"function": "fillWeaponRecordList", "name": r},
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('desktopRecordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
+                                }
+                            )
                             } else if (t.value == "perks") {
                                 $.ajax({
-                                    contentType: 'application/json',
-                                    type: 'POST',
                                     url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
                                     data: "function=fillPerksRecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('desktopRecordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
                                 })
                             } else if (t.value == "logon") {
                                 $.ajax({
                                     url: 'php/db_management_functionality.php',
                                     type: 'POST',
-                                    contentType: 'json',
+                                    dataType: 'json',
                                     data: "function=fillLogonRecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('desktopRecordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
                                 })
                             } else if (t.value == "frameBridge") {
                                 $.ajax({
-                                    contentType: 'application/json',
-                                    type: 'POST',
                                     url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
                                     data: "function=fillFrameRecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('desktopRecordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
                                 })
                             } else if (t.value == "barrelBridge") {
                                 $.ajax({
-                                    contentType: 'application/json',
-                                    type: 'POST',
                                     url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
                                     data: "function=fillBarrelRecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('desktopRecordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
                                 })
                             } else if (t.value == "magBridge") {
                                 $.ajax({
-                                    contentType: 'application/json',
-                                    type: 'POST',
                                     url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
                                     data: "function=fillMagRecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('desktopRecordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
                                 })
                             } else if (t.value == "trait1Bridge") {
                                 $.ajax({
-                                    contentType: 'application/json',
-                                    type: 'POST',
                                     url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
                                     data: "function=fillTrait1RecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('desktopRecordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
                                 })
                             } else if (t.value == "trait2Bridge") {
                                 $.ajax({
-                                    contentType: 'application/json',
-                                    type: 'POST',
                                     url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    dataType: 'json',
                                     data: "function=fillTrait2RecordList",
+                                    success: function(response){
+                                        let options = response.toString();
+                                        let rows = options.split(",")
+                                        console.log(rows);
+                                        let select = document.getElementById('desktopRecordList');
+                                        for(var i =0; i < rows.length; i++){
+                                            let row = rows[i].toString();
+                                            select.innerHTML = select.innerHTML + row;
+                                        }
+                                    }
                                 })
                             }
                         }
                         </script>
-                        <?php
-                            // this needs to fill with the records in the table selected in tableList
-                                
-                            $fillPerks=fillPerksRecordList();
-                            $i = 0;
-                            foreach($fillPerks as $list){
-                                echo $fillPerks[$i];
-                                $i++;
-                            }
-                            $fillLogon=fillLogonRecordList();
-                            $i = 0;
-                            foreach($fillLogon as $list){
-                                echo $fillLogon[$i];
-                                $i++;
-                            }
-                            $fillFrames=fillFrameRecordList();
-                            $i = 0;
-                            foreach($fillFrames as $list){
-                                echo $fillFrames[$i];
-                                $i++;
-                            }
-                            $fillBarrels=fillBarrelRecordList();
-                            $i = 0;
-                            foreach($fillBarrels as $list){
-                                echo $fillBarrels[$i];
-                                $i++;
-                            }
-                            $fillMag=fillMagRecordList();
-                            $i = 0;
-                            foreach($fillMag as $list){
-                                echo $fillMag[$i];
-                                $i++;
-                            }
-                            $fillTrait1=fillTrait1RecordList();
-                            $i = 0;
-                            foreach($fillTrait1 as $list){
-                                echo $fillTrait1[$i];
-                                $i++;
-                            }
-                            $fillTrait2=fillTrait2RecordList();
-                            $i = 0;
-                            foreach($fillTrait2 as $list){
-                                echo $fillTrait2[$i];
-                                $i++;
-                            }
-                        ?>
                     <option value="default" selected="selected" hidden="hidden">Choose a record to Edit</option>
                 </select>
                 </div>
@@ -538,29 +600,29 @@ if(isset($_SESSION['username'])){
                             }
                         ?>
                         <form id="perks_form_desktop" method="post">
-                            <input type="text" id="perk_name" name="perk_name"></input>
-                            <input type="text" id="perk_desc" name="perk_desc"></input>
-                            <input type="text" id="perk_type" name="perk_type"></input>
-                            <input type="text" id="perk_impact_change" name="perk_impact_change"></input>
-                            <input type="text" id="perk_range_change" name="perk_range_change"></input>
-                            <input type="text" id="perk_stab_change" name="perk_stab_change"></input>
-                            <input type="text" id="perk_handling_change" name="perk_handling_change"></input>
-                            <input type="text" id="perk_reload_change" name="perk_reload_change"></input>
-                            <input type="text" id="perk_AA_change" name="perk_AA_change"></input>
-                            <input type="text" id="perk_zoom_change" name="perk_zoom_change"></input>
-                            <input type="text" id="perk_recoil_change" name="perk_recoil_change"></input>
-                            <input type="text" id="perk_RPM_change" name="perk_RPM_change"></input>
-                            <input type="text" id="perk_draw_time_change" name="perk_draw_time_change"></input>
-                            <input type="text" id="perk_accuracy_change" name="perk_accuracy_change"></input>
-                            <input type="text" id="perk_mag_size_change" name="perk_mag_size_change"></input>
-                            <input type="text" id="perk_dmg_buff" name="perk_dmg_buff"></input>
-                            <input type="text" id="perk_drowned_cost" name="perk_drowned_cost"></input>
-                            <input type="text" id="perk_res_element_cost" name="perk_res_element_cost"></input>
-                            <input type="text" id="perk_res_alloy_cost" name="perk_res_alloy_cost"></input>
-                            <input type="text" id="perk_ascendant_alloy_cost" name="perk_ascendant_alloy_cost"></input>
-                            <input type="text" id="perk_glimmer_cost" name="perk_glimmer_cost"></input>
-                            <input type="text" id="perk_e_core_cost" name="perk_e_core_cost"></input>
-                            <input type="text" id="icon_file_path" name="icon_file_path"></input>
+                            <input type="text" id="desktop_perk_name" name="perk_name"></input>
+                            <input type="text" id="desktop_perk_desc" name="perk_desc"></input>
+                            <input type="text" id="desktop_perk_type" name="perk_type"></input>
+                            <input type="text" id="desktop_perk_impact_change" name="perk_impact_change"></input>
+                            <input type="text" id="desktop_perk_range_change" name="perk_range_change"></input>
+                            <input type="text" id="desktop_perk_stab_change" name="perk_stab_change"></input>
+                            <input type="text" id="desktop_perk_handling_change" name="perk_handling_change"></input>
+                            <input type="text" id="desktop_perk_reload_change" name="perk_reload_change"></input>
+                            <input type="text" id="desktop_perk_AA_change" name="perk_AA_change"></input>
+                            <input type="text" id="desktop_perk_zoom_change" name="perk_zoom_change"></input>
+                            <input type="text" id="desktop_perk_recoil_change" name="perk_recoil_change"></input>
+                            <input type="text" id="desktop_perk_RPM_change" name="perk_RPM_change"></input>
+                            <input type="text" id="desktop_perk_draw_time_change" name="perk_draw_time_change"></input>
+                            <input type="text" id="desktop_perk_accuracy_change" name="perk_accuracy_change"></input>
+                            <input type="text" id="desktop_perk_mag_size_change" name="perk_mag_size_change"></input>
+                            <input type="text" id="desktop_perk_dmg_buff" name="perk_dmg_buff"></input>
+                            <input type="text" id="desktop_perk_drowned_cost" name="perk_drowned_cost"></input>
+                            <input type="text" id="desktop_perk_res_element_cost" name="perk_res_element_cost"></input>
+                            <input type="text" id="desktop_perk_res_alloy_cost" name="perk_res_alloy_cost"></input>
+                            <input type="text" id="desktop_perk_ascendant_alloy_cost" name="perk_ascendant_alloy_cost"></input>
+                            <input type="text" id="desktop_perk_glimmer_cost" name="perk_glimmer_cost"></input>
+                            <input type="text" id="desktop_perk_e_core_cost" name="perk_e_core_cost"></input>
+                            <input type="text" id="desktop_icon_file_path" name="icon_file_path"></input>
                             <input id="save" type="submit" value="Save and add to database" name="save_perks"></input>
                             <input id="delete" type="submit" value="Delete and remove from database" name="delete">
                         </input>
@@ -573,11 +635,11 @@ if(isset($_SESSION['username'])){
                             }
                         ?>
                         <form id="logon_form_desktop" method="post">
-                            <input type="text" id="username" name="username"></input>
+                            <input type="text" id="desktop_username" name="username"></input>
                             <label for="password" class="passLabel">Insert the user's password</label>
-                            <input type="password" id="password" name="password"></input>
+                            <input type="password" id="desktop_password" name="password"></input>
                             <label for="admin" class="adminLabel">Choose if the user is an admin</label>
-                            <select id="admin" name="admin">
+                            <select id="desktop_admin" name="desktop_admin">
                                 <option value="true">True</option>
                                 <option value="false">False</option>
                             </select>
@@ -593,8 +655,8 @@ if(isset($_SESSION['username'])){
                             }
                         ?>
                         <form id="frame_form_desktop" method="post">
-                            <input type="text" id="frame_bridge_weapon_ID" name="frame_bridge_weapon_ID"></input>
-                            <input type="text" id="weapon_frame_ID" name="weapon_frame_ID"></input>
+                            <input type="text" id="desktop_frame_bridge_weapon_ID" name="frame_bridge_weapon_ID"></input>
+                            <input type="text" id="desktop_weapon_frame_ID" name="weapon_frame_ID"></input>
                             <input id="save" type="submit" value="Save and add to database" name="save_frames"></input>
                             <input id="delete" type="submit" value="Delete and remove from database" name="delete">
                         </input>
@@ -607,8 +669,8 @@ if(isset($_SESSION['username'])){
                             }
                         ?>
                         <form id="barrel_form_desktop" method="post">
-                            <input type="text" id="barrel_bridge_weapon_ID" name="barrel_bridge_weapon_ID"></input>
-                            <input type="text" id="weapon_barrel_ID" name="weapon_barrel_ID"></input>
+                            <input type="text" id="desktop_barrel_bridge_weapon_ID" name="barrel_bridge_weapon_ID"></input>
+                            <input type="text" id="desktop_weapon_barrel_ID" name="weapon_barrel_ID"></input>
                             <input id="save" type="submit" value="Save and add to database" name="save_barrels"></input>
                             <input id="delete" type="submit" value="Delete and remove from database" name="delete">
                         </input>
@@ -621,8 +683,8 @@ if(isset($_SESSION['username'])){
                             }
                         ?>
                         <form id="mag_form_desktop" method="post">
-                            <input type="text" id="mag_bridge_weapon_ID" name="mag_bridge_weapon_ID"></input>
-                            <input type="text" id="weapon_mag_ID" name="weapon_mag_ID"></input>
+                            <input type="text" id="desktop_mag_bridge_weapon_ID" name="mag_bridge_weapon_ID"></input>
+                            <input type="text" id="desktop_weapon_mag_ID" name="weapon_mag_ID"></input>
                             <input id="save" type="submit" value="Save and add to database" name="save_mags"></input>
                             <input id="delete" type="submit" value="Delete and remove from database" name="delete">
                         </input>
@@ -635,8 +697,8 @@ if(isset($_SESSION['username'])){
                             }
                         ?>
                         <form id="trait1_form_desktop" method="post">
-                            <input type="text" id="trait1_bridge_weapon_ID" name="trait1_bridge_weapon_ID"></input>
-                            <input type="text" id="weapon_trait_ID" name="weapon_trait_ID"></input>
+                            <input type="text" id="desktop_trait1_bridge_weapon_ID" name="trait1_bridge_weapon_ID"></input>
+                            <input type="text" id="desktop_weapon_trait_ID" name="weapon_trait_ID"></input>
                             <input id="save" type="submit" value="Save and add to database" name="save_trait1"></input>
                             <input id="delete" type="submit" value="Delete and remove from database" name="delete">
                         </input>
@@ -649,8 +711,8 @@ if(isset($_SESSION['username'])){
                             }
                         ?>
                         <form id="trait2_form_desktop" method="post">
-                            <input type="text" id="trait2_bridge_weapon_ID" name="trait2_bridge_weapon_ID"></input>
-                            <input type="text" id="weapon_trait2_ID" name="weapon_trait2_ID"></input>
+                            <input type="text" id="desktop_trait2_bridge_weapon_ID" name="trait2_bridge_weapon_ID"></input>
+                            <input type="text" id="desktop_weapon_trait2_ID" name="weapon_trait2_ID"></input>
                             <input id="save" type="submit" value="Save and add to database" name="save_trait2"></input>
                             <input id="delete" type="submit" value="Delete and remove from database" name="delete">
                         </input>
@@ -938,6 +1000,41 @@ if(isset($_SESSION['username'])){
                         mag.value = base_mag;
                         let file = document.getElementById('desktop_icon_file_path');
                         file.value = icon_file_path;
+
+                        let wepNameMobile = document.getElementById('weapon_name');
+                        wepNameMobile.value = weapon_name;
+                        let wepTypeMobile = document.getElementById('weapon_type');
+                        wepTypeMobile.value = weapon_type;
+                        let wepSourceMobile = document.getElementById('weapon_source');
+                        wepSourceMobile.value = weapon_source;
+                        let patternCountMobile = document.getElementById('pattern_count');
+                        patternCountMobile.value = pattern_count;
+                        let impactMobile = document.getElementById('base_impact');
+                        impactMobile.value = base_impact;
+                        let rangeMobile = document.getElementById('base_range');
+                        rangeMobile.value = base_range;
+                        let stabMobile = document.getElementById('base_stability');
+                        stabMobile.value = base_stability;
+                        let handlingMobile = document.getElementById('base_handling');
+                        handlingMobile.value = base_handling;
+                        let reloadMobile = document.getElementById('base_reload');
+                        reloadMobile.value = base_reload;
+                        let aaMobile = document.getElementById('base_AA');
+                        aaMobile.value = base_AA;
+                        let zoomMobile = document.getElementById('base_zoom');
+                        zoomMobile.value = base_zoom;
+                        let recoilMobile = document.getElementById('base_recoil');
+                        recoilMobile.value = base_recoil;
+                        let rpmMobile = document.getElementById('base_RPM');
+                        rpmMobile.value = base_RPM;
+                        let drawMobile = document.getElementById('base_draw');
+                        drawMobile.value = base_draw;
+                        let accuracyMobile = document.getElementById('base_accuracy');
+                        accuracyMobile.value = base_accuracy;
+                        let magMobile = document.getElementById('base_mag')
+                        magMobile.value = base_mag;
+                        let fileMobile = document.getElementById('icon_file_path');
+                        fileMobile.value = icon_file_path;
                     }
                 }
             )
@@ -975,50 +1072,98 @@ if(isset($_SESSION['username'])){
                         var perk_e_core_cost = response['perk_e_core_cost'];
                         var icon_file_path = response['icon_file_path'];
 
-                        let perkName = document.getElementById('perk_name');
+                        let perkName = document.getElementById('desktop_perk_name');
                         perkName.value = perk_name;
-                        let perkDesc = document.getElementById('perk_desc');
+                        let perkDesc = document.getElementById('desktop_perk_desc');
                         perkDesc.value = perk_desc;
-                        let perkType = document.getElementById('perk_type');
+                        let perkType = document.getElementById('desktop_perk_type');
                         perkType.value = perk_type;
-                        let perkImpact = document.getElementById('perk_impact_change');
+                        let perkImpact = document.getElementById('desktop_perk_impact_change');
                         perkImpact.value = perk_impact_change;
-                        let perkRange = document.getElementById('perk_range_change');
+                        let perkRange = document.getElementById('desktop_perk_range_change');
                         perkRange.value = perk_range_change;
-                        let perkStab = document.getElementById('perk_stab_change');
+                        let perkStab = document.getElementById('desktop_perk_stab_change');
                         perkStab.value = perk_stab_change;
-                        let perkHand = document.getElementById('perk_handling_change');
+                        let perkHand = document.getElementById('desktop_perk_handling_change');
                         perkHand.value = perk_handling_change;
-                        let perkReload = document.getElementById('perk_reload_change');
+                        let perkReload = document.getElementById('desktop_perk_reload_change');
                         perkReload.value = perk_reload_change;
-                        let perkAA = document.getElementById('perk_AA_change');
+                        let perkAA = document.getElementById('desktop_perk_AA_change');
                         perkAA.value = perk_AA_change;
-                        let perkZoom = document.getElementById('perk_zoom_change');
+                        let perkZoom = document.getElementById('desktop_perk_zoom_change');
                         perkZoom.value = perk_zoom_change;
-                        let perkRecoil = document.getElementById('perk_recoil_change');
+                        let perkRecoil = document.getElementById('desktop_perk_recoil_change');
                         perkRecoil.value = perk_recoil_change;
-                        let perkRPM = document.getElementById('perk_RPM_change');
+                        let perkRPM = document.getElementById('desktop_perk_RPM_change');
                         perkRPM.value = perk_RPM_change;
-                        let perkDraw = document.getElementById('perk_draw_time_change');
-                        let perkAccuracy = document.getElementById('perk_accuracy_change');
+                        let perkDraw = document.getElementById('desktop_perk_draw_time_change');
+                        let perkAccuracy = document.getElementById('desktop_perk_accuracy_change');
                         perkAccuracy.value = perk_accuracy_change;
-                        let perkMag = document.getElementById('perk_mag_size_change');
+                        let perkMag = document.getElementById('desktop_perk_mag_size_change');
                         perkMag.value = perk_mag_size_change;
-                        let perkDmg = document.getElementById('perk_dmg_buff');
+                        let perkDmg = document.getElementById('desktop_perk_dmg_buff');
                         perkDmg.value = perk_dmg_buff;
-                        let drowned = document.getElementById('perk_drowned_cost');
+                        let drowned = document.getElementById('desktop_perk_drowned_cost');
                         drowned.value = perk_drowned_cost;
-                        let resElement = document.getElementById('perk_res_element_cost');
+                        let resElement = document.getElementById('desktop_perk_res_element_cost');
                         resElement.value = perk_res_element_cost;
-                        let resAlloy = document.getElementById('perk_res_alloy_cost');
-                        let ascAlloy = document.getElementById('perk_ascendant_alloy_cost');
+                        let resAlloy = document.getElementById('desktop_perk_res_alloy_cost');
+                        resAlloy.value = perk_res_alloy_cost;
+                        let ascAlloy = document.getElementById('desktop_perk_ascendant_alloy_cost');
                         ascAlloy.value = perk_ascendant_alloy_cost;
-                        let glimmer = document.getElementById('perk_glimmer_cost');
+                        let glimmer = document.getElementById('desktop_perk_glimmer_cost');
                         glimmer.value = perk_glimmer_cost;
-                        let ecore = document.getElementById('perk_e_core_cost');
+                        let ecore = document.getElementById('desktop_perk_e_core_cost');
                         ecore.value = perk_e_core_cost;
-                        let file = document.getElementById('icon_file_path');
+                        let file = document.getElementById('desktop_icon_file_path');
                         file.value = icon_file_path;
+
+                        let perkNameMobile = document.getElementById('perk_name');
+                        perkNameMobile.value = perk_name;
+                        let perkDescMobile = document.getElementById('perk_desc');
+                        perkDescMobile.value = perk_desc;
+                        let perkTypeMobile = document.getElementById('perk_type');
+                        perkTypeMobile.value = perk_type;
+                        let perkImpactMobile = document.getElementById('perk_impact_change');
+                        perkImpactMobile.value = perk_impact_change;
+                        let perkRangeMobile = document.getElementById('perk_range_change');
+                        perkRangeMobile.value = perk_range_change;
+                        let perkStabMobile = document.getElementById('perk_stab_change');
+                        perkStabMobile.value = perk_stab_change;
+                        let perkHandMobile = document.getElementById('perk_handling_change');
+                        perkHandMobile.value = perk_handling_change;
+                        let perkReloadMobile = document.getElementById('perk_reload_change');
+                        perkReloadMobile.value = perk_reload_change;
+                        let perkAAMobile = document.getElementById('perk_AA_change');
+                        perkAAMobile.value = perk_AA_change;
+                        let perkZoomMobile = document.getElementById('perk_zoom_change');
+                        perkZoomMobile.value = perk_zoom_change;
+                        let perkRecoilMobile = document.getElementById('perk_recoil_change');
+                        perkRecoilMobile.value = perk_recoil_change;
+                        let perkRPMMobile = document.getElementById('perk_RPM_change');
+                        perkRPMMobile.value = perk_RPM_change;
+                        let perkDrawMobile = document.getElementById('perk_draw_time_change');
+                        perkDrawMobile.value = perk_draw_time_change;
+                        let perkAccuracyMobile = document.getElementById('perk_accuracy_change');
+                        perkAccuracyMobile.value = perk_accuracy_change;
+                        let perkMagMobile = document.getElementById('perk_mag_size_change');
+                        perkMagMobile.value = perk_mag_size_change;
+                        let perkDmgMobile = document.getElementById('perk_dmg_buff');
+                        perkDmgMobile.value = perk_dmg_buff;
+                        let drownedMobile = document.getElementById('perk_drowned_cost');
+                        drownedMobile.value = perk_drowned_cost;
+                        let resElementMobile = document.getElementById('perk_res_element_cost');
+                        resElementMobile.value = perk_res_element_cost;
+                        let resAlloyMobile = document.getElementById('perk_res_alloy_cost');
+                        resAlloyMobile.value = perk_res_alloy_cost;
+                        let ascAlloyMobile = document.getElementById('perk_ascendant_alloy_cost');
+                        ascAlloyMobile.value = perk_ascendant_alloy_cost;
+                        let glimmerMobile = document.getElementById('perk_glimmer_cost');
+                        glimmerMobile.value = perk_glimmer_cost;
+                        let ecoreMobile = document.getElementById('perk_e_core_cost');
+                        ecoreMobile.value = perk_e_core_cost;
+                        let fileMobile = document.getElementById('icon_file_path');
+                        fileMobile.value = icon_file_path;
                     }
                 }
             )
@@ -1030,17 +1175,34 @@ if(isset($_SESSION['username'])){
                     type: 'POST',
                     dataType: 'json',
                     data: "function=loadLogon",
-                    success: function(){
-                        var usernameInput = response['username'];
-                        var passwordInput = response['password'];
-                        var admin = response['admin'];
+                    success: function(response){
+                        var usernameInput = response['account_username'];
+                        var passwordInput = response['account_password'];
+                        var admin = response['is_admin'];
 
-                        let unameIn = document.getElementById('username');
+                        let unameIn = document.getElementById('desktop_username');
                         unameIn.value = usernameInput;
-                        let pwordIn = document.getElementById('password');
+                        let pwordIn = document.getElementById('desktop_password');
                         pwordIn.value = passwordInput;
-                        let isAdmin = document.getElementById('admin');
-                        isAdmin.value = admin;
+                        let isAdmin = document.getElementById('desktop_admin');
+                        if(admin == 1){
+                            isAdmin.value = "True"
+                        }
+                        else if(admin != 0){
+                            isAdmin.value = "False"
+                        }
+
+                        let unameInMobile = document.getElementById('username');
+                        unameInMobile.value = usernameInput;
+                        let pwordInMobile = document.getElementById('password');
+                        pwordInMobile.value = passwordInput;
+                        let isAdminMobile = document.getElementById('admin');
+                        if(admin == 1){
+                            isAdminMobile.value = "True"
+                        }
+                        else if(admin != 0){
+                            isAdminMobile.value = "False"
+                        }
                     }
                 }
             )
@@ -1058,10 +1220,15 @@ if(isset($_SESSION['username'])){
                         var framePerkID = response['weapon_frame_ID'];
                         var framePerkName = response['perk_name'];
 
-                        let fWepID = document.getElementById('frame_bridge_weapon_ID');
+                        let fWepID = document.getElementById('desktop_frame_bridge_weapon_ID');
                         fWepID.value = frameWepName;
-                        let fPerkID = document.getElementById('weapon_frame_ID');
+                        let fPerkID = document.getElementById('desktop_weapon_frame_ID');
                         fPerkID.value = framePerkName;
+
+                        let fWepIDMobile = document.getElementById('frame_bridge_weapon_ID');
+                        fWepIDMobile.value = frameWepName;
+                        let fPerkIDMobile = document.getElementById('weapon_frame_ID');
+                        fPerkIDMobile.value = framePerkName;
                     }
                 }
             )
@@ -1079,10 +1246,15 @@ if(isset($_SESSION['username'])){
                         var barrelPerkID = response['weapon_barrel_ID'];
                         var barrelPerkName = response['perk_name'];
 
-                        let bWepID = document.getElementById('barrel_bridge_weapon_ID');
+                        let bWepID = document.getElementById('desktop_barrel_bridge_weapon_ID');
                         bWepID.value = barrelWepName;
-                        let bPerkID = document.getElementById('weapon_barrel_ID');
+                        let bPerkID = document.getElementById('desktop_weapon_barrel_ID');
                         bPerkID.value = barrelPerkName;
+
+                        let bWepIDMobile = document.getElementById('desktop_barrel_bridge_weapon_ID');
+                        bWepIDMobile.value = barrelWepName;
+                        let bPerkIDMobile = document.getElementById('desktop_weapon_barrel_ID');
+                        bPerkIDMobile.value = barrelPerkName;
                     }
                 }
             )
@@ -1100,10 +1272,15 @@ if(isset($_SESSION['username'])){
                         var magPerkID = response['weapon_mag_ID'];
                         var magPerkName = response['perk_name'];
 
-                        let bWepID = document.getElementById('mag_bridge_weapon_ID');
-                        bWepID.value = magWepName;
-                        let bPerkID = document.getElementById('weapon_mag_ID');
-                        bPerkID.value = magPerkName;
+                        let mWepID = document.getElementById('desktop_mag_bridge_weapon_ID');
+                        mWepID.value = magWepName;
+                        let mPerkID = document.getElementById('desktop_weapon_mag_ID');
+                        mPerkID.value = magPerkName;
+
+                        let mWepIDMobile = document.getElementById('desktop_mag_bridge_weapon_ID');
+                        mWepIDMobile.value = magWepName;
+                        let mPerkIDMobile = document.getElementById('desktop_weapon_mag_ID');
+                        mPerkIDMobile.value = magPerkName;
                     }
                 }
             )
@@ -1121,10 +1298,15 @@ if(isset($_SESSION['username'])){
                         var trait1PerkID = response['weapon_trait1_ID'];
                         var trait1PerkName = response['perk_name'];
 
-                        let t1WepID = document.getElementById('trait1_bridge_weapon_ID');
+                        let t1WepID = document.getElementById('desktop_trait1_bridge_weapon_ID');
                         t1WepID.value = trait1WepName;
-                        let t1PerkID = document.getElementById('weapon_trait1_ID');
+                        let t1PerkID = document.getElementById('desktop_weapon_trait_ID');
                         t1PerkID.value = trait1PerkName;
+
+                        let t1WepIDMobile = document.getElementById('desktop_trait1_bridge_weapon_ID');
+                        t1WepIDMobile.value = trait1WepName;
+                        let t1PerkIDMobile = document.getElementById('desktop_weapon_trait_ID');
+                        t1PerkIDMobile.value = trait1PerkName;
                     }
                 }
             )
@@ -1142,10 +1324,15 @@ if(isset($_SESSION['username'])){
                         var trait2PerkID = response['weapon_trait2_ID'];
                         var trait2PerkName = response['perk_name'];
 
-                        let t2WepID = document.getElementById('trait2_bridge_weapon_ID');
+                        let t2WepID = document.getElementById('desktop_trait2_bridge_weapon_ID');
                         t2WepID.value = trait2WepName;
-                        let t2PerkID = document.getElementById('weapon_trait2_ID');
+                        let t2PerkID = document.getElementById('desktop_weapon_trait2_ID');
                         t2PerkID.value = trait2PerkName;
+
+                        let t2WepIDMobile = document.getElementById('desktop_trait2_bridge_weapon_ID');
+                        t2WepIDMobile.value = trait2WepName;
+                        let t2PerkIDmobile = document.getElementById('desktop_weapon_trait2_ID');
+                        t2PerkIDMobile.value = trait2PerkName;
                     }
                 }
             )

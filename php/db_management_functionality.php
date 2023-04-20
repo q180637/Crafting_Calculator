@@ -260,12 +260,10 @@ function fillWeaponRecordList(){
     $servername = "localhost";
     $username = "root";
     $password = "";
-
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
     
-
-    $sql = "SELECT weapon_ID, weapon_name from weapons";
+    $sql = "SELECT weapon_ID, weapon_name from weapons where weapon_name = $wepName";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
@@ -273,7 +271,10 @@ function fillWeaponRecordList(){
         while($row = $result->fetch_assoc()){
             $arrayadd = "<option id=w".$row["weapon_ID"]." onclick=\"loadWeapons()\" value=".$row["weapon_name"].">".$row['weapon_name']."</option>";
             array_push($records, $arrayadd);
-        }return $records;
+        }
+        $recordExport = array_map('trim', $records);
+        echo json_encode($recordExport);
+        return $recordExport;
     } else{
         echo "No records";
     }
@@ -296,7 +297,9 @@ function fillPerksRecordList(){
         while($row = $result->fetch_assoc()){
             $arrayadd = "<option id=p".$row["perk_ID"]." onclick=\"loadPerks()\" value=".$row["perk_name"].">".$row['perk_name']."</option>";
             array_push($records, $arrayadd);
-        }return $records;
+        }$recordExport = array_map('trim', $records);
+        echo json_encode($recordExport);
+        return $records;
     } else{
         echo "No records";
     }
@@ -319,7 +322,9 @@ function fillLogonRecordList(){
         while($row = $result->fetch_assoc()){
             $arrayadd = "<option id=l".$row['user_ID']." onclick=\"loadLogon()\" value=".$row['account_username'].">".$row['account_username']."</option>";
             array_push($records, $arrayadd);
-        }return $records;
+        }$recordExport = array_map('trim', $records);
+        echo json_encode($recordExport);
+        return $records;
     } else{
         echo "No records";
     }
@@ -342,7 +347,9 @@ function fillFrameRecordList(){
         while($row = $result->fetch_assoc()){
             $arrayadd = "<option id=f".$row["frame_bridge_weapon_ID"].$row["weapon_frame_ID"]." onclick=\"loadFrames()\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
-        }return $records;
+        }$recordExport = array_map('trim', $records);
+        echo json_encode($recordExport);
+        return $records;
     } else{
         echo "No records";
     }
@@ -365,7 +372,9 @@ function fillBarrelRecordList(){
         while($row = $result->fetch_assoc()){
             $arrayadd = "<option id=f".$row["barrel_bridge_weapon_ID"].$row["weapon_barrel_ID"]." onclick=\"loadBarrels()\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
-        }return $records;
+        }$recordExport = array_map('trim', $records);
+        echo json_encode($recordExport);
+        return $records;
     } else{
         echo "No records";
     }
@@ -388,7 +397,9 @@ function fillMagRecordList(){
         while($row = $result->fetch_assoc()){
             $arrayadd = "<option id=f".$row["mag_bridge_weapon_ID"].$row["weapon_mag_ID"]." onclick=\"loadMags()\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
-        }return $records;
+        }$recordExport = array_map('trim', $records);
+        echo json_encode($recordExport);
+        return $records;
     } else{
         echo "No records";
     }
@@ -411,7 +422,9 @@ function fillTrait1RecordList(){
         while($row = $result->fetch_assoc()){
             $arrayadd = "<option id=f".$row["trait1_bridge_weapon_ID"].$row[" weapon_trait_ID"]." onclick=\"loadTrait1()\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
-        }return $records;
+        }$recordExport = array_map('trim', $records);
+        echo json_encode($recordExport);
+        return $records;
     } else{
         echo "No records";
     }
@@ -434,7 +447,9 @@ function fillTrait2RecordList(){
         while($row = $result->fetch_assoc()){
             $arrayadd = "<option id=f".$row["trait2_bridge_weapon_ID"].$row["weapon_trait2_ID"]." onclick=\"loadTrait2()\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
-        }return $records;
+        }$recordExport = array_map('trim', $records);
+        echo json_encode($recordExport);
+        return $records;
     } else{
         echo "No records";
     }
@@ -446,6 +461,7 @@ function fillTrait2RecordList(){
 
 if(isset($_POST['function'])){
     if($_POST['function'] == 'fillWeaponRecordList'){
+        
         fillWeaponRecordList();
     }
     else  if($_POST['function'] == 'fillPerksRecordList'){
@@ -469,4 +485,8 @@ if(isset($_POST['function'])){
     else  if($_POST['function'] == 'fillTrait2RecordList'){
         fillTrait2RecordList();
     }
+}
+
+if(isset($_POST['wepName'])){
+    $wepName = $_POST['wepName'];
 }
