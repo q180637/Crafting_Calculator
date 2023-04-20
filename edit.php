@@ -382,123 +382,123 @@ if(isset($_SESSION['username'])){
                         <option value ="trait2Bridge" onclick="desktopChoice()">Trait Column 2 Combinations</option>
                     </select>
                 <select name="recordList" id="recordList">
-                <?php
-                    $fillWep=fillWeaponRecordList();
-                    $i = 0;
-                    foreach($fillWep as $list){
-                        echo $fillWep[$i];
-                        $i++;
-                    }
-                ?>
-                <script>
-                    function desktopTableFill() {
-                        let t = document.getElementById('desktopTableList');
-                        if (t.value == "weapons") {
-
-                            $.ajax({
-                                url: 'php/db_management_functionality.php',
-                                type: 'POST',
-                                contentType: 'json',
-                                data: "function=fillWeaponRecordList",
-                            })
-                        } else if (t.value == "perks") {
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
-                                url: 'php/db_management_functionality.php',
-                                data: "function=fillPerksRecordList",
-                            })
-                        } else if (t.value == "logon") {
-                            $.ajax({
-                                url: 'php/db_management_functionality.php',
-                                type: 'POST',
-                                contentType: 'json',
-                                data: "function=fillLogonRecordList",
-                            })
-                        } else if (t.value == "frameBridge") {
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
-                                url: 'php/db_management_functionality.php',
-                                data: "function=fillFrameRecordList",
-                            })
-                        } else if (t.value == "barrelBridge") {
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
-                                url: 'php/db_management_functionality.php',
-                                data: "function=fillBarrelRecordList",
-                            })
-                        } else if (t.value == "magBridge") {
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
-                                url: 'php/db_management_functionality.php',
-                                data: "function=fillMagRecordList",
-                            })
-                        } else if (t.value == "trait1Bridge") {
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
-                                url: 'php/db_management_functionality.php',
-                                data: "function=fillTrait1RecordList",
-                            })
-                        } else if (t.value == "trait2Bridge") {
-                            $.ajax({
-                                contentType: 'application/json',
-                                type: 'POST',
-                                url: 'php/db_management_functionality.php',
-                                data: "function=fillTrait2RecordList",
-                            })
-                        }
-                    }
-                    </script>
                     <?php
-                        // this needs to fill with the records in the table selected in tableList
-                            
-                        $fillPerks=fillPerksRecordList();
+                        $fillWep=fillWeaponRecordList();
                         $i = 0;
-                        foreach($fillPerks as $list){
-                            echo $fillPerks[$i];
-                            $i++;
-                        }
-                        $fillLogon=fillLogonRecordList();
-                        $i = 0;
-                        foreach($fillLogon as $list){
-                            echo $fillLogon[$i];
-                            $i++;
-                        }
-                        $fillFrames=fillFrameRecordList();
-                        $i = 0;
-                        foreach($fillFrames as $list){
-                            echo $fillFrames[$i];
-                            $i++;
-                        }
-                        $fillBarrels=fillBarrelRecordList();
-                        $i = 0;
-                        foreach($fillBarrels as $list){
-                            echo $fillBarrels[$i];
-                            $i++;
-                        }
-                        $fillMag=fillMagRecordList();
-                        $i = 0;
-                        foreach($fillMag as $list){
-                            echo $fillMag[$i];
-                            $i++;
-                        }
-                        $fillTrait1=fillTrait1RecordList();
-                        $i = 0;
-                        foreach($fillTrait1 as $list){
-                            echo $fillTrait1[$i];
-                            $i++;
-                        }
-                        $fillTrait2=fillTrait2RecordList();
-                        $i = 0;
-                        foreach($fillTrait2 as $list){
-                            echo $fillTrait2[$i];
+                        foreach($fillWep as $list){
+                            echo $fillWep[$i];
                             $i++;
                         }
                     ?>
+                    <script>
+                        function desktopTableFill() {
+                            let t = document.getElementById('desktopTableList');
+                            if (t.value == "weapons") {
+
+                                $.ajax({
+                                    url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    contentType: 'json',
+                                    data: "function=fillWeaponRecordList",
+                                })
+                            } else if (t.value == "perks") {
+                                $.ajax({
+                                    contentType: 'application/json',
+                                    type: 'POST',
+                                    url: 'php/db_management_functionality.php',
+                                    data: "function=fillPerksRecordList",
+                                })
+                            } else if (t.value == "logon") {
+                                $.ajax({
+                                    url: 'php/db_management_functionality.php',
+                                    type: 'POST',
+                                    contentType: 'json',
+                                    data: "function=fillLogonRecordList",
+                                })
+                            } else if (t.value == "frameBridge") {
+                                $.ajax({
+                                    contentType: 'application/json',
+                                    type: 'POST',
+                                    url: 'php/db_management_functionality.php',
+                                    data: "function=fillFrameRecordList",
+                                })
+                            } else if (t.value == "barrelBridge") {
+                                $.ajax({
+                                    contentType: 'application/json',
+                                    type: 'POST',
+                                    url: 'php/db_management_functionality.php',
+                                    data: "function=fillBarrelRecordList",
+                                })
+                            } else if (t.value == "magBridge") {
+                                $.ajax({
+                                    contentType: 'application/json',
+                                    type: 'POST',
+                                    url: 'php/db_management_functionality.php',
+                                    data: "function=fillMagRecordList",
+                                })
+                            } else if (t.value == "trait1Bridge") {
+                                $.ajax({
+                                    contentType: 'application/json',
+                                    type: 'POST',
+                                    url: 'php/db_management_functionality.php',
+                                    data: "function=fillTrait1RecordList",
+                                })
+                            } else if (t.value == "trait2Bridge") {
+                                $.ajax({
+                                    contentType: 'application/json',
+                                    type: 'POST',
+                                    url: 'php/db_management_functionality.php',
+                                    data: "function=fillTrait2RecordList",
+                                })
+                            }
+                        }
+                        </script>
+                        <?php
+                            // this needs to fill with the records in the table selected in tableList
+                                
+                            $fillPerks=fillPerksRecordList();
+                            $i = 0;
+                            foreach($fillPerks as $list){
+                                echo $fillPerks[$i];
+                                $i++;
+                            }
+                            $fillLogon=fillLogonRecordList();
+                            $i = 0;
+                            foreach($fillLogon as $list){
+                                echo $fillLogon[$i];
+                                $i++;
+                            }
+                            $fillFrames=fillFrameRecordList();
+                            $i = 0;
+                            foreach($fillFrames as $list){
+                                echo $fillFrames[$i];
+                                $i++;
+                            }
+                            $fillBarrels=fillBarrelRecordList();
+                            $i = 0;
+                            foreach($fillBarrels as $list){
+                                echo $fillBarrels[$i];
+                                $i++;
+                            }
+                            $fillMag=fillMagRecordList();
+                            $i = 0;
+                            foreach($fillMag as $list){
+                                echo $fillMag[$i];
+                                $i++;
+                            }
+                            $fillTrait1=fillTrait1RecordList();
+                            $i = 0;
+                            foreach($fillTrait1 as $list){
+                                echo $fillTrait1[$i];
+                                $i++;
+                            }
+                            $fillTrait2=fillTrait2RecordList();
+                            $i = 0;
+                            foreach($fillTrait2 as $list){
+                                echo $fillTrait2[$i];
+                                $i++;
+                            }
+                        ?>
                     <option value="default" selected="selected" hidden="hidden">Choose a record to Edit</option>
                 </select>
                 </div>
@@ -904,39 +904,39 @@ if(isset($_SESSION['username'])){
                         var base_mag = response['base_mag'];
                         var icon_file_path = response['icon_file_path'];
 
-                        let wepName = document.getElementById('weapon_name');
+                        let wepName = document.getElementById('desktop_weapon_name');
                         wepName.value = weapon_name;
-                        let wepType = document.getElementById('weapon_type');
+                        let wepType = document.getElementById('desktop_weapon_type');
                         wepType.value = weapon_type;
-                        let wepSource = document.getElementById('weapon_source');
+                        let wepSource = document.getElementById('desktop_weapon_source');
                         wepSource.value = weapon_source;
-                        let patternCount = document.getElementById('pattern_count');
+                        let patternCount = document.getElementById('desktop_pattern_count');
                         patternCount.value = pattern_count;
-                        let impact = document.getElementById('base_impact');
+                        let impact = document.getElementById('desktop_base_impact');
                         impact.value = base_impact;
-                        let range = document.getElementById('base_range');
+                        let range = document.getElementById('desktop_base_range');
                         range.value = base_range;
-                        let stab = document.getElementById('base_stability');
+                        let stab = document.getElementById('desktop_base_stability');
                         stab.value = base_stability;
-                        let handling = document.getElementById('base_handling');
+                        let handling = document.getElementById('desktop_base_handling');
                         handling.value = base_handling;
-                        let reload = document.getElementById('base_reload');
+                        let reload = document.getElementById('desktop_base_reload');
                         reload.value = base_reload;
-                        let aa = document.getElementById('base_AA');
+                        let aa = document.getElementById('desktop_base_AA');
                         aa.value = base_AA;
-                        let zoom = document.getElementById('base_zoom');
+                        let zoom = document.getElementById('desktop_base_zoom');
                         zoom.value = base_zoom;
-                        let recoil = document.getElementById('base_recoil');
+                        let recoil = document.getElementById('desktop_base_recoil');
                         recoil.value = base_recoil;
-                        let rpm = document.getElementById('base_RPM');
+                        let rpm = document.getElementById('desktop_base_RPM');
                         rpm.value = base_RPM;
-                        let draw = document.getElementById('base_draw');
+                        let draw = document.getElementById('desktop_base_draw');
                         draw.value = base_draw;
-                        let accuracy = document.getElementById('base_accuracy');
+                        let accuracy = document.getElementById('desktop_base_accuracy');
                         accuracy.value = base_accuracy;
-                        let mag = document.getElementById('base_mag')
+                        let mag = document.getElementById('desktop_base_mag')
                         mag.value = base_mag;
-                        let file = document.getElementById('icon_file_path');
+                        let file = document.getElementById('desktop_icon_file_path');
                         file.value = icon_file_path;
                     }
                 }
