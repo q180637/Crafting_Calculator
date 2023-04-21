@@ -269,7 +269,7 @@ function fillWeaponRecordList(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=w".$row["weapon_ID"]." onclick=\"loadWeapons()\" value=".$row["weapon_name"].">".$row['weapon_name']."</option>";
+            $arrayadd = "<option id=w".$row["weapon_ID"]." onclick=\"loadWeapons(".$row["weapon_ID"].")\" value=".$row["weapon_name"].">".$row['weapon_name']."</option>";
             array_push($records, $arrayadd);
         }
         $recordExport = array_map('trim', $records);
@@ -295,7 +295,7 @@ function fillPerksRecordList(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=p".$row["perk_ID"]." onclick=\"loadPerks()\" value=".$row["perk_name"].">".$row['perk_name']."</option>";
+            $arrayadd = "<option id=p".$row["perk_ID"]." onclick=\"loadPerks(".$row["perk_ID"].")\" value=".$row["perk_name"].">".$row['perk_name']."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -314,13 +314,15 @@ function fillLogonRecordList(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
+    
+
     $sql = "SELECT user_ID, account_username from logon";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=l".$row['user_ID']." onclick=\"loadLogon()\" value=".$row['account_username'].">".$row['account_username']."</option>";
+            $arrayadd = "<option id=l".$row['user_ID']." onclick=\"loadLogon(".$row['user_ID'].")\" value=".$row['account_username'].">".$row['account_username']."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -339,13 +341,13 @@ function fillFrameRecordList(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $sql = "SELECT frameBridge.frame_bridge_weapon_ID,framebridge.weapon_frame_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from framebridge INNER JOIN perks on framebridge.frame_bridge_weapon_ID = perks.perk_ID INNER join weapons on framebridge.weapon_frame_ID = weapons.weapon_ID";
+    $sql = "SELECT framebridge.frame_combo_ID, frameBridge.frame_bridge_weapon_ID,framebridge.weapon_frame_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from framebridge INNER JOIN perks on framebridge.frame_bridge_weapon_ID = perks.perk_ID INNER join weapons on framebridge.weapon_frame_ID = weapons.weapon_ID";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["frame_bridge_weapon_ID"].$row["weapon_frame_ID"]." onclick=\"loadFrames()\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=f".$row["frame_bridge_weapon_ID"].$row["weapon_frame_ID"]." onclick=\"loadFrames(".$row['frame_combo_ID'].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -364,13 +366,13 @@ function fillBarrelRecordList(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $sql = "SELECT barrelBridge.barrel_bridge_weapon_ID,barrelbridge.weapon_barrel_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from barrelbridge INNER JOIN perks on barrelbridge.weapon_barrel_ID = perks.perk_ID INNER join weapons on barrelbridge.barrel_bridge_weapon_ID = weapons.weapon_ID";
+    $sql = "SELECT barrelbridge.barrel_combo_ID, barrelBridge.barrel_bridge_weapon_ID,barrelbridge.weapon_barrel_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from barrelbridge INNER JOIN perks on barrelbridge.weapon_barrel_ID = perks.perk_ID INNER join weapons on barrelbridge.barrel_bridge_weapon_ID = weapons.weapon_ID";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["barrel_bridge_weapon_ID"].$row["weapon_barrel_ID"]." onclick=\"loadBarrels()\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=f".$row["barrel_bridge_weapon_ID"].$row["weapon_barrel_ID"]." onclick=\"loadBarrels(".$row['barrel_combo_ID'].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -389,13 +391,13 @@ function fillMagRecordList(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $sql = "SELECT magbridge.mag_bridge_weapon_ID,magbridge.weapon_mag_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from magbridge INNER JOIN perks on magbridge.weapon_mag_ID = perks.perk_ID INNER join weapons on magbridge.mag_bridge_weapon_ID = weapons.weapon_ID";
+    $sql = "SELECT magbridge.mag_combo_ID, magbridge.mag_bridge_weapon_ID,magbridge.weapon_mag_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from magbridge INNER JOIN perks on magbridge.weapon_mag_ID = perks.perk_ID INNER join weapons on magbridge.mag_bridge_weapon_ID = weapons.weapon_ID";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["mag_bridge_weapon_ID"].$row["weapon_mag_ID"]." onclick=\"loadMags()\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=f".$row["mag_bridge_weapon_ID"].$row["weapon_mag_ID"]." onclick=\"loadMags(".$row['mag_combo_id'].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -414,13 +416,14 @@ function fillTrait1RecordList(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $sql = "SELECT trait1bridge.trait1_bridge_weapon_ID,trait1bridge. weapon_trait_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from trait1bridge INNER JOIN perks on trait1bridge. weapon_trait_ID = perks.perk_ID INNER join weapons on trait1bridge.trait1_bridge_weapon_ID = weapons.weapon_ID";
+    $sql = "SELECT trait1bridge.trait1_combo_ID, trait1bridge.trait1_bridge_weapon_ID,trait1bridge. weapon_trait_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from trait1bridge INNER JOIN perks on trait1bridge. weapon_trait_ID = perks.perk_ID INNER join weapons on trait1bridge.trait1_bridge_weapon_ID = weapons.weapon_ID";
     $result = $conn->query($sql);
+
 
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["trait1_bridge_weapon_ID"].$row[" weapon_trait_ID"]." onclick=\"loadTrait1()\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=f".$row["trait1_bridge_weapon_ID"].$row["weapon_trait_ID"]." onclick=\"loadTrait1(".$row['trait1_combo_ID'].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -439,13 +442,13 @@ function fillTrait2RecordList(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $sql = "SELECT trait2bridge.trait2_bridge_weapon_ID,trait2bridge.weapon_trait2_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from trait2bridge INNER JOIN perks on trait2bridge.weapon_trait2_ID = perks.perk_ID INNER join weapons on trait2bridge.trait2_bridge_weapon_ID = weapons.weapon_ID";
+    $sql = "SELECT trait2bridge.trait2_combo_id, trait2bridge.trait2_bridge_weapon_ID,trait2bridge.weapon_trait2_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from trait2bridge INNER JOIN perks on trait2bridge.weapon_trait2_ID = perks.perk_ID INNER join weapons on trait2bridge.trait2_bridge_weapon_ID = weapons.weapon_ID";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["trait2_bridge_weapon_ID"].$row["weapon_trait2_ID"]." onclick=\"loadTrait2()\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=f".$row["trait2_bridge_weapon_ID"].$row["weapon_trait2_ID"]." onclick=\"loadTrait2(".$row['trait2_combo_id'].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["weapon_name"]." ".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);

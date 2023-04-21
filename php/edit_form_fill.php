@@ -8,10 +8,14 @@ function loadWeaponForm(){
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, 'db_calculator_tool');
 
-    $dselected = $_REQUEST['desktopRecordList'];
-    $mselected = $_REQUEST['recordList'];
 
-    $sql = "SELECT * FROM weapons where weapon_name = $dselected or $mselected";
+
+    $selected = $_POST['selected'];
+
+    // $mselected = $_POST['selected'];
+
+    $sql = "SELECT * FROM weapons where weapon_ID = $selected";
+      //Var_dump($sql);
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
@@ -52,7 +56,9 @@ function loadPerksForm(){
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, 'db_calculator_tool');
 
-    $sql = "SELECT * FROM perks";
+    $selected = $_POST['selected'];
+
+    $sql = "SELECT * FROM perks where perk_ID = $selected";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
@@ -99,7 +105,9 @@ function loadLogonForm(){
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, 'db_calculator_tool');
 
-    $sql = "SELECT * FROM logon";
+    $selected = $_POST['selected'];
+
+    $sql = "SELECT * FROM logon where user_id=$selected";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
@@ -125,7 +133,9 @@ function loadFrameForm(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $sql = "SELECT frameBridge.frame_bridge_weapon_ID,framebridge.weapon_frame_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from framebridge INNER JOIN perks on framebridge.frame_bridge_weapon_ID = perks.perk_ID INNER join weapons on framebridge.weapon_frame_ID = weapons.weapon_ID";
+    $selected = $_POST['selected'];
+
+    $sql = "SELECT frameBridge.frame_combo_id, frameBridge.frame_bridge_weapon_ID,framebridge.weapon_frame_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from framebridge INNER JOIN perks on framebridge.frame_bridge_weapon_ID = perks.perk_ID INNER join weapons on framebridge.weapon_frame_ID = weapons.weapon_ID WHERE frameBridge.frame_combo_id= $selected";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
@@ -150,8 +160,9 @@ function loadBarrelForm(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
+    $selected = $_POST['selected'];
 
-    $sql = "SELECT barrelBridge.barrel_bridge_weapon_ID,barrelbridge.weapon_barrel_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from barrelbridge INNER JOIN perks on barrelbridge.weapon_barrel_ID = perks.perk_ID INNER join weapons on barrelbridge.barrel_bridge_weapon_ID = weapons.weapon_ID";
+    $sql = "SELECT barrelBridge.barrel_bridge_weapon_ID,barrelbridge.weapon_barrel_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from barrelbridge INNER JOIN perks on barrelbridge.weapon_barrel_ID = perks.perk_ID INNER join weapons on barrelbridge.barrel_bridge_weapon_ID = weapons.weapon_ID where barrelBridge.barrel_combo_id = $selected";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
@@ -176,8 +187,9 @@ function loadMagsForm(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
+    $selected = $_POST['selected'];
 
-    $sql = "SELECT magBridge.mag_bridge_weapon_ID,magbridge.weapon_mag_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from magbridge INNER JOIN perks on magbridge.weapon_mag_ID = perks.perk_ID INNER join weapons on magbridge.mag_bridge_weapon_ID = weapons.weapon_ID";
+    $sql = "SELECT magBridge.mag_bridge_weapon_ID,magbridge.weapon_mag_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from magbridge INNER JOIN perks on magbridge.weapon_mag_ID = perks.perk_ID INNER join weapons on magbridge.mag_bridge_weapon_ID = weapons.weapon_ID where magbridge.mag_combo_ID = $selected";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
@@ -202,8 +214,9 @@ function loadTrait1Form(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
+    $selected = $_POST['selected'];
 
-    $sql = "SELECT trait1Bridge.trait1_bridge_weapon_ID,trait1bridge. weapon_trait_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from trait1bridge INNER JOIN perks on trait1bridge. weapon_trait_ID = perks.perk_ID INNER join weapons on trait1bridge.trait1_bridge_weapon_ID = weapons.weapon_ID";
+    $sql = "SELECT trait1Bridge.trait1_bridge_weapon_ID,trait1bridge. weapon_trait_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from trait1bridge INNER JOIN perks on trait1bridge. weapon_trait_ID = perks.perk_ID INNER join weapons on trait1bridge.trait1_bridge_weapon_ID = weapons.weapon_ID where trait1bridge.trait1_combo_ID = $selected";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
@@ -228,8 +241,9 @@ function loadTrait2Form(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
+    $selected = $_POST['selected'];
 
-    $sql = "SELECT trait2Bridge.trait2_bridge_weapon_ID,trait2bridge.weapon_trait2_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from trait2bridge INNER JOIN perks on trait2bridge.weapon_trait2_ID = perks.perk_ID INNER join weapons on trait2bridge.trait2_bridge_weapon_ID = weapons.weapon_ID";
+    $sql = "SELECT trait2Bridge.trait2_bridge_weapon_ID,trait2bridge.weapon_trait2_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from trait2bridge INNER JOIN perks on trait2bridge.weapon_trait2_ID = perks.perk_ID INNER join weapons on trait2bridge.trait2_bridge_weapon_ID = weapons.weapon_ID where trait2bridge.trait2_combo_ID = $selected";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){

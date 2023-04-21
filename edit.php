@@ -938,13 +938,13 @@ if(isset($_SESSION['username'])){
     </script>
     
     <script> //puts records into form on recordlist change
-        function loadWeapons(){
+        function loadWeapons(id){
             $.ajax(
                 {
                     url: 'php/edit_form_fill.php',
                     type: 'POST',
                     dataType: 'json',
-                    data: "function=loadWeapons",
+                    data: "function=loadWeapons&selected="+id,
                     success: function(response){
                         var weapon_name = response['weapon_name'];
                         var weapon_type = response['weapon_type'];
@@ -1037,13 +1037,13 @@ if(isset($_SESSION['username'])){
                 }
             )
         }
-        function loadPerks(){
+        function loadPerks(id){
             $.ajax(
                 {
                     url: 'php/edit_form_fill.php',
                     type: 'POST',
                     dataType: 'json',
-                    data: "function=loadPerks",
+                    data: "function=loadPerks&selected="+id,
                     success: function(response){
                         var perk_name = response['perk_name'];
                         var perk_desc = response['perk_desc'];
@@ -1166,13 +1166,13 @@ if(isset($_SESSION['username'])){
                 }
             )
         }
-        function loadLogon(){
+        function loadLogon(id){
             $.ajax(
                 {
                     url: 'php/edit_form_fill.php',
                     type: 'POST',
                     dataType: 'json',
-                    data: "function=loadLogon",
+                    data: "function=loadLogon&selected="+id,
                     success: function(response){
                         var usernameInput = response['account_username'];
                         var passwordInput = response['account_password'];
@@ -1205,13 +1205,13 @@ if(isset($_SESSION['username'])){
                 }
             )
         }
-        function loadFrames(){
+        function loadFrames(id){
             $.ajax(
                 {
                     url: 'php/edit_form_fill.php',
                     type: 'POST',
                     dataType: 'json',
-                    data: "function=loadFrames",
+                    data: "function=loadFrames&selected="+id,
                     success: function(response){
                         var frameWepID = response['frame_bridge_weapon_ID'];
                         var frameWepName = response['weapon_name'];
@@ -1231,13 +1231,13 @@ if(isset($_SESSION['username'])){
                 }
             )
         }
-        function loadBarrels(){
+        function loadBarrels(id){
             $.ajax(
                 {
                     url: 'php/edit_form_fill.php',
                     type: 'POST',
                     dataType: 'json',
-                    data: "function=loadBarrels",
+                    data: "function=loadBarrels&selected="+id,
                     success: function(response){
                         var barrelWepID = response['barrel_bridge_weapon_ID'];
                         var barrelWepName = response['weapon_name'];
@@ -1257,13 +1257,13 @@ if(isset($_SESSION['username'])){
                 }
             )
         }
-        function loadMags(){
+        function loadMags(id){
             $.ajax(
                 {
                     url: 'php/edit_form_fill.php',
                     type: 'POST',
                     dataType: 'json',
-                    data: "function=loadMags",
+                    data: "function=loadMags&selected="+id,
                     success: function(response){
                         var magWepID = response['mag_bridge_weapon_ID'];
                         var magWepName = response['weapon_name'];
@@ -1283,13 +1283,13 @@ if(isset($_SESSION['username'])){
                 }
             )
         }
-        function loadTrait1(){
+        function loadTrait1(id){
             $.ajax(
                 {
                     url: 'php/edit_form_fill.php',
                     type: 'POST',
                     dataType: 'json',
-                    data: "function=loadTrait1",
+                    data: "function=loadTrait1&selected="+id,
                     success: function(response){
                         var trait1WepID = response['trait1_bridge_weapon_ID'];
                         var trait1WepName = response['weapon_name'];
@@ -1301,21 +1301,21 @@ if(isset($_SESSION['username'])){
                         let t1PerkID = document.getElementById('desktop_weapon_trait_ID');
                         t1PerkID.value = trait1PerkName;
 
-                        let t1WepIDMobile = document.getElementById('desktop_trait1_bridge_weapon_ID');
+                        let t1WepIDMobile = document.getElementById('trait1_bridge_weapon_ID');
                         t1WepIDMobile.value = trait1WepName;
-                        let t1PerkIDMobile = document.getElementById('desktop_weapon_trait_ID');
+                        let t1PerkIDMobile = document.getElementById('weapon_trait_ID');
                         t1PerkIDMobile.value = trait1PerkName;
                     }
                 }
             )
         }
-        function loadTrait2(){
+        function loadTrait2(id){
             $.ajax(
                 {
                     url: 'php/edit_form_fill.php',
                     type: 'POST',
                     dataType: 'json',
-                    data: "function=loadTrait2",
+                    data: "function=loadTrait2&selected="+id,
                     success: function(response){
                         var trait2WepID = response['trait2_bridge_weapon_ID'];
                         var trait2WepName = response['weapon_name'];
@@ -1327,9 +1327,9 @@ if(isset($_SESSION['username'])){
                         let t2PerkID = document.getElementById('desktop_weapon_trait2_ID');
                         t2PerkID.value = trait2PerkName;
 
-                        let t2WepIDMobile = document.getElementById('desktop_trait2_bridge_weapon_ID');
+                        let t2WepIDMobile = document.getElementById('trait2_bridge_weapon_ID');
                         t2WepIDMobile.value = trait2WepName;
-                        let t2PerkIDmobile = document.getElementById('desktop_weapon_trait2_ID');
+                        let t2PerkIDMobile = document.getElementById('weapon_trait2_ID');
                         t2PerkIDMobile.value = trait2PerkName;
                     }
                 }
