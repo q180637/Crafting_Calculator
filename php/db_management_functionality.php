@@ -219,7 +219,7 @@ function addToTrait1(){
     $trait1WepID = $_REQUEST['trait1_bridge_weapon_ID'];
     $trait1PerkID = $_REQUEST['weapon_trait_ID'];
 
-    $sql = "INSERT INTO trait1bridge(trait1_bridge_weapon_ID, weapon_trait1_I)VALUES('$trait1WepID', 'trait1PerkID')";
+    $sql = "INSERT INTO trait1bridge(trait1_bridge_weapon_ID, weapon_trait1_I)VALUES('$trait1WepID', '$trait1PerkID')";
     
     if(mysqli_query($conn, $sql)){
         echo "<h3 class=\"success\">Record added to database</h3>";

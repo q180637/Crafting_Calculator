@@ -1,6 +1,6 @@
 <?php
-session_start();
-if(isset($_SESSION['username'])){
+    session_start();
+    if(isset($_SESSION['username'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,18 +49,19 @@ if(isset($_SESSION['username'])){
                 <label for="tableList" id="tablesDropdown">
                     Select table to edit
                 </label>
-                    <select name="tableList" id="tableList" method="post" onchange="mobileTableFill()">
-                        <option value="default" selected="selected" hidden="hidden">Choose a Table to edit</option>
-                        <option value ="weapons" onclick="answer()">Weapons</option>
-                        <option value ="perks" onclick="answer()">Perks</option>
-                        <option value ="logon" onclick="answer()">Logon</option>    
-                        <option value ="frameBridge" onclick="answer()">Frame Combinations</option>
-                        <option value ="barrelBridge" onclick="answer()">Barrel Combinations</option>                                             
-                        <option value ="magBridge" onclick="answer()">Mag Combinations</option>
-                        <option value ="trait1Bridge" onclick="answer()">Trait Column 1 Combinations</option>
-                        <option value ="trait2Bridge" onclick="answer()">Trait Column 2 Combinations</option>
-                    </select>
+                <select name="tableList" id="tableList" method="post" onchange="mobileTableFill()">
+                    <option value="default" selected="selected" hidden="hidden">Choose a Table to edit</option>
+                    <option value ="weapons" onclick="answer()">Weapons</option>
+                    <option value ="perks" onclick="answer()">Perks</option>
+                    <option value ="logon" onclick="answer()">Logon</option>    
+                    <option value ="frameBridge" onclick="answer()">Frame Combinations</option>
+                    <option value ="barrelBridge" onclick="answer()">Barrel Combinations</option>                                             
+                    <option value ="magBridge" onclick="answer()">Mag Combinations</option>
+                    <option value ="trait1Bridge" onclick="answer()">Trait Column 1 Combinations</option>
+                    <option value ="trait2Bridge" onclick="answer()">Trait Column 2 Combinations</option>
+                </select>
                 <select name="recordList" id="recordList" method="post">
+                    <option value="default" selected="selected" hidden="hidden">Choose a record to Edit</option>
                 <script>
                     function mobileTableFill() {
                         let t = document.getElementById('tableList');
@@ -208,81 +209,68 @@ if(isset($_SESSION['username'])){
                             }
                     }
                     </script>
-                    <option value="default" selected="selected" hidden="hidden">Choose a record to Edit</option>
                 </select>
                 <div id="weapons">
-                    <?php
-                        if(array_key_exists('save', $_POST)){
-                            addToWeapon();
-                        }
-                    ?>
                     <form id="weapon_form" method="post">
-                        <input type="text" id="weapon_name" name="weapon_name" value=""></input>
-                        <input type="text" id="weapon_type" name="weapon_type" value=""></input>
-                        <input type="text" id="weapon_source" name="weapon_source" value=""></input>
-                        <input type="text" id="pattern_count" name="pattern_count" value=""></input>
-                        <input type="text" id="base_impact" name="base_impact" value=""></input>
-                        <input type="text" id="base_range" name="base_range" value=""></input>
-                        <input type="text" id="base_stability" name="base_stability" value=""></input>
-                        <input type="text" id="base_handling" name="base_handling" value=""></input>
-                        <input type="text" id="base_reload" name="base_reload" value=""></input>
-                        <input type="text" id="base_AA" name="base_AA" value=""></input>
-                        <input type="text" id="base_zoom" name="base_zoom" value=""></input>
-                        <input type="text" id="base_recoil" name="base_recoil" value=""></input>
-                        <input type="text" id="base_RPM" name="base_RPM" value=""></input>
-                        <input type="text" id="base_draw" name="base_draw" value=""></input>
-                        <input type="text" id="base_accuracy" name="base_accuracy" value=""></input>
-                        <input type="text" id="base_mag" name="base_mag" value=""></input>
-                        <input type="text" id="icon_file_path" name="icon_file_path" value=""></input>
-                        <input id="save" type="submit" value="Save and update database" name="save">
+                        <input type="text" id = "weapon_ID" name="weapon_ID" disabled placeholder="Weapon ID"></input>
+                        <input type="text" id="weapon_name" name="weapon_name" value="" placeholder = "Weapon Name"></input>
+                        <input type="text" id="weapon_type" name="weapon_type" value="" placeholder = "Weapon Type"></input>
+                        <input type="text" id="weapon_source" name="weapon_source" value="" placeholder = "Weapon Source"></input>
+                        <input type="text" id="pattern_count" name="pattern_count" value="" placeholder = "Pattern Count"></input>
+                        <input type="text" id="base_impact" name="base_impact" value="" placeholder = "Base Impact"></input>
+                        <input type="text" id="base_range" name="base_range" value="" placeholder = "Base Range"></input>
+                        <input type="text" id="base_stability" name="base_stability" value="" placeholder = "Base Stability"></input>
+                        <input type="text" id="base_handling" name="base_handling" value="" placeholder = "Base Handling"></input>
+                        <input type="text" id="base_reload" name="base_reload" value="" placeholder = "Base Reload Speed"></input>
+                        <input type="text" id="base_AA" name="base_AA" value="" placeholder = "Base Aim Assist"></input>
+                        <input type="text" id="base_zoom" name="base_zoom" value="" placeholder = "Base Zoom"></input>
+                        <input type="text" id="base_recoil" name="base_recoil" value="" placeholder = "Base Recoil Direction"></input>
+                        <input type="text" id="base_RPM" name="base_RPM" value="" placeholder = "Base RPM"></input>
+                        <input type="text" id="base_draw" name="base_draw" value="" placeholder = "Base Draw Time"></input>
+                        <input type="text" id="base_accuracy" name="base_accuracy" value="" placeholder = "Base Accuracy"></input>
+                        <input type="text" id="base_mag" name="base_mag" value="" placeholder = "Base Magazine Size"></input>
+                        <input type="text" id="icon_file_path" name="icon_file_path" value="" placeholder = "Icon File Path"></input>
+                        <input id="update" type="submit" value="Save and update database" name="update">
                         </input>
                         <input id="delete" type="submit" value="Delete and remove from database" name="delete">
                         </input>
                     </form>
                 </div>
                 <div id="perks">
-                    <?php
-                        if(array_key_exists('save_perks', $_POST)){
-                            addToPerks();
-                        }
-                    ?>
                     <form id="perks_form" method="post">
-                        <input type="text" id="perk_name" name="perk_name"></input>
-                        <input type="text" id="perk_desc" name="perk_desc"></input>
-                        <input type="text" id="perk_type" name="perk_type"></input>
-                        <input type="text" id="perk_impact_change" name="perk_impact_change"></input>
-                        <input type="text" id="perk_range_change" name="perk_range_change"></input>
-                        <input type="text" id="perk_stab_change" name="perk_stab_change"></input>
-                        <input type="text" id="perk_handling_change" name="perk_handling_change"></input>
-                        <input type="text" id="perk_reload_change" name="perk_reload_change"></input>
-                        <input type="text" id="perk_AA_change" name="perk_AA_change"></input>
-                        <input type="text" id="perk_zoom_change" name="perk_zoom_change"></input>
-                        <input type="text" id="perk_recoil_change" name="perk_recoil_change"></input>
-                        <input type="text" id="perk_RPM_change" name="perk_RPM_change"></input>
-                        <input type="text" id="perk_draw_time_change" name="perk_draw_time_change"></input>
-                        <input type="text" id="perk_accuracy_change" name="perk_accuracy_change"></input>
-                        <input type="text" id="perk_mag_size_change" name="perk_mag_size_change"></input>
-                        <input type="text" id="perk_dmg_buff" name="perk_dmg_buff"></input>
-                        <input type="text" id="perk_drowned_cost" name="perk_drowned_cost"></input>
-                        <input type="text" id="perk_res_element_cost" name="perk_res_element_cost"></input>
-                        <input type="text" id="perk_res_alloy_cost" name="perk_res_alloy_cost"></input>
-                        <input type="text" id="perk_ascendant_alloy_cost" name="perk_ascendant_alloy_cost"></input>
-                        <input type="text" id="perk_glimmer_cost" name="perk_glimmer_cost"></input>
-                        <input type="text" id="perk_e_core_cost" name="perk_e_core_cost"></input>
-                        <input type="text" id="icon_file_path" name="icon_file_path"></input>
-                        <input id="save" type="submit" value="Save and add to database" name="save_perks">
+                        <input type="text" id="perk_ID" name="perk_ID" disabled placeholder = "Perk ID"></input>
+                        <input type="text" id="perk_name" name="perk_name" placeholder = "Perk Name"></input>
+                        <input type="text" id="perk_desc" name="perk_desc" placeholder = "Perk Description"></input>
+                        <input type="text" id="perk_type" name="perk_type" placeholder = "Perk Type"></input>
+                        <input type="text" id="perk_impact_change" name="perk_impact_change" placeholder = "Perk Impact Change"></input>
+                        <input type="text" id="perk_range_change" name="perk_range_change" placeholder = "Perk Range Change"></input>
+                        <input type="text" id="perk_stab_change" name="perk_stab_change" placeholder = "Perk Stability Change"></input>
+                        <input type="text" id="perk_handling_change" name="perk_handling_change" placeholder = "Perk Handling Change"></input>
+                        <input type="text" id="perk_reload_change" name="perk_reload_change" placeholder = "Perk Reload Speed Change"></input>
+                        <input type="text" id="perk_AA_change" name="perk_AA_change" placeholder = "Perk Aim Assist Change"></input>
+                        <input type="text" id="perk_zoom_change" name="perk_zoom_change" placeholder = "Perk Zoom Change"></input>
+                        <input type="text" id="perk_recoil_change" name="perk_recoil_change" placeholder = "Perk Recoil Direction Change"></input>
+                        <input type="text" id="perk_RPM_change" name="perk_RPM_change" placeholder = "Perk RPM Change"></input>
+                        <input type="text" id="perk_draw_time_change" name="perk_draw_time_change" placeholder = "Perk Draw Time Change"></input>
+                        <input type="text" id="perk_accuracy_change" name="perk_accuracy_change" placeholder = "Perk Accuracy Change"></input>
+                        <input type="text" id="perk_mag_size_change" name="perk_mag_size_change" placeholder = "Perk Mag Size Change"></input>
+                        <input type="text" id="perk_dmg_buff" name="perk_dmg_buff" placeholder = "Perk Damage Buff"></input>
+                        <input type="text" id="perk_drowned_cost" name="perk_drowned_cost" placeholder = "Perk Drowned Element Cost"></input>
+                        <input type="text" id="perk_res_element_cost" name="perk_res_element_cost" placeholder = "Perk Resonant Element Cost"></input>
+                        <input type="text" id="perk_res_alloy_cost" name="perk_res_alloy_cost" placeholder = "Perk Resonant Alloy Cost"></input>
+                        <input type="text" id="perk_ascendant_alloy_cost" name="perk_ascendant_alloy_cost" placeholder = "Perk Ascendant Alloy Cost"></input>
+                        <input type="text" id="perk_glimmer_cost" name="perk_glimmer_cost" placeholder = "Perk Glimmer Cost"></input>
+                        <input type="text" id="perk_e_core_cost" name="perk_e_core_cost" placeholder = "Perk Enhancement Core Cost"></input>
+                        <input type="text" id="icon_file_path" name="icon_file_path" placeholder = "Icon File Path"></input>
+                        <input id="update_perks" type="submit" value="Save and add to database" name="update_perks">
                         </input>
-                        <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                        <input id="delete_perk" type="submit" value="Delete and remove from database" name="delete_perk">
                         </input>
                     </form>
                 </div>
                 <div id="logon">
-                    <?php
-                        if(array_key_exists('save_logon', $_POST)){
-                            addToLogon();
-                        }
-                    ?>
                     <form id="logon_form" method="post">
+                        <input type="text" id="user_ID" name="user_ID" disabled></input>
                         <input type="text" id="username" name="username"></input>
                         <label for="password" class="passLabel">Edit the user's password</label>
                         <input type="password" id="password" name="password"></input>
@@ -291,84 +279,64 @@ if(isset($_SESSION['username'])){
                             <option value="true">True</option>
                             <option value="false">False</option>
                         </select>
-                        <input id="save" type="submit" value="Save and add to database" name="save_logon">
+                        <input id="update_logon" type="submit" value="Save and add to database" name="update_logon">
                         </input>
-                        <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                        <input id="delete_logon" type="submit" value="Delete and remove from database" name="delete_logon">
                         </input>
                     </form>
                 </div>
                 <div id="frames">
-                    <?php
-                        if(array_key_exists('save_frames', $_POST)){
-                            addToFrames();
-                        }
-                    ?>
                     <form id="frame_form" method="post">
+                        <input type="text" id="frame_combo_ID" name="frame_combo_ID" disabled></input>
                         <input type="text" id="frame_bridge_weapon_ID" name="frame_bridge_weapon_ID"></input>
                         <input type="text" id="weapon_frame_ID" name="weapon_frame_ID"></input>
-                        <input id="save" type="submit" value="Save and add to database" name="save_frames">
+                        <input id="update_frame" type="submit" value="Save and add to database" name="update_frame">
                         </input>
-                        <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                        <input id="delete_frame" type="submit" value="Delete and remove from database" name="delete_frame">
                         </input>
                     </form>
                 </div>
                 <div id="barrels">
-                    <?php
-                        if(array_key_exists('save_barrels', $_POST)){
-                            addToBarrels();
-                        }
-                    ?>
                     <form id="barrel_form" method="post">
+                        <input type="text" id="barrel_combo_ID" name="barrel_combo_ID" disabled></input>
                         <input type="text" id="barrel_bridge_weapon_ID" name="barrel_bridge_weapon_ID"></input>
                         <input type="text" id="weapon_barrel_ID" name="weapon_barrel_ID"></input>
-                        <input id="save" type="submit" value="Save and add to database" name="save_barrels">
+                        <input id="update_barrel" type="submit" value="Save and add to database" name="update_barrel">
                         </input>
-                        <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                        <input id="delete_barrel" type="submit" value="Delete and remove from database" name="delete_barrel">
                         </input>
                     </form>
                 </div>
                 <div id="mags">
-                    <?php
-                        if(array_key_exists('save_mags', $_POST)){
-                            addToMags();
-                        }
-                    ?>
                     <form id="mag_form" method="post">
+                        <input type="text" id="mag_combo_ID" name="mag_combo_ID" disabled></input>
                         <input type="text" id="mag_bridge_weapon_ID" name="mag_bridge_weapon_ID"></input>
                         <input type="text" id="weapon_mag_ID" name="weapon_mag_ID"></input>
-                        <input id="save" type="submit" value="Save and add to database" name="save_mags">
+                        <input id="update_mag" type="submit" value="Save and add to database" name="update_mag">
                         </input>
-                        <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                        <input id="delete_mag" type="submit" value="Delete and remove from database" name="delete_mag">
                         </input>
                     </form>
                 </div>
                 <div id="trait1">
-                    <?php
-                        if(array_key_exists('save_trait1', $_POST)){
-                            addToTrait1();
-                        }
-                    ?>
                     <form id="trait1_form" method="post">
+                        <input type="text" id="trait1_combo_ID" name="trait1_combo_ID" disabled></input>
                         <input type="text" id="trait1_bridge_weapon_ID" name="trait1_bridge_weapon_ID"></input>
                         <input type="text" id="weapon_trait_ID" name="weapon_trait_ID"></input>
-                        <input id="save" type="submit" value="Save and add to database" name="save_trait1">
+                        <input id="update_trait1" type="submit" value="Save and add to database" name="update_trait1">
                         </input>
-                        <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                        <input id="delete_trait1" type="submit" value="Delete and remove from database" name="delete_trait1">
                         </input>
                     </form>
                 </div>
                 <div id="trait2">
-                    <?php
-                        if(array_key_exists('save_trait2', $_POST)){
-                            addToTrait2();
-                        }
-                    ?>
                     <form id="trait2_form">
+                        <input type="text" id="trait2_combo_ID" name="trait2_combo_ID" disabled></input>
                         <input type="text" id="trait2_bridge_weapon_ID" name="trait2_bridge_weapon_ID"></input>
                         <input type="text" id="weapon_trait2_ID" name="weapon_trait2_ID"></input>
-                        <input id="save" type="submit" value="Save and add to database" name="save_trait2">
+                        <input id="update_trait2" type="submit" value="Save and add to database" name="update_trait2">
                         </input>
-                        <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                        <input id="delete_trait2" type="submit" value="Delete and remove from database" name="delete_trait2">
                         </input>
                     </form>
                 </div>
@@ -400,18 +368,19 @@ if(isset($_SESSION['username'])){
                 <label for="tableList" id="tablesDropdown">
                     Select table to edit
                 </label>
-                    <select name="tableList" id="desktopTableList" method="post" onchange="desktopTableFill()">
-                        <option value="default" selected="selected" hidden="hidden">Choose a Table to edit</option>
-                        <option value ="weapons" onclick="desktopChoice()">Weapons</option>
-                        <option value ="perks" onclick="desktopChoice()">Perks</option>
-                        <option value ="logon" onclick="desktopChoice()">Logon</option>    
-                        <option value ="frameBridge" onclick="desktopChoice()">Frame Combinations</option>
-                        <option value ="barrelBridge" onclick="desktopChoice()">Barrel Combinations</option>                                             
-                        <option value ="magBridge" onclick="desktopChoice()">Mag Combinations</option>
-                        <option value ="trait1Bridge" onclick="desktopChoice()">Trait Column 1 Combinations</option>
-                        <option value ="trait2Bridge" onclick="desktopChoice()">Trait Column 2 Combinations</option>
-                    </select>
+                <select name="tableList" id="desktopTableList" method="post" onchange="desktopTableFill()">
+                    <option value="default" selected="selected" hidden="hidden">Choose a Table to edit</option>
+                    <option value ="weapons" onclick="desktopChoice()">Weapons</option>
+                    <option value ="perks" onclick="desktopChoice()">Perks</option>
+                    <option value ="logon" onclick="desktopChoice()">Logon</option>    
+                    <option value ="frameBridge" onclick="desktopChoice()">Frame Combinations</option>
+                    <option value ="barrelBridge" onclick="desktopChoice()">Barrel Combinations</option>                                             
+                    <option value ="magBridge" onclick="desktopChoice()">Mag Combinations</option>
+                    <option value ="trait1Bridge" onclick="desktopChoice()">Trait Column 1 Combinations</option>
+                    <option value ="trait2Bridge" onclick="desktopChoice()">Trait Column 2 Combinations</option>
+                </select>
                 <select name="recordList" id="desktopRecordList" method="post">
+                    <option value="default" selected="selected" hidden="hidden">Choose a record to Edit</option>
                     <script>
                         function desktopTableFill() {
                             let t = document.getElementById('desktopTableList');
@@ -558,18 +527,13 @@ if(isset($_SESSION['username'])){
                                 })
                             }
                         }
-                        </script>
-                    <option value="default" selected="selected" hidden="hidden">Choose a record to Edit</option>
+                    </script>
                 </select>
                 </div>
                 <div class="form_area">
                     <div id="desktop_weapons">
-                        <?php
-                            if(array_key_exists('save', $_POST)){
-                            addToWeapon();
-                            }
-                        ?>
                         <form id="weapon_form_desktop" method="post">
+                            <input type="text" id = "desktop_weapon_ID" name="weapon_ID" disabled></input>
                             <input type="text" id="desktop_weapon_name" name="weapon_name"></input> 
                             <input type="text" id="desktop_weapon_type" name="weapon_type"></input>
                             <input type="text" id="desktop_weapon_source" name="weapon_source"></input>
@@ -587,17 +551,13 @@ if(isset($_SESSION['username'])){
                             <input type="text" id="desktop_base_accuracy" name="base_accuracy"></input>
                             <input type="text" id="desktop_base_mag" name="base_mag"></input>
                             <input type="text" id="desktop_icon_file_path" name="icon_file_path"></input>
-                            <input id="save" type="submit" value="Save and add to database" name="save"></input>
-                            <input id="delete" type="submit" value="Delete and remove from database" name="delete"></input>
+                            <input id="desktop_update" type="submit" value="Save and add to database" name="desktop_update"></input>
+                            <input id="desktop_delete" type="submit" value="Delete and remove from database" name="delete"></input>
                         </form>
                     </div>
                     <div id="desktop_perks" >
-                        <?php
-                            if(array_key_exists('save_perks', $_POST)){
-                            addToPerks();
-                            }
-                        ?>
                         <form id="perks_form_desktop" method="post">
+                            <input type="text" id="desktop_perk_ID" name="perk_ID" disabled></input>
                             <input type="text" id="desktop_perk_name" name="perk_name"></input>
                             <input type="text" id="desktop_perk_desc" name="perk_desc"></input>
                             <input type="text" id="desktop_perk_type" name="perk_type"></input>
@@ -621,18 +581,14 @@ if(isset($_SESSION['username'])){
                             <input type="text" id="desktop_perk_glimmer_cost" name="perk_glimmer_cost"></input>
                             <input type="text" id="desktop_perk_e_core_cost" name="perk_e_core_cost"></input>
                             <input type="text" id="desktop_icon_file_path" name="icon_file_path"></input>
-                            <input id="save" type="submit" value="Save and add to database" name="save_perks"></input>
-                            <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                            <input id="desktop_update_perk" type="submit" value="Save and add to database" name="update_perk"></input>
+                            <input id="desktop_delete_perk" type="submit" value="Delete and remove from database" name="delete_perk">
                         </input>
                         </form>
                     </div>
                     <div id="desktop_logon">
-                        <?php
-                            if(array_key_exists('save_logon', $_POST)){
-                            addToLogon();
-                            }
-                        ?>
                         <form id="logon_form_desktop" method="post">
+                            <input type="text" id="desktop_user_ID" name="user_ID" disabled></input>
                             <input type="text" id="desktop_username" name="username"></input>
                             <label for="password" class="passLabel">Insert the user's password</label>
                             <input type="password" id="desktop_password" name="password"></input>
@@ -641,78 +597,55 @@ if(isset($_SESSION['username'])){
                                 <option value="true">True</option>
                                 <option value="false">False</option>
                             </select>
-                            <input id="save" type="submit" value="Save and add to database" name="save_logon"></input>
-                            <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                            <input id="desktop_update_logon" type="submit" value="Save and add to database" name="update_logon"></input>
+                            <input id="desktop_delete_logon" type="submit" value="Delete and remove from database" name="delete_logon">
                         </input>
                         </form>
                     </div>
                     <div id="desktop_frames">
-                        <?php
-                            if(array_key_exists('save_frames', $_POST)){
-                            addToFrames();
-                            }
-                        ?>
                         <form id="frame_form_desktop" method="post">
+                            <input type="text" id="desktop_frame_combo_ID" name="frame_combo_ID" disabled></input>
                             <input type="text" id="desktop_frame_bridge_weapon_ID" name="frame_bridge_weapon_ID"></input>
                             <input type="text" id="desktop_weapon_frame_ID" name="weapon_frame_ID"></input>
-                            <input id="save" type="submit" value="Save and add to database" name="save_frames"></input>
-                            <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                            <input id="desktop_update_frame" type="submit" value="Save and add to database" name="update_frame"></input>
+                            <input id="desktop_delete_frame" type="submit" value="Delete and remove from database" name="delete_frame">
                         </input>
                         </form>
                     </div>
                     <div id="desktop_barrels">
-                        <?php
-                            if(array_key_exists('save_barrels', $_POST)){
-                            addToBarrels();
-                            }
-                        ?>
                         <form id="barrel_form_desktop" method="post">
+                            <input type="text" id="desktop_barrel_combo_ID" name="barrel_combo_ID" disabled></input>
                             <input type="text" id="desktop_barrel_bridge_weapon_ID" name="barrel_bridge_weapon_ID"></input>
                             <input type="text" id="desktop_weapon_barrel_ID" name="weapon_barrel_ID"></input>
-                            <input id="save" type="submit" value="Save and add to database" name="save_barrels"></input>
-                            <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                            <input id="desktop_update_barrel" type="submit" value="Save and add to database" name="update_barrel"></input>
+                            <input id="desktop_delete_barrel" type="submit" value="Delete and remove from database" name="delete_barrel">
                         </input>
                         </form>
                     </div>
                     <div id="desktop_mags">
-                        <?php
-                            if(array_key_exists('save_mags', $_POST)){
-                            addToMags();
-                            }
-                        ?>
                         <form id="mag_form_desktop" method="post">
-                            <input type="text" id="desktop_mag_bridge_weapon_ID" name="mag_bridge_weapon_ID"></input>
+                            <input type="text" id="desktop_mag_combo_ID" name="mag_combo_ID" disabled></input>
                             <input type="text" id="desktop_weapon_mag_ID" name="weapon_mag_ID"></input>
-                            <input id="save" type="submit" value="Save and add to database" name="save_mags"></input>
-                            <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                            <input id="desktop_update_mag" type="submit" value="Save and add to database" name="update_mag"></input>
+                            <input id="desktop_delete_mag" type="submit" value="Delete and remove from database" name="delete_mag">
                         </input>
                         </form>
                     </div>
                     <div id="desktop_trait1">
-                        <?php
-                            if(array_key_exists('save_trait1', $_POST)){
-                            addToTrait1();
-                            }
-                        ?>
                         <form id="trait1_form_desktop" method="post">
-                            <input type="text" id="desktop_trait1_bridge_weapon_ID" name="trait1_bridge_weapon_ID"></input>
+                            <input type="text" id="desktop_trait1_combo_ID" name="trait1_combo_ID" disabled></input>
                             <input type="text" id="desktop_weapon_trait_ID" name="weapon_trait_ID"></input>
-                            <input id="save" type="submit" value="Save and add to database" name="save_trait1"></input>
-                            <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                            <input id="desktop_update_trait1" type="submit" value="Save and add to database" name="update_trait1"></input>
+                            <input id="desktop_delete_trait1" type="submit" value="Delete and remove from database" name="delete_trait1">
                         </input>
                         </form>
                     </div>
                     <div id="desktop_trait2">
-                        <?php
-                            if(array_key_exists('save_trait2', $_POST)){
-                            addToTrait2();
-                            }
-                        ?>
                         <form id="trait2_form_desktop" method="post">
-                            <input type="text" id="desktop_trait2_bridge_weapon_ID" name="trait2_bridge_weapon_ID"></input>
+                            <input type="text" id="desktop_trait2_combo_ID" name="trait2_combo_ID" disabled></input>
                             <input type="text" id="desktop_weapon_trait2_ID" name="weapon_trait2_ID"></input>
-                            <input id="save" type="submit" value="Save and add to database" name="save_trait2"></input>
-                            <input id="delete" type="submit" value="Delete and remove from database" name="delete">
+                            <input id="desktop_update_trait2" type="submit" value="Save and add to database" name="update_trait2"></input>
+                            <input id="desktop_delete_trait2" type="submit" value="Delete and remove from database" name="delete_trait2">
                         </input>
                         </form>
                     </div>
@@ -946,6 +879,7 @@ if(isset($_SESSION['username'])){
                     dataType: 'json',
                     data: "function=loadWeapons&selected="+id,
                     success: function(response){
+                        var weapon_ID = response['weapon_ID'];
                         var weapon_name = response['weapon_name'];
                         var weapon_type = response['weapon_type'];
                         var weapon_source = response['weapon_source'];
@@ -964,6 +898,8 @@ if(isset($_SESSION['username'])){
                         var base_mag = response['base_mag'];
                         var icon_file_path = response['icon_file_path'];
 
+                        let wepID = document.getElementById('desktop_weapon_ID');
+                        wepID.value = weapon_ID;
                         let wepName = document.getElementById('desktop_weapon_name');
                         wepName.value = weapon_name;
                         let wepType = document.getElementById('desktop_weapon_type');
@@ -999,6 +935,8 @@ if(isset($_SESSION['username'])){
                         let file = document.getElementById('desktop_icon_file_path');
                         file.value = icon_file_path;
 
+                        let wepIDMobile = document.getElementById('weapon_ID');
+                        wepIDMobile.value = weapon_ID;
                         let wepNameMobile = document.getElementById('weapon_name');
                         wepNameMobile.value = weapon_name;
                         let wepTypeMobile = document.getElementById('weapon_type');
@@ -1045,6 +983,7 @@ if(isset($_SESSION['username'])){
                     dataType: 'json',
                     data: "function=loadPerks&selected="+id,
                     success: function(response){
+                        var perk_ID = response['perk_ID'];
                         var perk_name = response['perk_name'];
                         var perk_desc = response['perk_desc'];
                         var perk_type = response['perk_type'];
@@ -1070,6 +1009,8 @@ if(isset($_SESSION['username'])){
                         var perk_e_core_cost = response['perk_e_core_cost'];
                         var icon_file_path = response['icon_file_path'];
 
+                        let perkID = document.getElementById('desktop_perk_ID');
+                        perkID.value = perk_ID;
                         let perkName = document.getElementById('desktop_perk_name');
                         perkName.value = perk_name;
                         let perkDesc = document.getElementById('desktop_perk_desc');
@@ -1116,6 +1057,8 @@ if(isset($_SESSION['username'])){
                         let file = document.getElementById('desktop_icon_file_path');
                         file.value = icon_file_path;
 
+                        let perkIDMobile = document.getElementById('perk_ID');
+                        perkIDMobile.value = perk_ID;
                         let perkNameMobile = document.getElementById('perk_name');
                         perkNameMobile.value = perk_name;
                         let perkDescMobile = document.getElementById('perk_desc');
@@ -1174,32 +1117,37 @@ if(isset($_SESSION['username'])){
                     dataType: 'json',
                     data: "function=loadLogon&selected="+id,
                     success: function(response){
+                        var userID = response['user_ID'];
                         var usernameInput = response['account_username'];
                         var passwordInput = response['account_password'];
                         var admin = response['is_admin'];
-
+                        
+                        let uID = document.getElementById('desktop_user_ID');
+                        uID.value = userID;
                         let unameIn = document.getElementById('desktop_username');
                         unameIn.value = usernameInput;
                         let pwordIn = document.getElementById('desktop_password');
                         pwordIn.value = passwordInput;
                         let isAdmin = document.getElementById('desktop_admin');
                         if(admin == 1){
-                            isAdmin.value = "True"
+                            isAdmin.value = "true";
                         }
-                        else if(admin != 0){
-                            isAdmin.value = "False"
+                        else if(admin == 0){
+                            isAdmin.value = "false";
                         }
 
+                        let userIDMobile = document.getElementById('user_ID');
+                        userIDMobile.value = userID;
                         let unameInMobile = document.getElementById('username');
                         unameInMobile.value = usernameInput;
                         let pwordInMobile = document.getElementById('password');
                         pwordInMobile.value = passwordInput;
                         let isAdminMobile = document.getElementById('admin');
                         if(admin == 1){
-                            isAdminMobile.value = "True"
+                            isAdminMobile.innerHTML = "true"
                         }
-                        else if(admin != 0){
-                            isAdminMobile.value = "False"
+                        else if(admin == 0){
+                            isAdminMobile.innerHTML = "false"
                         }
                     }
                 }
@@ -1213,16 +1161,21 @@ if(isset($_SESSION['username'])){
                     dataType: 'json',
                     data: "function=loadFrames&selected="+id,
                     success: function(response){
+                        var frameComboID = response['frame_combo_ID'];
                         var frameWepID = response['frame_bridge_weapon_ID'];
                         var frameWepName = response['weapon_name'];
                         var framePerkID = response['weapon_frame_ID'];
                         var framePerkName = response['perk_name'];
 
+                        let fComboID = document.getElementById('desktop_frame_combo_ID');
+                        fComboID.value = frameComboID;
                         let fWepID = document.getElementById('desktop_frame_bridge_weapon_ID');
                         fWepID.value = frameWepName;
                         let fPerkID = document.getElementById('desktop_weapon_frame_ID');
                         fPerkID.value = framePerkName;
 
+                        let fComboIDMobile = document.getElementById('frame_combo_ID');
+                        fComboIDMobile.value = frameComboID;
                         let fWepIDMobile = document.getElementById('frame_bridge_weapon_ID');
                         fWepIDMobile.value = frameWepName;
                         let fPerkIDMobile = document.getElementById('weapon_frame_ID');
@@ -1239,19 +1192,24 @@ if(isset($_SESSION['username'])){
                     dataType: 'json',
                     data: "function=loadBarrels&selected="+id,
                     success: function(response){
+                        var barrelComboID = response['barrel_combo_ID'];
                         var barrelWepID = response['barrel_bridge_weapon_ID'];
                         var barrelWepName = response['weapon_name'];
                         var barrelPerkID = response['weapon_barrel_ID'];
                         var barrelPerkName = response['perk_name'];
 
+                        let bComboID = document.getElementById('desktop_barrel_combo_ID');
+                        bComboID.value = barrelComboID
                         let bWepID = document.getElementById('desktop_barrel_bridge_weapon_ID');
                         bWepID.value = barrelWepName;
                         let bPerkID = document.getElementById('desktop_weapon_barrel_ID');
                         bPerkID.value = barrelPerkName;
-
-                        let bWepIDMobile = document.getElementById('desktop_barrel_bridge_weapon_ID');
+                        
+                        let bComboIDMobile = document.getElementById('barrel_combo_ID');
+                        bComboIDMobile.value = barrelComboID
+                        let bWepIDMobile = document.getElementById('barrel_bridge_weapon_ID');
                         bWepIDMobile.value = barrelWepName;
-                        let bPerkIDMobile = document.getElementById('desktop_weapon_barrel_ID');
+                        let bPerkIDMobile = document.getElementById('weapon_barrel_ID');
                         bPerkIDMobile.value = barrelPerkName;
                     }
                 }
@@ -1265,19 +1223,24 @@ if(isset($_SESSION['username'])){
                     dataType: 'json',
                     data: "function=loadMags&selected="+id,
                     success: function(response){
+                        var magComboID = response['mag_combo_ID'];
                         var magWepID = response['mag_bridge_weapon_ID'];
                         var magWepName = response['weapon_name'];
                         var magPerkID = response['weapon_mag_ID'];
                         var magPerkName = response['perk_name'];
 
+                        let mComboID = document.getElementById('desktop_mag_combo_ID');
+                        mComboID.value = magComboID;
                         let mWepID = document.getElementById('desktop_mag_bridge_weapon_ID');
                         mWepID.value = magWepName;
                         let mPerkID = document.getElementById('desktop_weapon_mag_ID');
                         mPerkID.value = magPerkName;
 
-                        let mWepIDMobile = document.getElementById('desktop_mag_bridge_weapon_ID');
+                        let mComboIDMobile = document.getElementById('mag_combo_ID');
+                        mComboIDMobile.value = magComboID;
+                        let mWepIDMobile = document.getElementById('mag_bridge_weapon_ID');
                         mWepIDMobile.value = magWepName;
-                        let mPerkIDMobile = document.getElementById('desktop_weapon_mag_ID');
+                        let mPerkIDMobile = document.getElementById('weapon_mag_ID');
                         mPerkIDMobile.value = magPerkName;
                     }
                 }
@@ -1291,16 +1254,21 @@ if(isset($_SESSION['username'])){
                     dataType: 'json',
                     data: "function=loadTrait1&selected="+id,
                     success: function(response){
+                        var trait1ComboID = response['trait1_combo_ID'];
                         var trait1WepID = response['trait1_bridge_weapon_ID'];
                         var trait1WepName = response['weapon_name'];
                         var trait1PerkID = response['weapon_trait1_ID'];
                         var trait1PerkName = response['perk_name'];
 
+                        let t1ComboID = document.getElementById('desktop_trait1_combo_ID');
+                        t1ComboID.value = trait1ComboID;
                         let t1WepID = document.getElementById('desktop_trait1_bridge_weapon_ID');
                         t1WepID.value = trait1WepName;
                         let t1PerkID = document.getElementById('desktop_weapon_trait_ID');
                         t1PerkID.value = trait1PerkName;
 
+                        let t1ComboIDMobile = document.getElementById('trait1_combo_ID');
+                        t1ComboIDMobile.value = trait1ComboID;
                         let t1WepIDMobile = document.getElementById('trait1_bridge_weapon_ID');
                         t1WepIDMobile.value = trait1WepName;
                         let t1PerkIDMobile = document.getElementById('weapon_trait_ID');
@@ -1317,16 +1285,21 @@ if(isset($_SESSION['username'])){
                     dataType: 'json',
                     data: "function=loadTrait2&selected="+id,
                     success: function(response){
+                        var trait2ComboID = response['trait2_combo_ID'];
                         var trait2WepID = response['trait2_bridge_weapon_ID'];
                         var trait2WepName = response['weapon_name'];
                         var trait2PerkID = response['weapon_trait2_ID'];
                         var trait2PerkName = response['perk_name'];
 
+                        let t2ComboID = document.getElementById('desktop_trait2_combo_ID');
+                        t2ComboID.value = trait2ComboID;
                         let t2WepID = document.getElementById('desktop_trait2_bridge_weapon_ID');
                         t2WepID.value = trait2WepName;
                         let t2PerkID = document.getElementById('desktop_weapon_trait2_ID');
                         t2PerkID.value = trait2PerkName;
-
+                        
+                        let t2ComboIDMobile = document.getElementById('trait2_combo_ID');
+                        t2ComboIDMobile.value = trait2ComboID;
                         let t2WepIDMobile = document.getElementById('trait2_bridge_weapon_ID');
                         t2WepIDMobile.value = trait2WepName;
                         let t2PerkIDMobile = document.getElementById('weapon_trait2_ID');
@@ -1336,6 +1309,60 @@ if(isset($_SESSION['username'])){
             )
         }
     </script>
+    <?php
+        require_once "php/edit_form_update.php";
+        if(array_key_exists('save', $_POST)){
+            updateWeapon();
+        }
+        else if(array_key_exists('save_perks', $_POST)){
+            updatePerks();
+        }
+        else if(array_key_exists('save_logon', $_POST)){
+            updateLogon();
+        }
+        else if(array_key_exists('save_frames', $_POST)){
+            updateFrames();
+        }
+        else if(array_key_exists('save_barrels', $_POST)){
+            updateBarrels();
+        }
+        else if(array_key_exists('save_mags', $_POST)){
+            updateMags();
+        }
+        else if(array_key_exists('save_trait1', $_POST)){
+            updateTrait1();
+        }
+        else if(array_key_exists('save_trait2', $_POST)){
+            updateTrait2();
+        }
+    ?>
+    <?php
+        require_once "php/edit_form_update.php";
+        if(array_key_exists('delete', $_POST)){
+            deleteWeapon();
+        }
+        else if(array_key_exists('delete_perks', $_POST)){
+            deletePerks();
+        }
+        else if(array_key_exists('delete_logon', $_POST)){
+            deleteLogon();
+        }
+        else if(array_key_exists('delete_frames', $_POST)){
+            deleteFrames();
+        }
+        else if(array_key_exists('delete_barrels', $_POST)){
+            deleteBarrels();
+        }
+        else if(array_key_exists('delete_mags', $_POST)){
+            deleteMags();
+        }
+        else if(array_key_exists('delete_trait1', $_POST)){
+            deleteTrait1();
+        }
+        else if(array_key_exists('delete_trait2', $_POST)){
+            deleteTrait2();
+        }
+    ?>
 </html>
 
 <?php
