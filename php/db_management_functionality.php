@@ -341,7 +341,7 @@ function fillFrameRecordList(){
     // Create connection
     $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
 
-    $sql = "SELECT framebridge.frame_combo_ID, frameBridge.frame_bridge_weapon_ID,framebridge.weapon_frame_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from framebridge INNER JOIN perks on framebridge.frame_bridge_weapon_ID = perks.perk_ID INNER join weapons on framebridge.weapon_frame_ID = weapons.weapon_ID";
+    $sql = "SELECT framebridge.frame_combo_ID, frameBridge.frame_bridge_weapon_ID,framebridge.weapon_frame_ID,perks.perk_ID,weapons.weapon_ID,perks.perk_name,weapons.weapon_name from framebridge INNER JOIN perks on  framebridge.weapon_frame_ID = perks.perk_ID INNER join weapons on  framebridge.frame_bridge_weapon_ID = weapons.weapon_ID";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
