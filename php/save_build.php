@@ -24,11 +24,36 @@ function saveBuild(){
     mysqli_close($conn);
 }
 
+function getSavesList(){
+    $conn = DB_Connect();
+    $user_ID = 2;
+    $sql = "SELECT usersaves.save_ID, usersaves.saved_weapon_ID, usersaves.saved_trait1_ID, weapons.weapon_name, weapons.weapon_ID, perks.perk_ID, perks.perk_name FROM usersaves  INNER JOIN weapons on usersaves.saved_weapon_ID = weapons.weapon_ID INNER JOIN perks on usersaves.saved_trait1_ID = perks.perk_ID where user_ID = $user_ID";
+
+    
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        $records = array();
+        while($row = $result->fetch_assoc()){
+            $arrayadd = "<option id=".$row["save_ID"]."  onclick=\"loadSaveToForm(".$row["save_ID"].")\" value=".$row["weapon_name"].">".$row["weapon_name"].$row["perk_name"]."</option>";
+            array_push($records, $arrayadd);
+        }echo json_encode($records);
+        return $records;
+    } else{
+        echo "No records";
+    }
+    
+    mysqli_close($conn);
+}
+
 
 if(isset($_POST['function'])){
-    if($_POST['function'] == "save"){{
+    if($_POST['function'] == "save"){
         saveBuild();
-    }}
+    }
+    if($_POST['function'] == "getSavesList"){
+        getSavesList();
+    }
 }
 
 ?>
