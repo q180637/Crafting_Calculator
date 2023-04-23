@@ -342,9 +342,9 @@ if(isset($_SESSION['username'])){
 <?php
 }
 
-else(
+else{
     header("Location: login.php");
     exit();
-)
+}
 
 ?>

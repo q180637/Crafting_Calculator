@@ -45,21 +45,27 @@ if(isset($_SESSION['username'])){
                 <option value="Choose a Weapon" selected = "selected" hidden ="hidden">Choose a Weapon</option>
                 </select>
                 <div id="mWeapon">
+                    Selected Weapon:
 
                 </div>
                 <div id="mFrame">
+                    Selected Frame:
 
                 </div>
                 <div id="mBarrel">
+                    Selected Barrel:
 
                 </div>
                 <div id="mMag">
+                    Selected Magazine:
 
                 </div>
                 <div id="mT1">
+                    Selected Trait in Column 1:
 
                 </div>
                 <div id="mT2">
+                    Selected Trait in Column 2:
 
                 </div>
             </div>
@@ -86,22 +92,22 @@ if(isset($_SESSION['username'])){
                 <option value="Choose a Weapon" selected = "selected" hidden ="hidden">Choose a Weapon</option>
                 </select>
                 <div id="dWeapon">
-
+                    Selected Weapon:
                 </div>
                 <div id="dFrame">
-
+                    Selected Frame:
                 </div>
                 <div id="dBarrel">
-
+                    Selected Barrel:
                 </div>
                 <div id="dMag">
-
+                    Selected Magazine:
                 </div>
                 <div id="dT1">
-
+                    Selected Trait in Column 1:
                 </div>
                 <div id="dT2">
-                    
+                    Selected Trait in Column 2:
                 </div>
             </div>
         </div>        
