@@ -2,8 +2,15 @@
 
 Calculator Tool for the Destiny 2 weapon crafting system
 
-STYLE DESKTOP EDIT
+hardcode unique desktop tool stat and cost elements and give them a unique id
+use getelementbyids to set them to equal to mobile
 
-USE SAME OR SIMILAR FUNCTIONALITY AS EDIT TO DO THE MAIN BIT
+save button
+save page
+
+writeup
+
+if time STYLE DESKTOP EDIT and both tool
+
 
 GOOD LUCK

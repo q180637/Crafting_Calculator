@@ -13,10 +13,11 @@
         <link rel="icon" href="img/destiny_logo.png" title="Destiny logo favicon" alt="Destiny logo favicon">
         <script src="js/burger_menu.js"></script>
         <script src="js/tool.js"></script>
+        <script src="js/save_build.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     </head>
     <body  onload="loadWepOnLoad()">
-        <div class="mobile">
+        <div class="mobile" id="mobile">
             <nav>
                 <img class="logo"src="img/destiny_logo.png" alt="Destiny Logo for Button"  onclick="burger_flyout()">
                 <header>
@@ -60,42 +61,6 @@
                         Weapon Stats
                     </div>
                     <div class="statList" id="mStats">
-                        <div id="impact">
-
-                        </div>
-                        <div id="range">
-
-                        </div>
-                        <div id="stab">
-
-                        </div>
-                        <div id="handling">
-
-                        </div>
-                        <div id="reload">
-
-                        </div>
-                        <div id="aa">
-
-                        </div>
-                        <div id="zoom">
-
-                        </div>
-                        <div id="recoilDir">
-
-                        </div>
-                        <div id="rpm">
-
-                        </div>
-                        <div id="draw">
-
-                        </div>
-                        <div id="accuracy">
-
-                        </div>
-                        <div id="mag">
-                            
-                        </div>
                     </div>
                 </div>
                 <div class="cost">
@@ -103,30 +68,15 @@
                         Weapon Cost
                     </div>
                     <div class="costList" id="mCosts">
-                        <div id="resonantElement">
-
-                        </div>
-                        <div id="drownedElement">
-
-                        </div>
-                        <div id="glimmer">
-
-                        </div>
-                        <div id="ecore">
-
-                        </div>
-                        <div id="ascendantAlloy">
-
-                        </div>
-                        <input type="submit" class="saveBuild" value="Save this build" name ="saveBuild">
-                    
-                        </input>
+                        
                     </div>
+                    <input type="submit" id="mobileSave" class="saveBuild" value="Save this build" name ="saveBuild" onclick="saveMobileBuild()">
+                    </input>
                 </div>
             </div>
         </div>
-        <div class="desktop">
-        <nav>
+        <div class="desktop" id="desktop">
+            <nav>
                 <ul class="links">
                     <li>   
                         <a href="index.php"><img class="logo" src="img/destiny_logo.png" alt="Destiny Logo for Button" href = "index.php"></a>
@@ -142,7 +92,7 @@
                     </li>
                 </ul>
             </nav>
-        <div class="body_wrapper">
+            <div class="body_wrapper">
                 <div class="dropdowns">
                     <select name="weapon" id="desktopWeapon">
                         <option value="Choose a Weapon" selected = "selected" hidden ="hidden">Choose a Weapon</option>
@@ -168,42 +118,7 @@
                         Weapon Stats
                     </div>
                     <div class="statList" id="dStats">
-                        <div id="desktop_impact">
 
-                        </div>
-                        <div id="desktop_range">
-
-                        </div>
-                        <div id="desktop_stab">
-
-                        </div>
-                        <div id="desktop_handling">
-
-                        </div>
-                        <div id="desktop_reload">
-
-                        </div>
-                        <div id="desktop_aa">
-
-                        </div>
-                        <div id="desktop_zoom">
-
-                        </div>
-                        <div id="desktop_recoilDir">
-
-                        </div>
-                        <div id="desktop_rpm">
-
-                        </div>
-                        <div id="desktop_draw">
-
-                        </div>
-                        <div id="desktop_accuracy">
-
-                        </div>
-                        <div id="desktop_mag">
-                            
-                        </div>
                     </div>
                 </div>
                 <div class="cost">
@@ -211,27 +126,14 @@
                         Weapon Cost
                     </div>
                     <div class="costList" id="dCost">
-                        <div id="dekstop_resonantElement">
-
-                        </div>
-                        <div id="dekstop_drownedElement">
-
-                        </div>
-                        <div id="desktop_glimmer">
-
-                        </div>
-                        <div id="desktop_ecore">
-
-                        </div>
-                        <div id="desktop_ascendantAlloy">
-
-                        </div>
-                        <input type="submit" class="saveBuild" value="Save this build" name ="saveBuild">
-                    
-                        </input>
+                        
                     </div>
+                    <input type="submit" id="desktopSave" class="saveBuild" value="Save this build" name ="saveBuild" onclick="saveDesktopBuild()"></input>
                 </div>
             </div>
+        </div>
+        <div id="dump">
+
         </div>
     </body>
 </html>

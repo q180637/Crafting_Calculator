@@ -42,7 +42,7 @@ function getFrames(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["frame_bridge_weapon_ID"].$row["weapon_frame_ID"]."  onclick=\"calculate(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=f".$row["frame_bridge_weapon_ID"].$row["weapon_frame_ID"]."  onclick=\"calculateFrames(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -70,7 +70,7 @@ function getBarrels(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["barrel_bridge_weapon_ID"].$row["weapon_barrel_ID"]."  onclick=\"calculate(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=f".$row["barrel_bridge_weapon_ID"].$row["weapon_barrel_ID"]."  onclick=\"calculateBarrels(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -97,7 +97,7 @@ function getMags(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["mag_bridge_weapon_ID"].$row["weapon_mag_ID"]." onclick=\"calculate(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=f".$row["mag_bridge_weapon_ID"].$row["weapon_mag_ID"]." onclick=\"calculateMag(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -125,7 +125,7 @@ function getTrait1s(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["trait1_bridge_weapon_ID"].$row["weapon_trait_ID"]." onclick=\"calculate(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=f".$row["trait1_bridge_weapon_ID"].$row["weapon_trait_ID"]." onclick=\"calculateTrait1(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -152,7 +152,7 @@ function getTrait2s(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["trait2_bridge_weapon_ID"].$row["weapon_trait2_ID"]." onclick=\"calculate(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=f".$row["trait2_bridge_weapon_ID"].$row["weapon_trait2_ID"]." onclick=\"calculateTrait2(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -178,7 +178,7 @@ function getWepStats(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<p class=\"impact\"id=w".$row["weapon_ID"]." value=".$row["base_impact"]."> Impact: ".$row['base_impact']."</p> <p class=\"range\"id=w".$row["weapon_ID"]." value=".$row["base_range"]."> Range: ".$row['base_range']."</p> <p class=\"stability\"id=w".$row["weapon_ID"]." value=".$row["base_stability"]."> Stability: ".$row['base_stability']."</p> <p class=\"handling\"id=w".$row["weapon_ID"]." value=".$row["base_handling"]."> Handling: ".$row['base_handling']."</p> <p class=\"reload\"id=w".$row["weapon_ID"]." value=".$row["base_reload"]."> Reload Speed: ".$row['base_reload']."</p> <p class=\"aa\"id=w".$row["weapon_ID"]." value=".$row["base_AA"]."> Aim Assistance: ".$row['base_AA']."</p> <p class=\"zoom\"id=w".$row["weapon_ID"]." value=".$row["base_zoom"]."> Zoom: ".$row['base_zoom']."</p> <p class=\"recoil\"id=w".$row["weapon_ID"]." value=".$row["base_recoil"]."> Recoil Direction: ".$row['base_recoil']."</p> <p class=\"RPM\"id=w".$row["weapon_ID"]." value=".$row["base_RPM"]."> Rate of Fire: ".$row['base_RPM']." RPM</p> <p class=\"draw\"id=w".$row["weapon_ID"]." value=".$row["base_draw"]."> Draw Time: ".$row['base_draw']."</p> <p class=\"accuracy\"id=w".$row["weapon_ID"]." value=".$row["base_accuracy"]."> Accuracy: ".$row['base_accuracy']."</p> <p class=\"magsize\"id=w".$row["weapon_ID"]." value=".$row["base_mag"]."> Magazine Size: ".$row['base_mag']."</p>";
+            $arrayadd = "<p class=\"impact\"id=\"impact\" value=".$row["base_impact"]."> Impact: ".$row['base_impact']."</p> <p class=\"range\"id=\"range\" value=".$row["base_range"]."> Range: ".$row['base_range']."</p> <p class=\"stability\"id=\"stability\" value=".$row["base_stability"]."> Stability: ".$row['base_stability']."</p> <p class=\"handling\"id=\"handling\" value=".$row["base_handling"]."> Handling: ".$row['base_handling']."</p> <p class=\"reload\"id=\"reload\" value=".$row["base_reload"]."> Reload Speed: ".$row['base_reload']."</p> <p class=\"aa\"id=aa value=".$row["base_AA"]."> Aim Assistance: ".$row['base_AA']."</p> <p class=\"zoom\"id=\"zoom\" value=".$row["base_zoom"]."> Zoom: ".$row['base_zoom']."</p> <p class=\"recoil\"id=\"recoil\" value=".$row["base_recoil"]."> Recoil Direction: ".$row['base_recoil']."</p> <p class=\"RPM\"id=\"rpm\" value=".$row["base_RPM"]."> Rate of Fire: ".$row['base_RPM']." RPM</p> <p class=\"draw\"id=\"draw\" value=".$row["base_draw"]."> Draw Time: ".$row['base_draw']."</p> <p class=\"accuracy\"id=\"accuracy\" value=".$row["base_accuracy"]."> Accuracy: ".$row['base_accuracy']."</p> <p class=\"magsize\"id=\"magsize\" value=".$row["base_mag"]."> Magazine Size: ".$row['base_mag']."</p>";
             array_push($records, $arrayadd);
         }
         $recordExport = array_map('trim', $records);
@@ -199,18 +199,221 @@ function getFrameStats(){
 
     $selected = $_POST['selectedFrame'];
     
-    $sql = "SELECT * from perks where perk_ID = $selected";
+    $sql = "SELECT perk_impact_change, perk_range_change, perk_stab_change, perk_handling_change, perk_reload_change, perk_AA_change, perk_zoom_change, perk_recoil_change, perk_RPM_change, perk_draw_time_change, perk_accuracy_change, perk_mag_size_change, perk_dmg_buff, perk_drowned_cost, perk_res_element_cost, perk_res_alloy_cost, perk_ascendant_alloy_cost, perk_glimmer_cost, perk_e_core_cost from perks where perk_ID = $selected";
     $result = $conn->query($sql);
 
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = $row['perk_impact_change'].$row['perk_range_change'].$row['perk_stab_change'].$row['perk_handling_change'].$row['perk_reload_change'].$row['perk_AA_change'].$row['perk_zoom_change'].$row['perk_recoil_change'].$row['perk_RPM_change'].$row['perk_draw_time_change'].$row['perk_accuracy_change'].$row['perk_mag_size_change'].$row['perk_dmg_buff'].$row['perk_drowned_cost'].$row['perk_res_element_cost'].$row['perk_res_alloy_cost'].$row['perk_ascendant_alloy_cost'].$row['perk_glimmer_cost'].$row['perk_e_core_cost'];
-            array_push($records, $arrayadd);
-        }
-        $recordExport = array_map('trim', $records);
-        echo json_encode($recordExport);
-        return $recordExport;
+            
+            $arrayadd = "<p class=\"hide\"id=\"impactchange\" value=".$row["perk_impact_change"]."></p> 
+            <p class=\"hide\"id=\"rangechange\" value=".$row["perk_range_change"]."></p>
+            <p class=\"hide\"id=\"stabilitychange\" value=".$row["perk_stab_change"]."></p>
+            <p class=\"hide\"id=\"handlingchange\" value=".$row["perk_handling_change"]."></p> 
+            <p class=\"hide\"id=\"reloadchange\" value=".$row["perk_reload_change"]."></p> 
+            <p class=\"hide\"id=\"aachange\" value=".$row["perk_AA_change"]."></p> 
+            <p class=\"hide\"id=\"zoomchange\" value=".$row["perk_zoom_change"]."></p> 
+            <p class=\"hide\"id=\"recoilchange\" value=".$row["perk_recoil_change"]."></p> 
+            <p class=\"hide\"id=\"RPMchange\" value=".$row["perk_RPM_change"]."></p> 
+            <p class=\"hide\"id=\"drawchange\" value=".$row["perk_draw_time_change"]."></p> 
+            <p class=\"hide\"id=\"accuracychange\" value=".$row["perk_accuracy_change"]."></p> 
+            <p class=\"hide\"id=\"magchange\" value=".$row["perk_mag_size_change"]."></p> 
+            <p class=\"hide\"id=\"dmgchange\" value=".$row["perk_dmg_buff"]."></p> 
+            <p class=\"drowned_cost\"id=\"drownedchange\" value=".$row["perk_drowned_cost"]."></p> 
+            <p class=\"resel_cost\"id=\"reselchange\" value=".$row["perk_res_element_cost"]."></p> 
+            <p class=\"res_alloy_cost\"id=\"resalloychange\" value=".$row["perk_res_alloy_cost"]."></p> 
+            <p class=\"ascendant_alloy_cost\"id=\"ascendantchange\" value=".$row["perk_ascendant_alloy_cost"]."></p> 
+            <p class=\"glimmer_cost\"id=\"glimmerchange\" value=".$row["perk_glimmer_cost"]."></p> 
+            <p class=\"ecore_cost\"id=\"ecorechange\" value=".$row["perk_e_core_cost"]."></p>";
+            
+        }array_push($records, $arrayadd);
+        //$recordExport = array_map('trim', $records);
+        echo json_encode($records);
+        return $records;
+    } else{
+        echo "No records";
+    }echo json_encode($records);
+    return $records;
+}
+
+function getBarrelStats(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
+
+    $selected = $_POST['selectedBarrel'];
+    
+    $sql = "SELECT perk_impact_change, perk_range_change, perk_stab_change, perk_handling_change, perk_reload_change, perk_AA_change, perk_zoom_change, perk_recoil_change, perk_RPM_change, perk_draw_time_change, perk_accuracy_change, perk_mag_size_change, perk_dmg_buff, perk_drowned_cost, perk_res_element_cost, perk_res_alloy_cost, perk_ascendant_alloy_cost, perk_glimmer_cost, perk_e_core_cost from perks where perk_ID = $selected";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        $records = array();
+        while($row = $result->fetch_assoc()){
+            
+            $arrayadd = "<p class=\"hide\"id=\"impactchange2\" value=".$row["perk_impact_change"]."></p> 
+            <p class=\"hide\"id=\"rangechange2\" value=".$row["perk_range_change"]."></p>
+            <p class=\"hide\"id=\"stabilitychange2\" value=".$row["perk_stab_change"]."></p>
+            <p class=\"hide\"id=\"handlingchange2\" value=".$row["perk_handling_change"]."></p> 
+            <p class=\"hide\"id=\"reloadchange2\" value=".$row["perk_reload_change"]."></p> 
+            <p class=\"hide\"id=\"aachange2\" value=".$row["perk_AA_change"]."></p> 
+            <p class=\"hide\"id=\"zoomchange2\" value=".$row["perk_zoom_change"]."></p> 
+            <p class=\"hide\"id=\"recoilchange2\" value=".$row["perk_recoil_change"]."></p> 
+            <p class=\"hide\"id=\"RPMchange2\" value=".$row["perk_RPM_change"]."></p> 
+            <p class=\"hide\"id=\"drawchange2\" value=".$row["perk_draw_time_change"]."></p> 
+            <p class=\"hide\"id=\"accuracychange2\" value=".$row["perk_accuracy_change"]."></p> 
+            <p class=\"hide\"id=\"magchange2\" value=".$row["perk_mag_size_change"]."></p> 
+            <p class=\"hide\"id=\"dmgchange2\" value=".$row["perk_dmg_buff"]."></p> 
+            <p class=\"hide\"id=\"drownedchange2\" value=".$row["perk_drowned_cost"]."></p> 
+            <p class=\"hide\"id=\"reselchange2\" value=".$row["perk_res_element_cost"]."></p> 
+            <p class=\"hide\"id=\"resalloychange2\" value=".$row["perk_res_alloy_cost"]."></p> 
+            <p class=\"hide\"id=\"ascendantchange2\" value=".$row["perk_ascendant_alloy_cost"]."></p> 
+            <p class=\"hide\"id=\"glimmerchange2\" value=".$row["perk_glimmer_cost"]."></p> 
+            <p class=\"hide\"id=\"ecorechange2\" value=".$row["perk_e_core_cost"]."></p>";
+            
+        }array_push($records, $arrayadd);
+        //$recordExport = array_map('trim', $records);
+        echo json_encode($records);
+        return $records;
+    } else{
+        echo "No records";
+    }echo json_encode($records);
+    return $records;
+}
+
+function getMagStats(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
+
+    $selected = $_POST['selectedMag'];
+    
+    $sql = "SELECT perk_impact_change, perk_range_change, perk_stab_change, perk_handling_change, perk_reload_change, perk_AA_change, perk_zoom_change, perk_recoil_change, perk_RPM_change, perk_draw_time_change, perk_accuracy_change, perk_mag_size_change, perk_dmg_buff, perk_drowned_cost, perk_res_element_cost, perk_res_alloy_cost, perk_ascendant_alloy_cost, perk_glimmer_cost, perk_e_core_cost from perks where perk_ID = $selected";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        $records = array();
+        while($row = $result->fetch_assoc()){
+            
+            $arrayadd = "<p class=\"hide\"id=\"impactchange3\" value=".$row["perk_impact_change"]."></p> 
+            <p class=\"hide\"id=\"rangechange3\" value=".$row["perk_range_change"]."></p>
+            <p class=\"hide\"id=\"stabilitychange3\" value=".$row["perk_stab_change"]."></p>
+            <p class=\"hide\"id=\"handlingchange3\" value=".$row["perk_handling_change"]."></p> 
+            <p class=\"hide\"id=\"reloadchange3\" value=".$row["perk_reload_change"]."></p> 
+            <p class=\"hide\"id=\"aachange3\" value=".$row["perk_AA_change"]."></p> 
+            <p class=\"hide\"id=\"zoomchange3\" value=".$row["perk_zoom_change"]."></p> 
+            <p class=\"hide\"id=\"recoilchange3\" value=".$row["perk_recoil_change"]."></p> 
+            <p class=\"hide\"id=\"RPMchange3\" value=".$row["perk_RPM_change"]."></p> 
+            <p class=\"hide\"id=\"drawchange3\" value=".$row["perk_draw_time_change"]."></p> 
+            <p class=\"hide\"id=\"accuracychange3\" value=".$row["perk_accuracy_change"]."></p> 
+            <p class=\"hide\"id=\"magchange3\" value=".$row["perk_mag_size_change"]."></p> 
+            <p class=\"hide\"id=\"dmgchange3\" value=".$row["perk_dmg_buff"]."></p> 
+            <p class=\"drowned_cost\"id=\"drownedchange3\" value=".$row["perk_drowned_cost"]."></p> 
+            <p class=\"resel_cost\"id=\"reselchange3\" value=".$row["perk_res_element_cost"]."></p> 
+            <p class=\"res_alloy_cost\"id=\"resalloychange3\" value=".$row["perk_res_alloy_cost"]."></p> 
+            <p class=\"ascendant_alloy_cost\"id=\"ascendantchange3\" value=".$row["perk_ascendant_alloy_cost"]."></p> 
+            <p class=\"glimmer_cost\"id=\"glimmerchange3\" value=".$row["perk_glimmer_cost"]."></p> 
+            <p class=\"ecore_cost\"id=\"ecorechange3\" value=".$row["perk_e_core_cost"]."></p>";
+            
+        }array_push($records, $arrayadd);
+        //$recordExport = array_map('trim', $records);
+        echo json_encode($records);
+        return $records;
+    } else{
+        echo "No records";
+    }echo json_encode($records);
+    return $records;
+}
+
+function getTrait1Stats(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
+
+    $selected = $_POST['selectedTrait1'];
+    
+    $sql = "SELECT perk_impact_change, perk_range_change, perk_stab_change, perk_handling_change, perk_reload_change, perk_AA_change, perk_zoom_change, perk_recoil_change, perk_RPM_change, perk_draw_time_change, perk_accuracy_change, perk_mag_size_change, perk_dmg_buff, perk_drowned_cost, perk_res_element_cost, perk_res_alloy_cost, perk_ascendant_alloy_cost, perk_glimmer_cost, perk_e_core_cost from perks where perk_ID = $selected";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        $records = array();
+        while($row = $result->fetch_assoc()){
+            
+            $arrayadd = "<p class=\"hide\"id=\"impactchange4\" value=".$row["perk_impact_change"]."></p> 
+            <p class=\"hide\"id=\"rangechange4\" value=".$row["perk_range_change"]."></p>
+            <p class=\"hide\"id=\"stabilitychange4\" value=".$row["perk_stab_change"]."></p>
+            <p class=\"hide\"id=\"handlingchange4\" value=".$row["perk_handling_change"]."></p> 
+            <p class=\"hide\"id=\"reloadchange4\" value=".$row["perk_reload_change"]."></p> 
+            <p class=\"hide\"id=\"aachange4\" value=".$row["perk_AA_change"]."></p> 
+            <p class=\"hide\"id=\"zoomchange4\" value=".$row["perk_zoom_change"]."></p> 
+            <p class=\"hide\"id=\"recoilchange4\" value=".$row["perk_recoil_change"]."></p> 
+            <p class=\"hide\"id=\"RPMchange4\" value=".$row["perk_RPM_change"]."></p> 
+            <p class=\"hide\"id=\"drawchange4\" value=".$row["perk_draw_time_change"]."></p> 
+            <p class=\"hide\"id=\"accuracychange4\" value=".$row["perk_accuracy_change"]."></p> 
+            <p class=\"hide\"id=\"magchange4\" value=".$row["perk_mag_size_change"]."></p> 
+            <p class=\"hide\"id=\"dmgchange4\" value=".$row["perk_dmg_buff"]."></p> 
+            <p class=\"drowned_cost\"id=\"drownedchange4\" value=".$row["perk_drowned_cost"]."></p> 
+            <p class=\"resel_cost\"id=\"reselchange4\" value=".$row["perk_res_element_cost"]."></p> 
+            <p class=\"res_alloy_cost\"id=\"resalloychange4\" value=".$row["perk_res_alloy_cost"]."></p> 
+            <p class=\"ascendant_alloy_cost\"id=\"ascendantchange4\" value=".$row["perk_ascendant_alloy_cost"]."></p> 
+            <p class=\"glimmer_cost\"id=\"glimmerchange4\" value=".$row["perk_glimmer_cost"]."></p> 
+            <p class=\"ecore_cost\"id=\"ecorechange4\" value=".$row["perk_e_core_cost"]."></p>";
+            
+        }array_push($records, $arrayadd);
+        //$recordExport = array_map('trim', $records);
+        echo json_encode($records);
+        return $records;
+    } else{
+        echo "No records";
+    }echo json_encode($records);
+    return $records;
+}
+
+function getTrait2Stats(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, 'db_calculator_tool');
+
+    $selected = $_POST['selectedTrait2'];
+    
+    $sql = "SELECT perk_impact_change, perk_range_change, perk_stab_change, perk_handling_change, perk_reload_change, perk_AA_change, perk_zoom_change, perk_recoil_change, perk_RPM_change, perk_draw_time_change, perk_accuracy_change, perk_mag_size_change, perk_dmg_buff, perk_drowned_cost, perk_res_element_cost, perk_res_alloy_cost, perk_ascendant_alloy_cost, perk_glimmer_cost, perk_e_core_cost from perks where perk_ID = $selected";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        $records = array();
+        while($row = $result->fetch_assoc()){
+            
+            $arrayadd = "<p class=\"hide\"id=\"impactchange5\" value=".$row["perk_impact_change"]."></p> 
+            <p class=\"hide\"id=\"rangechange5\" value=".$row["perk_range_change"]."></p>
+            <p class=\"hide\"id=\"stabilitychange5\" value=".$row["perk_stab_change"]."></p>
+            <p class=\"hide\"id=\"handlingchange5\" value=".$row["perk_handling_change"]."></p> 
+            <p class=\"hide\"id=\"reloadchange5\" value=".$row["perk_reload_change"]."></p> 
+            <p class=\"hide\"id=\"aachange5\" value=".$row["perk_AA_change"]."></p> 
+            <p class=\"hide\"id=\"zoomchange5\" value=".$row["perk_zoom_change"]."></p> 
+            <p class=\"hide\"id=\"recoilchange5\" value=".$row["perk_recoil_change"]."></p> 
+            <p class=\"hide\"id=\"RPMchange5\" value=".$row["perk_RPM_change"]."></p> 
+            <p class=\"hide\"id=\"drawchange5\" value=".$row["perk_draw_time_change"]."></p> 
+            <p class=\"hide\"id=\"accuracychange5\" value=".$row["perk_accuracy_change"]."></p> 
+            <p class=\"hide\"id=\"magchange5\" value=".$row["perk_mag_size_change"]."></p> 
+            <p class=\"hide\"id=\"dmgchange5\" value=".$row["perk_dmg_buff"]."></p> 
+            <p class=\"drowned_cost\"id=\"drownedchange5\" value=".$row["perk_drowned_cost"]."></p> 
+            <p class=\"resel_cost\"id=\"reselchange5\" value=".$row["perk_res_element_cost"]."></p> 
+            <p class=\"res_alloy_cost\"id=\"resalloychange5\" value=".$row["perk_res_alloy_cost"]."></p> 
+            <p class=\"ascendant_alloy_cost\"id=\"ascendantchange5\" value=".$row["perk_ascendant_alloy_cost"]."></p> 
+            <p class=\"glimmer_cost\"id=\"glimmerchange5\" value=".$row["perk_glimmer_cost"]."></p> 
+            <p class=\"ecore_cost\"id=\"ecorechange5\" value=".$row["perk_e_core_cost"]."></p>";
+            
+        }array_push($records, $arrayadd);
+        //$recordExport = array_map('trim', $records);
+        echo json_encode($records);
+        return $records;
     } else{
         echo "No records";
     }echo json_encode($records);
