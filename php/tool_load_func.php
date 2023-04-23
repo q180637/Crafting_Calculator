@@ -13,7 +13,7 @@ function fillWeaponRecordList(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=w".$row["weapon_ID"]." onclick=\"getPerks(".$row["weapon_ID"].")\" value=".$row["weapon_name"].">".$row['weapon_name']."</option>";
+            $arrayadd = "<option id=".$row["weapon_ID"]." onclick=\"getPerks(".$row["weapon_ID"].")\" value=".$row["weapon_name"].">".$row['weapon_name']."</option>";
             array_push($records, $arrayadd);
         }
         $recordExport = array_map('trim', $records);
@@ -42,7 +42,7 @@ function getFrames(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["frame_bridge_weapon_ID"].$row["weapon_frame_ID"]."  onclick=\"calculateFrames(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=".$row["weapon_frame_ID"]."  onclick=\"calculateFrames(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -70,7 +70,7 @@ function getBarrels(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["barrel_bridge_weapon_ID"].$row["weapon_barrel_ID"]."  onclick=\"calculateBarrels(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=".$row["weapon_barrel_ID"]."  onclick=\"calculateBarrels(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -97,7 +97,7 @@ function getMags(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["mag_bridge_weapon_ID"].$row["weapon_mag_ID"]." onclick=\"calculateMag(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=".$row["weapon_mag_ID"]." onclick=\"calculateMag(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -125,7 +125,7 @@ function getTrait1s(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["trait1_bridge_weapon_ID"].$row["weapon_trait_ID"]." onclick=\"calculateTrait1(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=".$row["weapon_trait_ID"]." onclick=\"calculateTrait1(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
@@ -152,7 +152,7 @@ function getTrait2s(){
     if($result->num_rows > 0){
         $records = array();
         while($row = $result->fetch_assoc()){
-            $arrayadd = "<option id=f".$row["trait2_bridge_weapon_ID"].$row["weapon_trait2_ID"]." onclick=\"calculateTrait2(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
+            $arrayadd = "<option id=".$row["weapon_trait2_ID"]." onclick=\"calculateTrait2(".$row["perk_ID"].")\" value=".$row["weapon_name"].$row["perk_name"].">".$row["perk_name"]."</option>";
             array_push($records, $arrayadd);
         }$recordExport = array_map('trim', $records);
         echo json_encode($recordExport);
